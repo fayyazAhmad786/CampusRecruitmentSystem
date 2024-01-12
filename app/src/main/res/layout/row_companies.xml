@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="companiesRowModel" type="com.ruquaiyasapplication.app.modules.companies.data.model.CompaniesRowModel"/>
+    </data>
+    <LinearLayout android:gravity="start"
+        android:id="@+id/linearColumnpopularnow"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent" android:orientation="vertical">
+        <LinearLayout android:id="@+id/linearRowpopularnow"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_1pxh"
+            android:layout_marginStart="@dimen/_1pxh"
+            android:layout_marginTop="@dimen/_1pxv"
+            android:layout_width="match_parent" android:orientation="horizontal">
+            <TextView android:ellipsize="end"
+                android:id="@+id/txtPopularNow"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.71" android:layout_width="0dp"
+                android:singleLine="true"
+                android:text="@{companiesRowModel.txtPopularNow}"
+                style="@style/txtPoppinssemibold16" tools:text="@string/lbl_popular_now"/>
+            <TextView android:ellipsize="end"
+                android:id="@+id/txtSeeall"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_1pxv"
+                android:layout_marginStart="@dimen/_184pxh"
+                android:layout_marginTop="@dimen/_2pxv"
+                android:layout_weight="0.29" android:layout_width="0dp"
+                android:singleLine="true"
+                android:text="@{companiesRowModel.txtSeeall}"
+                style="@style/txtPoppinsregular13" tools:text="@string/lbl_see_all"/>
+        </LinearLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerCompanies"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_13pxv"
+            android:layout_width="match_parent"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="3" itemSpace="@{@dimen/_14pxh}"
+            tools:itemCount="6" tools:listitem="@layout/row_companies1"/>
+    </LinearLayout>
+</layout>

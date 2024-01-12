@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <!--        <variable name="createTestVM" type="com.ruquaiyasapplication.app.modules.createtest.data.viewmodel.CreateTestVM"/>-->
+    </data>
+
+    <LinearLayout
+        android:id="@+id/linearCreatetest"
+        style="@style/groupStylegray_50"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imageArrowleft"
+            android:layout_width="@dimen/_8pxh"
+            android:layout_height="@dimen/_16pxh"
+            android:layout_gravity="start"
+            android:layout_marginStart="@dimen/_25pxh"
+            android:layout_marginTop="@dimen/_20pxv"
+            android:layout_marginEnd="@dimen/_25pxh"
+            android:scaleType="fitXY"
+            android:src="@drawable/img_arrowleft"
+            tools:ignore="ContentDescription"
+            tools:src="@drawable/img_arrowleft" />
+
+        <TextView
+            android:id="@+id/txtHiree"
+            style="@style/txtPoppinssemibold22_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="@dimen/_25pxh"
+            android:layout_marginTop="@dimen/_2pxv"
+            android:layout_marginEnd="@dimen/_25pxh"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="@string/lbl_hiree2"
+            tools:text="@string/lbl_hiree2" />
+
+        <TextView
+            android:id="@+id/txtLanguage"
+            style="@style/txtPoppinssemibold24"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="@dimen/_25pxh"
+            android:layout_marginTop="@dimen/_5pxv"
+            android:layout_marginEnd="@dimen/_25pxh"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="@string/lbl_create_test2"
+            tools:text="@string/lbl_create_test2" />
+
+        <TextView
+            android:id="@+id/txtLanguageOne"
+            style="@style/txtPoppinssemibold16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginStart="@dimen/_32pxh"
+            android:layout_marginTop="@dimen/_26pxv"
+            android:layout_marginEnd="@dimen/_32pxh"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="@string/lbl_write_text"
+            tools:text="@string/lbl_write_text" />
+
+        <EditText
+            android:id="@+id/etGroupSixtySix"
+            style="@style/etRoundedOutline"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_25pxh"
+            android:layout_marginTop="@dimen/_5pxv"
+            android:layout_marginEnd="@dimen/_23pxh"
+            android:background="@drawable/rectangle_border_gray_400_radius_10"
+            android:ellipsize="end"
+            android:hint="@string/msg_write_a_questio"
+            android:inputType="text"
+            android:paddingStart="@dimen/_19pxh"
+            android:paddingTop="@dimen/_15pxv"
+            android:paddingEnd="@dimen/_30pxh"
+            android:paddingBottom="@dimen/_15pxv"
+            android:singleLine="true"
+            android:text="@string/lbl_write_text"
+            android:textColorHint="@color/gray_400"
+            />
+
+        <TextView
+            android:id="@+id/txtHeadline"
+            style="@style/txtPoppinssemibold16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginStart="@dimen/_31pxh"
+            android:layout_marginTop="@dimen/_15pxv"
+            android:layout_marginEnd="@dimen/_31pxh"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="@string/lbl_make_option"
+            tools:text="@string/lbl_make_option" />
+
+        <RadioGroup
+            android:id="@+id/rgRadiogroupgood"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_40pxh"
+            android:layout_marginTop="@dimen/_18pxv"
+            android:layout_marginEnd="@dimen/_40pxh"
+            android:gravity="start"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/rbGood"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_8pxh"
+                android:buttonTint="@color/deep_purple_300"
+                android:ellipsize="end"
+                android:fontFamily="@font/poppins"
+                android:paddingStart="@dimen/_9pxh"
+                android:paddingTop="@dimen/_1pxv"
+                android:singleLine="true"
+                android:text="@string/lbl_good"
+                android:textColor="@color/black_900"
+                android:textFontWeight="500"
+                android:textSize="@dimen/_14pxh"
+                android:textStyle="bold"
+                tools:text="@string/lbl_good" />
+
+            <RadioButton
+                android:id="@+id/rbWorse"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_1pxv"
+                android:buttonTint="@color/deep_purple_300"
+                android:ellipsize="end"
+                android:fontFamily="@font/poppins"
+                android:paddingStart="@dimen/_12pxh"
+                android:paddingTop="@dimen/_1pxv"
+                android:singleLine="true"
+                android:text="@string/lbl_worse"
+                android:textColor="@color/black_900"
+                android:textFontWeight="500"
+                android:textSize="@dimen/_14pxh"
+                android:textStyle="bold"
+                tools:text="@string/lbl_worse" />
+
+            <RadioButton
+                android:id="@+id/rbBetter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_6pxv"
+                android:buttonTint="@color/deep_purple_300"
+                android:ellipsize="end"
+                android:fontFamily="@font/poppins"
+                android:paddingStart="@dimen/_12pxh"
+                android:singleLine="true"
+                android:text="@string/lbl_better"
+                android:textColor="@color/black_900"
+                android:textFontWeight="500"
+                android:textSize="@dimen/_14pxh"
+                android:textStyle="bold"
+                tools:text="@string/lbl_better" />
+        </RadioGroup>
+
+        <com.mukesh.OtpView
+            android:id="@+id/otpViewOtpview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="@dimen/_25pxh"
+            android:layout_marginTop="@dimen/_29pxv"
+            android:layout_marginEnd="@dimen/_25pxh"
+            android:focusableInTouchMode="true"
+            android:inputType="number"
+            android:itemBackground="@color/deep_purple_300"
+            android:text="@string/lbl_write_text"
+            android:textColor="@color/purple_900"
+            android:textSize="@dimen/_14pxh"
+            app:OtpItemCount="5"
+            app:OtpItemHeight="@dimen/_34pxv"
+            app:OtpItemRadius="@dimen/_17pxh"
+            app:OtpItemSpacing="@dimen/_32pxh"
+            app:OtpItemWidth="@dimen/_34pxh"
+            app:OtpLineColor="@color/deep_purple_300"
+            app:OtpViewType="rectangle" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnPostIt"
+            style="@style/btnSolidRounded_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_25pxh"
+            android:layout_marginTop="@dimen/_227pxv"
+            android:layout_marginEnd="@dimen/_23pxh"
+            android:layout_marginBottom="@dimen/_20pxv"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:paddingStart="@dimen/_30pxh"
+            android:paddingTop="@dimen/_16pxv"
+            android:paddingEnd="@dimen/_30pxh"
+            android:paddingBottom="@dimen/_16pxv"
+            android:singleLine="true"
+            android:text="@string/lbl_post_it"
+            android:textAllCaps="false"
+            tools:text="@string/lbl_post_it" />
+    </LinearLayout>
+</layout>

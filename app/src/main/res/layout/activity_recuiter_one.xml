@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="recuiterOneVM" type="com.ruquaiyasapplication.app.modules.recuiterone.data.viewmodel.RecuiterOneVM"/>
+    </data>
+    <LinearLayout android:gravity="center_horizontal"
+        android:id="@+id/linearRecuiterOne"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:orientation="vertical" style="@style/groupStylegray_301">
+        <FrameLayout android:id="@+id/frameStackellipse801"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="@dimen/_422pxv"
+            android:layout_marginEnd="@dimen/_1pxh"
+            android:layout_marginTop="@dimen/_56pxv" android:layout_width="@dimen/_374pxh">
+            <ImageView android:id="@+id/imageEllipse801"
+                android:layout_gravity="bottom|start"
+                android:layout_height="@dimen/_362pxv"
+                android:layout_marginBottom="@dimen/_2pxv"
+                android:layout_marginTop="@dimen/_10pxv"
+                android:layout_width="match_parent"
+                android:scaleType="fitXY"
+                imageRes="@{@drawable/img_ellipse801}"
+                tools:ignore="ContentDescription" tools:src="@drawable/img_ellipse801"/>
+            <ImageView android:id="@+id/imageGoodteampana"
+                android:layout_gravity="center"
+                android:layout_height="@dimen/_422pxh"
+                android:layout_marginEnd="@dimen/_14pxh"
+                android:layout_marginStart="@dimen/_23pxh"
+                android:layout_width="@dimen/_336pxh"
+                android:scaleType="fitXY"
+                android:src="@drawable/img_emojioneflagf"
+                tools:ignore="ContentDescription" tools:src="@drawable/img_emojioneflagf"/>
+        </FrameLayout>
+        <TextView android:gravity="center_horizontal"
+            android:id="@+id/txtHeadline"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_40pxh"
+            android:layout_marginStart="@dimen/_40pxh"
+            android:layout_marginTop="@dimen/_36pxv"
+            android:layout_width="match_parent"
+            android:text="@{recuiterOneVM.recuiterOneModel.txtHeadline}"
+            style="@style/txtPoppinsmedium32" tools:text="@string/msg_best_universiti"/>
+        <androidx.appcompat.widget.AppCompatButton
+            android:ellipsize="end" android:gravity="center"
+            android:id="@+id/btnExplore"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_20pxv"
+            android:layout_marginEnd="@dimen/_40pxh"
+            android:layout_marginStart="@dimen/_40pxh"
+            android:layout_marginTop="@dimen/_48pxv"
+            android:layout_width="match_parent"
+            android:paddingBottom="@dimen/_16pxv"
+            android:paddingEnd="@dimen/_30pxh"
+            android:paddingStart="@dimen/_30pxh"
+            android:paddingTop="@dimen/_16pxv" android:singleLine="true"
+            android:text="@string/lbl_explore"
+            android:textAllCaps="false" style="@style/btnSolidRounded_1" tools:text="@string/lbl_explore"/>
+    </LinearLayout>
+</layout>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="verifyVM" type="com.ruquaiyasapplication.app.modules.verify.data.viewmodel.VerifyVM"/>
+    </data>
+    <LinearLayout android:id="@+id/linearVerify"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:orientation="vertical" style="@style/groupStylegray_50">
+        <ImageView android:id="@+id/imageArrowleft"
+            android:layout_gravity="start"
+            android:layout_height="@dimen/_16pxh"
+            android:layout_marginEnd="@dimen/_25pxh"
+            android:layout_marginStart="@dimen/_25pxh"
+            android:layout_marginTop="@dimen/_20pxv"
+            android:layout_width="@dimen/_8pxh"
+            android:scaleType="fitXY"
+            android:src="@drawable/img_arrowleft"
+            tools:ignore="ContentDescription" tools:src="@drawable/img_arrowleft"/>
+        <TextView android:ellipsize="end" android:id="@+id/txtJbizz"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_24pxh"
+            android:layout_marginStart="@dimen/_24pxh"
+            android:layout_marginTop="@dimen/_70pxv"
+            android:layout_width="wrap_content"
+            android:singleLine="true"
+            android:text="@{verifyVM.verifyModel.txtJbizz}"
+            style="@style/txtPoppinssemibold22" tools:text="@string/lbl_j_bizz"/>
+        <TextView android:ellipsize="end" android:id="@+id/txtHeadline"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_24pxh"
+            android:layout_marginStart="@dimen/_24pxh"
+            android:layout_marginTop="@dimen/_23pxv"
+            android:layout_width="wrap_content"
+            android:singleLine="true"
+            android:text="@{verifyVM.verifyModel.txtHeadline}"
+            style="@style/txtPoppinssemibold24" tools:text="@string/lbl_verify_code"/>
+        <TextView android:gravity="center_horizontal"
+            android:id="@+id/txtHeadlineOne"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_24pxh"
+            android:layout_marginStart="@dimen/_24pxh"
+            android:layout_marginTop="@dimen/_15pxv"
+            android:layout_width="match_parent"
+            android:text="@{verifyVM.verifyModel.txtHeadlineOne}"
+            style="@style/txtPoppinsregular14" tools:text="@string/msg_enter_your_veri"/>
+        <com.mukesh.OtpView android:focusableInTouchMode="true"
+            android:id="@+id/otpViewOtpview" android:inputType="number"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_24pxh"
+            android:layout_marginStart="@dimen/_24pxh"
+            android:layout_marginTop="@dimen/_118pxv"
+            android:layout_width="wrap_content" app:OtpItemCount="4"
+            app:OtpItemHeight="@dimen/_52pxv"
+            app:OtpItemSpacing="@dimen/_20pxh"
+            app:OtpItemWidth="@dimen/_52pxh"
+            app:OtpLineColor="@color/gray_400" app:OtpViewType="rectangle"/>
+        <androidx.appcompat.widget.AppCompatButton
+            android:ellipsize="end" android:gravity="center"
+            android:id="@+id/btnVerify"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_20pxv"
+            android:layout_marginEnd="@dimen/_24pxh"
+            android:layout_marginStart="@dimen/_24pxh"
+            android:layout_marginTop="@dimen/_120pxv"
+            android:layout_width="match_parent"
+            android:paddingBottom="@dimen/_16pxv"
+            android:paddingEnd="@dimen/_30pxh"
+            android:paddingStart="@dimen/_30pxh"
+            android:paddingTop="@dimen/_16pxv" android:singleLine="true"
+            android:text="@string/lbl_verify"
+            android:textAllCaps="false" style="@style/btnSolidRounded_1" tools:text="@string/lbl_verify"/>
+    </LinearLayout>
+</layout>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="studentTwoVM" type="com.ruquaiyasapplication.app.modules.studenttwo.data.viewmodel.StudentTwoVM"/>
+    </data>
+    <FrameLayout android:id="@+id/frameStudentTwo"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent" style="@style/groupStylegray_301">
+        <LinearLayout android:id="@+id/linearColumnellipse797"
+            android:layout_gravity="start"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/_72pxv"
+            android:layout_marginTop="@dimen/_72pxv"
+            android:layout_width="match_parent" android:orientation="vertical">
+            <FrameLayout android:gravity="start"
+                android:id="@+id/frameStackellipse797"
+                android:layout_height="@dimen/_396pxv" android:layout_width="match_parent">
+                <View
+                    android:background="@drawable/rectangle_bg_purple_900_6c_radius_187_5"
+                    android:id="@+id/viewEllipse797"
+                    android:layout_gravity="bottom|start"
+                    android:layout_height="@dimen/_362pxv"
+                    android:layout_marginTop="@dimen/_10pxv" android:layout_width="@dimen/_375pxh"/>
+                <ImageView android:id="@+id/imageBrowserstatsa"
+                    android:layout_gravity="top|end"
+                    android:layout_height="@dimen/_379pxh"
+                    android:layout_marginBottom="@dimen/_10pxv"
+                    android:layout_marginEnd="@dimen/_60pxh"
+                    android:layout_marginStart="@dimen/_60pxh"
+                    android:layout_width="@dimen/_225pxh"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/img_emojioneflagf"
+                    tools:ignore="ContentDescription" tools:src="@drawable/img_emojioneflagf"/>
+            </FrameLayout>
+            <TextView android:ellipsize="end"
+                android:gravity="center_horizontal"
+                android:id="@+id/txtHeadline"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_40pxh"
+                android:layout_marginStart="@dimen/_40pxh"
+                android:layout_marginTop="@dimen/_43pxv"
+                android:layout_width="match_parent"
+                android:singleLine="true"
+                android:text="@{studentTwoVM.studentTwoModel.txtHeadline}"
+                style="@style/txtPoppinssemibold28" tools:text="@string/msg_browse_jobs_lis"/>
+            <LinearLayout android:id="@+id/linearRowskip"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_40pxh"
+                android:layout_marginStart="@dimen/_40pxh"
+                android:layout_marginTop="@dimen/_81pxv"
+                android:layout_width="match_parent" android:orientation="horizontal">
+                <TextView android:ellipsize="end"
+                    android:id="@+id/txtSkip"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_14pxv"
+                    android:layout_marginTop="@dimen/_17pxv"
+                    android:layout_weight="0.18"
+                    android:layout_width="0dp" android:singleLine="true"
+                    android:text="@{studentTwoVM.studentTwoModel.txtSkip}"
+                    style="@style/txtPoppinsmedium16" tools:text="@string/lbl_skip"/>
+                <androidx.appcompat.widget.AppCompatButton
+                    android:ellipsize="end" android:gravity="center"
+                    android:id="@+id/btnNext"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_103pxh"
+                    android:layout_weight="0.82"
+                    android:layout_width="0dp"
+                    android:paddingBottom="@dimen/_16pxv"
+                    android:paddingEnd="@dimen/_30pxh"
+                    android:paddingStart="@dimen/_30pxh"
+                    android:paddingTop="@dimen/_16pxv"
+                    android:singleLine="true"
+                    android:text="@string/lbl_next"
+                    android:textAllCaps="false"
+                    style="@style/btnSolidRounded_1" tools:text="@string/lbl_next"/>
+            </LinearLayout>
+        </LinearLayout>
+    </FrameLayout>
+</layout>

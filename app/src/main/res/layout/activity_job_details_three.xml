@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="jobDetailsThreeVM" type="com.ruquaiyasapplication.app.modules.jobdetailsthree.data.viewmodel.JobDetailsThreeVM"/>
+    </data>
+    <FrameLayout android:id="@+id/frameJobDetailsThr"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent" style="@style/groupStylegray_50">
+        <LinearLayout android:id="@+id/linearColumnmaskgroup"
+            android:layout_gravity="top|start"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/_10pxv"
+            android:layout_width="match_parent" android:orientation="vertical">
+            <FrameLayout android:gravity="start"
+                android:id="@+id/frameStackmaskgroup"
+                android:layout_height="@dimen/_259pxv"
+                android:layout_width="match_parent" style="@style/groupStylepurple_900">
+                <ImageView android:id="@+id/imageMaskGroup"
+                    android:layout_gravity="start"
+                    android:layout_height="@dimen/_259pxh"
+                    android:layout_width="match_parent"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/img_maskgroup_green_600"
+                    tools:ignore="ContentDescription" tools:src="@drawable/img_maskgroup_green_600"/>
+                <LinearLayout android:id="@+id/linearRowarrowleft"
+                    android:layout_gravity="center"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_17pxv"
+                    android:layout_marginEnd="@dimen/_24pxh"
+                    android:layout_marginStart="@dimen/_25pxh"
+                    android:layout_marginTop="@dimen/_13pxv"
+                    android:layout_width="match_parent" android:orientation="horizontal">
+                    <ImageView android:id="@+id/imageArrowleft"
+                        android:layout_height="@dimen/_16pxh"
+                        android:layout_marginBottom="@dimen/_208pxv"
+                        android:layout_marginTop="@dimen/_4pxv"
+                        android:layout_width="@dimen/_8pxh"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/img_arrowleft_white_a700"
+                        tools:ignore="ContentDescription" tools:src="@drawable/img_arrowleft_white_a700"/>
+                    <LinearLayout android:id="@+id/linearColumnfacebook"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_15pxh"
+                        android:layout_weight="0.92"
+                        android:layout_width="0dp" android:orientation="vertical">
+                        <ImageButton
+                            android:background="@drawable/rectangle_bg_white_a700_radius_40"
+                            android:id="@+id/btnFacebook"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_height="@dimen/_80pxh"
+                            android:layout_marginEnd="@dimen/_59pxh"
+                            android:layout_marginStart="@dimen/_59pxh"
+                            android:layout_width="@dimen/_80pxh"
+                            android:paddingHorizontal="@dimen/_20pxh"
+                            android:paddingVertical="@dimen/_20pxv"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/img_facebook_deep_purple_300" tools:ignore="ContentDescription"/>
+                        <TextView android:ellipsize="end"
+                            android:gravity="center_horizontal"
+                            android:id="@+id/txtSoftwareEngine"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/_59pxh"
+                            android:layout_marginStart="@dimen/_59pxh"
+                            android:layout_marginTop="@dimen/_12pxv"
+                            android:layout_width="match_parent"
+                            android:singleLine="true"
+                            android:text="@{jobDetailsThreeVM.jobDetailsThreeModel.txtSoftwareEngine}"
+                            style="@style/txtAbhayaLibreMediumabhayalibremedium20" tools:text="@string/msg_software_engine"/>
+                        <TextView android:ellipsize="end"
+                            android:id="@+id/txtFacebookOne"
+                            android:layout_gravity="end"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/_104pxh"
+                            android:layout_marginStart="@dimen/_104pxh"
+                            android:layout_marginTop="@dimen/_2pxv"
+                            android:layout_width="wrap_content"
+                            android:singleLine="true"
+                            android:text="@{jobDetailsThreeVM.jobDetailsThreeModel.txtFacebookOne}"
+                            style="@style/txtAbhayaLibreMediumabhayalibremedium15" tools:text="@string/lbl_facebook"/>
+                        <LinearLayout android:id="@+id/linearRowprice"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_66pxv"
+                            android:layout_width="match_parent" android:orientation="horizontal">
+                            <TextView android:ellipsize="end"
+                                android:id="@+id/txtPrice"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="@dimen/_1pxv"
+                                android:layout_weight="0.52"
+                                android:layout_width="0dp"
+                                android:singleLine="true"
+                                android:text="@{jobDetailsThreeVM.jobDetailsThreeModel.txtPrice}"
+                                style="@style/txtPoppinssemibold16_2" tools:text="@string/lbl_180_00_year"/>
+                            <TextView android:ellipsize="end"
+                                android:id="@+id/txtSeattleUSA"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_78pxh"
+                                android:layout_marginTop="@dimen/_1pxv"
+                                android:layout_weight="0.48"
+                                android:layout_width="0dp"
+                                android:singleLine="true"
+                                android:text="@{jobDetailsThreeVM.jobDetailsThreeModel.txtSeattleUSA}"
+                                style="@style/txtPoppinssemibold16_2" tools:text="@string/lbl_seattle_usa"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                    <ImageView android:id="@+id/imageBookmark"
+                        android:layout_height="@dimen/_19pxh"
+                        android:layout_marginBottom="@dimen/_206pxv"
+                        android:layout_marginStart="@dimen/_6pxh"
+                        android:layout_marginTop="@dimen/_1pxv"
+                        android:layout_width="@dimen/_17pxh"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/img_bookmark_white_a700"
+                        tools:ignore="ContentDescription" tools:src="@drawable/img_bookmark_white_a700"/>
+                </LinearLayout>
+            </FrameLayout>
+            <LinearLayout android:id="@+id/linearRowdescription"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_24pxh"
+                android:layout_marginStart="@dimen/_24pxh"
+                android:layout_marginTop="@dimen/_35pxv"
+                android:layout_width="match_parent" android:orientation="horizontal">
+                <TextView android:ellipsize="end"
+                    android:id="@+id/txtDescription"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_1pxv"
+                    android:layout_weight="0.3"
+                    android:layout_width="0dp" android:singleLine="true"
+                    android:text="@{jobDetailsThreeVM.jobDetailsThreeModel.txtDescription}"
+                    style="@style/txtAbhayaLibreMediumabhayalibremedium14" tools:text="@string/lbl_description"/>
+                <TextView android:ellipsize="end"
+                    android:id="@+id/txtRequirement"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_35pxh"
+                    android:layout_marginTop="@dimen/_1pxv"
+                    android:layout_weight="0.33"
+                    android:layout_width="0dp" android:singleLine="true"
+                    android:text="@{jobDetailsThreeVM.jobDetailsThreeModel.txtRequirement}"
+                    style="@style/txtAbhayaLibreMediumabhayalibremedium14_1" tools:text="@string/lbl_requirement"/>
+                <TextView android:ellipsize="end"
+                    android:id="@+id/txtAbout"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_1pxv"
+                    android:layout_marginStart="@dimen/_27pxh"
+                    android:layout_weight="0.16"
+                    android:layout_width="0dp" android:singleLine="true"
+                    android:text="@{jobDetailsThreeVM.jobDetailsThreeModel.txtAbout}"
+                    style="@style/txtAbhayaLibreMediumabhayalibremedium14_1" tools:text="@string/lbl_about"/>
+                <TextView android:ellipsize="end"
+                    android:id="@+id/txtReviews"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_1pxv"
+                    android:layout_marginStart="@dimen/_32pxh"
+                    android:layout_marginTop="@dimen/_1pxv"
+                    android:layout_weight="0.21"
+                    android:layout_width="0dp" android:singleLine="true"
+                    android:text="@{jobDetailsThreeVM.jobDetailsThreeModel.txtReviews}"
+                    style="@style/txtAbhayaLibreMediumabhayalibremedium14_1" tools:text="@string/lbl_reviews"/>
+            </LinearLayout>
+            <TextView android:gravity="center_horizontal"
+                android:id="@+id/txtDescriptionOne"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_24pxh"
+                android:layout_marginStart="@dimen/_24pxh"
+                android:layout_marginTop="@dimen/_23pxv"
+                android:layout_width="match_parent"
+                android:lineSpacingExtra="@dimen/_11pxh"
+                android:text="@{jobDetailsThreeVM.jobDetailsThreeModel.txtDescriptionOne}"
+                style="@style/txtAbhayaLibreSemiBoldabhayalibresemibold11" tools:text="@string/msg_we_are_the_team"/>
+            <androidx.appcompat.widget.AppCompatButton
+                android:ellipsize="end" android:gravity="center"
+                android:id="@+id/btnStartQuiz"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_24pxh"
+                android:layout_marginStart="@dimen/_24pxh"
+                android:layout_marginTop="@dimen/_14pxv"
+                android:layout_width="match_parent"
+                android:paddingBottom="@dimen/_16pxv"
+                android:paddingEnd="@dimen/_30pxh"
+                android:paddingStart="@dimen/_30pxh"
+                android:paddingTop="@dimen/_16pxv"
+                android:singleLine="true"
+                android:text="@string/lbl_start_quiz"
+                android:textAllCaps="false"
+                style="@style/btnSolidRounded_3" tools:text="@string/lbl_start_quiz"/>
+        </LinearLayout>
+    </FrameLayout>
+</layout>

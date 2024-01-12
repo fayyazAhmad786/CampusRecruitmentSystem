@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+    <data/>
+    <LinearLayout android:gravity="center_horizontal"
+        android:id="@+id/linearCompany"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="vertical" style="@style/groupStyledeep_purple_200cornerRadius">
+        <ImageView android:id="@+id/imageSpotigy"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="@dimen/_44pxh"
+            android:layout_marginEnd="@dimen/_26pxh"
+            android:layout_marginStart="@dimen/_26pxh"
+            android:layout_marginTop="@dimen/_21pxv"
+            android:layout_width="@dimen/_44pxh"
+            android:scaleType="fitXY" android:src="@drawable/img_image4"
+            tools:ignore="ContentDescription" tools:src="@drawable/img_image4"/>
+        <TextView android:ellipsize="end" android:id="@+id/txtSpotify"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_13pxv"
+            android:layout_marginEnd="@dimen/_26pxh"
+            android:layout_marginStart="@dimen/_26pxh"
+            android:layout_marginTop="@dimen/_8pxv"
+            android:layout_width="wrap_content"
+            android:singleLine="true" android:text="@string/lbl_spotify"
+            style="@style/txtPoppinsmedium13_1" tools:text="@string/lbl_spotify"/>
+    </LinearLayout>
+</layout>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="recuiterVM" type="com.ruquaiyasapplication.app.modules.recuiter.data.viewmodel.RecuiterVM"/>
+    </data>
+    <LinearLayout android:gravity="center_horizontal"
+        android:id="@+id/linearRecuiter"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:orientation="vertical" style="@style/groupStylegray_301">
+        <FrameLayout android:id="@+id/frameStackellipse800"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="@dimen/_362pxv"
+            android:layout_marginEnd="@dimen/_1pxh"
+            android:layout_marginTop="@dimen/_116pxv" android:layout_width="@dimen/_374pxh">
+            <ImageView android:id="@+id/imageEllipse800"
+                android:layout_gravity="start"
+                android:layout_height="@dimen/_362pxh"
+                android:layout_width="match_parent"
+                android:scaleType="fitXY"
+                imageRes="@{@drawable/img_ellipse800}"
+                tools:ignore="ContentDescription" tools:src="@drawable/img_ellipse800"/>
+            <FrameLayout android:id="@+id/frameStackfreepikbackgr"
+                android:layout_gravity="top|start"
+                android:layout_height="@dimen/_314pxv"
+                android:layout_marginBottom="@dimen/_14pxv"
+                android:layout_marginEnd="@dimen/_21pxh"
+                android:layout_marginStart="@dimen/_21pxh"
+                android:layout_marginTop="@dimen/_14pxv" android:layout_width="@dimen/_281pxh">
+                <ImageView android:id="@+id/imageFreepikbackgr"
+                    android:layout_gravity="bottom|start"
+                    android:layout_height="@dimen/_285pxv"
+                    android:layout_marginTop="@dimen/_10pxv"
+                    android:layout_width="match_parent"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/img_freepikbackgr"
+                    tools:ignore="ContentDescription" tools:src="@drawable/img_freepikbackgr"/>
+                <ImageView android:id="@+id/imageFreepikCharac"
+                    android:layout_gravity="end"
+                    android:layout_height="@dimen/_312pxh"
+                    android:layout_marginBottom="@dimen/_2pxv"
+                    android:layout_marginEnd="@dimen/_9pxh"
+                    android:layout_marginStart="@dimen/_10pxh"
+                    android:layout_width="@dimen/_211pxh"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/img_freepikcharac"
+                    tools:ignore="ContentDescription" tools:src="@drawable/img_freepikcharac"/>
+            </FrameLayout>
+        </FrameLayout>
+        <View android:background="@color/purple_900"
+            android:id="@+id/lineVector"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="@dimen/_1pxv"
+            android:layout_marginEnd="@dimen/_20pxh"
+            android:layout_marginStart="@dimen/_22pxh"
+            android:layout_marginTop="@dimen/_1pxv" android:layout_width="@dimen/_331pxh"/>
+        <TextView android:ellipsize="end" android:gravity="end"
+            android:id="@+id/txtLanguage"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_70pxh"
+            android:layout_marginStart="@dimen/_70pxh"
+            android:layout_marginTop="@dimen/_14pxv"
+            android:layout_width="match_parent"
+            android:singleLine="true"
+            android:text="@{recuiterVM.recuiterModel.txtLanguage}"
+            style="@style/txtPoppinsmedium32" tools:text="@string/lbl_want_to_haire"/>
+        <LinearLayout android:gravity="end"
+            android:id="@+id/linearRowskip"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_78pxv"
+            android:layout_marginEnd="@dimen/_31pxh"
+            android:layout_marginStart="@dimen/_31pxh"
+            android:layout_marginTop="@dimen/_93pxv"
+            android:layout_width="match_parent" android:orientation="horizontal">
+            <TextView android:ellipsize="end" android:id="@+id/txtSkip"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_14pxv"
+                android:layout_marginTop="@dimen/_17pxv"
+                android:layout_weight="0.18" android:layout_width="0dp"
+                android:singleLine="true"
+                android:text="@{recuiterVM.recuiterModel.txtSkip}"
+                style="@style/txtPoppinsmedium16_1" tools:text="@string/lbl_skip"/>
+            <androidx.appcompat.widget.AppCompatButton
+                android:ellipsize="end" android:gravity="center"
+                android:id="@+id/btnNext"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_105pxh"
+                android:layout_weight="0.82" android:layout_width="0dp"
+                android:paddingBottom="@dimen/_16pxv"
+                android:paddingEnd="@dimen/_30pxh"
+                android:paddingStart="@dimen/_30pxh"
+                android:paddingTop="@dimen/_16pxv"
+                android:singleLine="true"
+                android:text="@string/lbl_next"
+                android:textAllCaps="false"
+                style="@style/btnSolidRounded_1" tools:text="@string/lbl_next"/>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

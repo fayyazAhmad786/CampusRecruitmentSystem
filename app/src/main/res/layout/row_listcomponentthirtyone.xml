@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="listcomponentthirtyoneRowModel" type="com.ruquaiyasapplication.app.modules.jobpreferencestwo.data.model.ListcomponentthirtyoneRowModel"/>
+    </data>
+    <LinearLayout android:id="@+id/linearRowcomponentthirtyone"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent" android:orientation="horizontal">
+        <TextView android:ellipsize="end"
+            android:id="@+id/txtComponentThirtyOne"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.39" android:layout_width="0dp"
+            android:paddingBottom="@dimen/_8pxv"
+            android:paddingEnd="@dimen/_20pxh"
+            android:paddingStart="@dimen/_20pxh"
+            android:paddingTop="@dimen/_7pxv" android:singleLine="true"
+            android:text="@{listcomponentthirtyoneRowModel.txtComponentThirtyOne}"
+            style="@style/txtRoundedOutline_1" tools:text="@string/lbl_worldwide"/>
+        <TextView android:ellipsize="end" android:id="@+id/txtFrame125"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_12pxh"
+            android:layout_weight="0.23" android:layout_width="0dp"
+            android:paddingBottom="@dimen/_8pxv"
+            android:paddingEnd="@dimen/_20pxh"
+            android:paddingStart="@dimen/_20pxh"
+            android:paddingTop="@dimen/_7pxv" android:singleLine="true"
+            android:text="@{listcomponentthirtyoneRowModel.txtFrame125}"
+            style="@style/txtSolidRounded_3" tools:text="@string/lbl_usa"/>
+        <TextView android:ellipsize="end" android:id="@+id/txtFrame132"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_12pxh"
+            android:layout_weight="0.37" android:layout_width="0dp"
+            android:paddingBottom="@dimen/_8pxv"
+            android:paddingEnd="@dimen/_20pxh"
+            android:paddingStart="@dimen/_20pxh"
+            android:paddingTop="@dimen/_7pxv" android:singleLine="true"
+            android:text="@{listcomponentthirtyoneRowModel.txtFrame132}"
+            style="@style/txtRoundedOutline_1" tools:text="@string/lbl_california"/>
+    </LinearLayout>
+</layout>

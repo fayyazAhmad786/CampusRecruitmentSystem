@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="appliedVM" type="com.ruquaiyasapplication.app.modules.applied.data.viewmodel.AppliedVM"/>
+    </data>
+    <LinearLayout android:gravity="center_horizontal"
+        android:id="@+id/linearColumnarrowleft"
+        android:layout_height="match_parent"
+        android:layout_marginEnd="@dimen/_24pxh"
+        android:layout_marginStart="@dimen/_24pxh"
+        android:layout_marginTop="@dimen/_20pxv"
+        android:layout_width="match_parent"
+        android:orientation="vertical" style="@style/groupStylegray_50">
+        <LinearLayout android:gravity="start"
+            android:id="@+id/linearApplied"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:orientation="vertical" style="@style/groupStylegray_50">
+            <ImageView android:id="@+id/imageArrowleft"
+                android:layout_height="@dimen/_16pxh"
+                android:layout_marginEnd="@dimen/_10pxh"
+                android:layout_marginStart="@dimen/_1pxh"
+                android:layout_width="@dimen/_8pxh"
+                android:scaleType="fitXY"
+                android:src="@drawable/img_arrowleft"
+                tools:ignore="ContentDescription" tools:src="@drawable/img_arrowleft"/>
+            <TextView android:ellipsize="end"
+                android:id="@+id/txtAppliedJobs"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_10pxh"
+                android:layout_marginStart="@dimen/_2pxh"
+                android:layout_marginTop="@dimen/_15pxv"
+                android:layout_width="wrap_content"
+                android:singleLine="true"
+                android:text="@{appliedVM.appliedModel.txtAppliedJobs}"
+                style="@style/txtPoppinssemibold16" tools:text="@string/lbl_applied_jobs"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerApplied"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_25pxv"
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                itemSpace="@{@dimen/_25pxh}" tools:itemCount="8" tools:listitem="@layout/row_applied"/>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

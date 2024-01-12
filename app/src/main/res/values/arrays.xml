@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <array name="range_slider_values">
+        <item>0</item>
+        <item>0</item>
+    </array>
+    <array name="arr_locations">
+        <item>Select Location</item>
+        <item>Lahore</item>
+        <item>Islamabad</item>
+        <item>Karachi</item>
+        <item>Faisalabad</item>
+    </array>
+</resources>

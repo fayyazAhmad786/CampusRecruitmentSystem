@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="listnotyetOneRowModel" type="com.ruquaiyasapplication.app.modules.interview.data.model.ListnotyetOneRowModel"/>
+    </data>
+    <LinearLayout android:id="@+id/linearRownotyet"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent" android:orientation="horizontal">
+        <TextView android:ellipsize="end" android:id="@+id/txtNotyetOne"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_3pxv"
+            android:layout_weight="0.56" android:layout_width="0dp"
+            android:singleLine="true"
+            android:text="@{listnotyetOneRowModel.txtNotyetOne}"
+            style="@style/txtPoppinsmedium10_1" tools:text="@string/lbl_not_yet3"/>
+        <ImageView android:id="@+id/imageTearOffCalendTwo"
+            android:layout_height="@dimen/_14pxh"
+            android:layout_marginBottom="@dimen/_4pxv"
+            android:layout_marginStart="@dimen/_56pxh"
+            android:layout_width="@dimen/_14pxh"
+            android:scaleType="fitXY"
+            android:src="@drawable/img_tearoffcalend"
+            tools:ignore="ContentDescription" tools:src="@drawable/img_tearoffcalend"/>
+        <ImageView android:id="@+id/imageSendThree"
+            android:layout_height="@dimen/_14pxh"
+            android:layout_marginBottom="@dimen/_4pxv"
+            android:layout_marginStart="@dimen/_70pxh"
+            android:layout_width="@dimen/_14pxh"
+            android:scaleType="fitXY" android:src="@drawable/img_send"
+            tools:ignore="ContentDescription" tools:src="@drawable/img_send"/>
+    </LinearLayout>
+</layout>

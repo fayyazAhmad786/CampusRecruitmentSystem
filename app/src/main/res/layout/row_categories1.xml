@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="categories1RowModel" type="com.ruquaiyasapplication.app.modules.categories.data.model.Categories1RowModel"/>
+    </data>
+    <LinearLayout android:id="@+id/linearRowrectangle114Four"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent" android:orientation="horizontal">
+        <LinearLayout android:gravity="center_horizontal"
+            android:id="@+id/linearColumnrectangle114Four"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5" android:layout_width="0dp"
+            android:orientation="vertical" style="@style/groupStylegray_2">
+            <ImageView android:id="@+id/imageRectangle114Four"
+                android:layout_gravity="center_horizontal"
+                android:layout_height="@dimen/_48pxh"
+                android:layout_marginEnd="@dimen/_39pxh"
+                android:layout_marginStart="@dimen/_39pxh"
+                android:layout_marginTop="@dimen/_20pxv"
+                android:layout_width="@dimen/_48pxh"
+                android:scaleType="centerCrop" circular="@{true}"
+                imageRes="@{@drawable/img_rectangle114_3}"
+                tools:ignore="ContentDescription" tools:src="@drawable/img_rectangle114_3"/>
+            <TextView android:ellipsize="end"
+                android:id="@+id/txtUXDesignerFour"
+                android:layout_gravity="center_horizontal"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_17pxv"
+                android:layout_marginEnd="@dimen/_39pxh"
+                android:layout_marginStart="@dimen/_39pxh"
+                android:layout_marginTop="@dimen/_16pxv"
+                android:layout_width="wrap_content"
+                android:singleLine="true"
+                android:text="@{categories1RowModel.txtUXDesignerFour}"
+                style="@style/txtPoppinsmedium13_1" tools:text="@string/lbl_accountant"/>
+        </LinearLayout>
+        <LinearLayout android:gravity="center_horizontal"
+            android:id="@+id/linearColumn"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_17pxh"
+            android:layout_weight="0.5" android:layout_width="0dp"
+            android:orientation="vertical" style="@style/groupStylegray_2">
+            <ImageView android:id="@+id/imageRectangle114One"
+                android:layout_gravity="center_horizontal"
+                android:layout_height="@dimen/_48pxh"
+                android:layout_marginEnd="@dimen/_45pxh"
+                android:layout_marginStart="@dimen/_45pxh"
+                android:layout_marginTop="@dimen/_20pxv"
+                android:layout_width="@dimen/_48pxh"
+                android:scaleType="centerCrop" circular="@{true}"
+                imageRes="@{@drawable/img_rectangle114_4}"
+                tools:ignore="ContentDescription" tools:src="@drawable/img_rectangle114_4"/>
+            <TextView android:ellipsize="end"
+                android:id="@+id/txtUXDesignerOne"
+                android:layout_gravity="center_horizontal"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_16pxv"
+                android:layout_marginEnd="@dimen/_45pxh"
+                android:layout_marginStart="@dimen/_45pxh"
+                android:layout_marginTop="@dimen/_17pxv"
+                android:layout_width="wrap_content"
+                android:singleLine="true"
+                android:text="@{categories1RowModel.txtUXDesignerOne}"
+                style="@style/txtPoppinsmedium13_1" tools:text="@string/lbl_marketing"/>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

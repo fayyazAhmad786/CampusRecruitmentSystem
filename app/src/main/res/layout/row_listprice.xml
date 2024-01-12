@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="listpriceRowModel" type="com.ruquaiyasapplication.app.modules.home.data.model.ListpriceRowModel"/>
+    </data>
+    <LinearLayout android:id="@+id/linearRowprice"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent" android:orientation="horizontal">
+        <FrameLayout android:id="@+id/frameStackprice"
+            android:layout_height="@dimen/_23pxv"
+            android:layout_marginTop="@dimen/_1pxv" android:layout_width="@dimen/_47pxh">
+            <TextView android:ellipsize="end"
+                android:gravity="top|start" android:id="@+id/txtPrice"
+                android:layout_gravity="top|start"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_10pxv"
+                android:layout_width="match_parent"
+                android:singleLine="true"
+                android:text="@{listpriceRowModel.txtPrice}"
+                style="@style/txtPoppinssemibold9" tools:text="@string/lbl_it_manger"/>
+            <TextView android:ellipsize="end"
+                android:gravity="top|start"
+                android:id="@+id/txtLahorePk"
+                android:layout_gravity="bottom|start"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_3pxv"
+                android:layout_marginEnd="@dimen/_10pxh"
+                android:layout_marginStart="@dimen/_1pxh"
+                android:layout_marginTop="@dimen/_10pxv"
+                android:layout_width="match_parent"
+                android:singleLine="true"
+                android:text="@{listpriceRowModel.txtLahorePk}"
+                style="@style/txtPoppinsmedium6" tools:text="@string/lbl_lahore_pk"/>
+            <TextView android:ellipsize="end"
+                android:gravity="top|start"
+                android:id="@+id/txtCreatedon10d"
+                android:layout_gravity="bottom|start"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_10pxh"
+                android:layout_marginTop="@dimen/_10pxv"
+                android:layout_width="match_parent"
+                android:singleLine="true"
+                android:text="@{listpriceRowModel.txtCreatedon10d}"
+                style="@style/txtPoppinsmedium4" tools:text="@string/msg_created_on_10_d"/>
+        </FrameLayout>
+        <TextView android:id="@+id/txt3Activecandid"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_4pxv"
+            android:layout_marginStart="@dimen/_42pxh"
+            android:layout_marginTop="@dimen/_2pxv"
+            android:layout_weight="0.15" android:layout_width="0dp"
+            android:text="@{listpriceRowModel.txt3Activecandid}"
+            style="@style/txtPoppinssemibold6" tools:text="@string/msg_3_active_candi"/>
+        <FrameLayout android:id="@+id/frameStackreviewed"
+            android:layout_height="@dimen/_13pxv"
+            android:layout_marginBottom="@dimen/_10pxv"
+            android:layout_marginStart="@dimen/_14pxh" android:layout_width="@dimen/_26pxh">
+            <TextView android:ellipsize="end"
+                android:gravity="top|start"
+                android:id="@+id/txtReviewed"
+                android:layout_gravity="bottom|center"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10pxv"
+                android:layout_width="match_parent"
+                android:singleLine="true"
+                android:text="@{listpriceRowModel.txtReviewed}"
+                style="@style/txtPoppinsmedium6_1" tools:text="@string/lbl_reviewed2"/>
+            <TextView android:ellipsize="end" android:id="@+id/txtThree"
+                android:layout_gravity="top|center"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_10pxv"
+                android:layout_marginEnd="@dimen/_11pxh"
+                android:layout_marginStart="@dimen/_11pxh"
+                android:layout_width="wrap_content"
+                android:singleLine="true"
+                android:text="@{listpriceRowModel.txtThree}"
+                style="@style/txtPoppinsmedium6_1" tools:text="@string/lbl_3"/>
+        </FrameLayout>
+        <FrameLayout android:id="@+id/frameStackzero"
+            android:layout_height="@dimen/_13pxv"
+            android:layout_marginBottom="@dimen/_10pxv"
+            android:layout_marginStart="@dimen/_19pxh" android:layout_width="@dimen/_15pxh">
+            <TextView android:ellipsize="end" android:id="@+id/txtZero"
+                android:layout_gravity="top|end"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_10pxv"
+                android:layout_marginEnd="@dimen/_5pxh"
+                android:layout_marginStart="@dimen/_10pxh"
+                android:layout_width="wrap_content"
+                android:singleLine="true"
+                android:text="@{listpriceRowModel.txtZero}"
+                style="@style/txtPoppinsmedium6_1" tools:text="@string/lbl_0"/>
+            <TextView android:ellipsize="end"
+                android:gravity="top|start" android:id="@+id/txtHired"
+                android:layout_gravity="bottom|start"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10pxv"
+                android:layout_width="match_parent"
+                android:singleLine="true"
+                android:text="@{listpriceRowModel.txtHired}"
+                style="@style/txtPoppinsmedium6" tools:text="@string/lbl_hired"/>
+        </FrameLayout>
+        <FrameLayout android:id="@+id/frameStackgroupfortyfour"
+            android:layout_height="@dimen/_18pxv"
+            android:layout_marginBottom="@dimen/_5pxv"
+            android:layout_marginStart="@dimen/_8pxh"
+            android:layout_marginTop="@dimen/_1pxv" android:layout_width="@dimen/_94pxh">
+            <ProgressBar android:id="@+id/progressBarGroupFortyFour"
+                android:indeterminate="false"
+                android:layout_gravity="start"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_1pxv"
+                android:layout_marginTop="@dimen/_1pxv"
+                android:layout_width="match_parent" android:max="100"
+                android:minHeight="@dimen/_16pxv" android:progress="48"
+                android:progressDrawable="@drawable/layer_list_bg_gray_100_border_black_900_radius_8" style="@style/Widget.AppCompat.ProgressBar.Horizontal"/>
+            <LinearLayout android:id="@+id/linearRowopen"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_8pxh"
+                android:layout_marginStart="@dimen/_11pxh"
+                android:layout_width="match_parent" android:orientation="horizontal">
+                <TextView android:ellipsize="end"
+                    android:id="@+id/txtOpen"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_2pxv"
+                    android:layout_weight="0.5"
+                    android:layout_width="0dp" android:singleLine="true"
+                    android:text="@{listpriceRowModel.txtOpen}"
+                    style="@style/txtAbhayaLibreSemiBoldabhayalibresemibold13" tools:text="@string/lbl_open"/>
+                <TextView android:ellipsize="end"
+                    android:id="@+id/txtClose"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_2pxv"
+                    android:layout_marginStart="@dimen/_19pxh"
+                    android:layout_weight="0.5"
+                    android:layout_width="0dp" android:singleLine="true"
+                    android:text="@{listpriceRowModel.txtClose}"
+                    style="@style/txtAbhayaLibreSemiBoldabhayalibresemibold13" tools:text="@string/lbl_close"/>
+            </LinearLayout>
+        </FrameLayout>
+    </LinearLayout>
+</layout>

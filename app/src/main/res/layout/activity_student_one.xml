@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="studentOneVM" type="com.ruquaiyasapplication.app.modules.studentone.data.viewmodel.StudentOneVM"/>
+    </data>
+    <FrameLayout android:id="@+id/frameStudentOne"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent" style="@style/groupStylegray_301">
+        <LinearLayout android:id="@+id/linearColumnresumeamicoone"
+            android:layout_gravity="start"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/_59pxv"
+            android:layout_marginEnd="@dimen/_10pxh"
+            android:layout_marginTop="@dimen/_59pxv"
+            android:layout_width="match_parent" android:orientation="vertical">
+            <FrameLayout android:id="@+id/frameStackheadline"
+                android:layout_gravity="start"
+                android:layout_height="@dimen/_508pxv" android:layout_width="@dimen/_360pxh">
+                <LinearLayout android:id="@+id/linearColumnheadline"
+                    android:layout_gravity="bottom|start"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10pxv"
+                    android:layout_width="match_parent"
+                    android:orientation="vertical" style="@style/groupStylepurple_900_6ccornerRadius">
+                    <TextView android:ellipsize="end"
+                        android:gravity="end"
+                        android:id="@+id/txtHeadline"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/_16pxv"
+                        android:layout_marginEnd="@dimen/_40pxh"
+                        android:layout_marginStart="@dimen/_40pxh"
+                        android:layout_marginTop="@dimen/_303pxv"
+                        android:layout_width="match_parent"
+                        android:singleLine="true"
+                        android:text="@{studentOneVM.studentOneModel.txtHeadline}"
+                        style="@style/txtPoppinssemibold28" tools:text="@string/msg_apply_to_best_j"/>
+                </LinearLayout>
+                <ImageView android:id="@+id/imageResumeamicoOne"
+                    android:layout_gravity="top|end"
+                    android:layout_height="@dimen/_375pxh"
+                    android:layout_marginBottom="@dimen/_10pxv"
+                    android:layout_marginEnd="@dimen/_44pxh"
+                    android:layout_marginStart="@dimen/_44pxh"
+                    android:layout_width="@dimen/_206pxh"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/img_emojioneflagf"
+                    tools:ignore="ContentDescription" tools:src="@drawable/img_emojioneflagf"/>
+            </FrameLayout>
+            <LinearLayout android:gravity="end"
+                android:id="@+id/linearRowskip"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_25pxh"
+                android:layout_marginStart="@dimen/_25pxh"
+                android:layout_marginTop="@dimen/_68pxv"
+                android:layout_width="match_parent" android:orientation="horizontal">
+                <TextView android:ellipsize="end"
+                    android:id="@+id/txtSkip"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_14pxv"
+                    android:layout_marginTop="@dimen/_17pxv"
+                    android:layout_weight="0.18"
+                    android:layout_width="0dp" android:singleLine="true"
+                    android:text="@{studentOneVM.studentOneModel.txtSkip}"
+                    style="@style/txtPoppinsmedium16" tools:text="@string/lbl_skip"/>
+                <androidx.appcompat.widget.AppCompatButton
+                    android:ellipsize="end" android:gravity="center"
+                    android:id="@+id/btnNext"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_103pxh"
+                    android:layout_weight="0.82"
+                    android:layout_width="0dp"
+                    android:paddingBottom="@dimen/_16pxv"
+                    android:paddingEnd="@dimen/_30pxh"
+                    android:paddingStart="@dimen/_30pxh"
+                    android:paddingTop="@dimen/_16pxv"
+                    android:singleLine="true"
+                    android:text="@string/lbl_next"
+                    android:textAllCaps="false"
+                    style="@style/btnSolidRounded_1" tools:text="@string/lbl_next"/>
+            </LinearLayout>
+        </LinearLayout>
+    </FrameLayout>
+</layout>

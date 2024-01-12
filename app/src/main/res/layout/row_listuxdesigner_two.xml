@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="listuxdesignerTwoRowModel" type="com.ruquaiyasapplication.app.modules.searchresulttwo.data.model.ListuxdesignerTwoRowModel"/>
+    </data>
+    <LinearLayout android:gravity="center_horizontal"
+        android:id="@+id/linearColumnuxdesignerTwo"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:orientation="vertical" style="@style/groupStylewhite_8">
+        <ImageView android:id="@+id/imageImageFortyFour"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="@dimen/_40pxh"
+            android:layout_marginEnd="@dimen/_36pxh"
+            android:layout_marginStart="@dimen/_36pxh"
+            android:layout_marginTop="@dimen/_21pxv"
+            android:layout_width="@dimen/_40pxh"
+            android:scaleType="fitXY"
+            android:src="@drawable/img_image44"
+            tools:ignore="ContentDescription" tools:src="@drawable/img_image44"/>
+        <TextView android:ellipsize="end"
+            android:gravity="center_horizontal"
+            android:id="@+id/txtUXDesignerTwo"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_35pxh"
+            android:layout_marginStart="@dimen/_36pxh"
+            android:layout_marginTop="@dimen/_11pxv"
+            android:layout_width="match_parent"
+            android:singleLine="true"
+            android:text="@{listuxdesignerTwoRowModel.txtUXDesignerTwo}"
+            style="@style/txtPoppinssemibold14" tools:text="@string/lbl_ux_designer"/>
+        <TextView android:ellipsize="end" android:id="@+id/txtUbuntu"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_36pxh"
+            android:layout_marginStart="@dimen/_36pxh"
+            android:layout_marginTop="@dimen/_1pxv"
+            android:layout_width="wrap_content"
+            android:singleLine="true"
+            android:text="@{listuxdesignerTwoRowModel.txtUbuntu}"
+            style="@style/txtPoppinsregular12" tools:text="@string/lbl_ubuntu"/>
+        <TextView android:ellipsize="end" android:id="@+id/txtPriceTwo"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_22pxv"
+            android:layout_marginEnd="@dimen/_36pxh"
+            android:layout_marginStart="@dimen/_36pxh"
+            android:layout_marginTop="@dimen/_8pxv"
+            android:layout_width="wrap_content"
+            android:singleLine="true"
+            android:text="@{listuxdesignerTwoRowModel.txtPriceTwo}"
+            style="@style/txtPoppinsmedium12" tools:text="@string/lbl_80_000_y"/>
+    </LinearLayout>
+</layout>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="studentVM" type="com.ruquaiyasapplication.app.modules.student.data.viewmodel.StudentVM"/>
+    </data>
+    <FrameLayout android:id="@+id/frameStudent"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent" style="@style/groupStylegray_303">
+        <LinearLayout android:id="@+id/linearColumnellipse796"
+            android:layout_gravity="start"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/_77pxv"
+            android:layout_marginTop="@dimen/_77pxv"
+            android:layout_width="match_parent" android:orientation="vertical">
+            <FrameLayout android:gravity="start"
+                android:id="@+id/frameStackellipse796"
+                android:layout_height="@dimen/_508pxv" android:layout_width="match_parent">
+                <View
+                    android:background="@drawable/rectangle_bg_purple_900_6c_radius_187_5"
+                    android:id="@+id/viewEllipse796"
+                    android:layout_gravity="top|start"
+                    android:layout_height="@dimen/_362pxv"
+                    android:layout_marginBottom="@dimen/_26pxv"
+                    android:layout_marginTop="@dimen/_26pxv" android:layout_width="@dimen/_375pxh"/>
+                <LinearLayout android:id="@+id/linearColumnjobhuntamico"
+                    android:layout_gravity="start"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_34pxh"
+                    android:layout_marginStart="@dimen/_34pxh"
+                    android:layout_width="match_parent" android:orientation="vertical">
+                    <ImageView android:gravity="start"
+                        android:id="@+id/imageJobhuntamico"
+                        android:layout_height="@dimen/_355pxh"
+                        android:layout_width="match_parent"
+                        android:scaleType="fitXY"
+                        imageRes="@{@drawable/img_jobhuntamico}"
+                        tools:ignore="ContentDescription" tools:src="@drawable/img_jobhuntamico"/>
+                    <TextView android:gravity="end"
+                        android:id="@+id/txtHeadline"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_21pxh"
+                        android:layout_marginStart="@dimen/_21pxh"
+                        android:layout_marginTop="@dimen/_26pxv"
+                        android:layout_width="match_parent"
+                        android:text="@{studentVM.studentModel.txtHeadline}"
+                        style="@style/txtPoppinssemibold28" tools:text="@string/msg_search_your_job"/>
+                </LinearLayout>
+            </FrameLayout>
+            <LinearLayout android:id="@+id/linearRowskip"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_32pxh"
+                android:layout_marginStart="@dimen/_32pxh"
+                android:layout_marginTop="@dimen/_42pxv"
+                android:layout_width="match_parent" android:orientation="horizontal">
+                <TextView android:ellipsize="end"
+                    android:id="@+id/txtSkip"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_14pxv"
+                    android:layout_marginTop="@dimen/_17pxv"
+                    android:layout_weight="0.18"
+                    android:layout_width="0dp" android:singleLine="true"
+                    android:text="@{studentVM.studentModel.txtSkip}"
+                    style="@style/txtPoppinsmedium16" tools:text="@string/lbl_skip"/>
+                <androidx.appcompat.widget.AppCompatButton
+                    android:ellipsize="end" android:gravity="center"
+                    android:id="@+id/btnNext"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_112pxh"
+                    android:layout_weight="0.82"
+                    android:layout_width="0dp"
+                    android:paddingBottom="@dimen/_16pxv"
+                    android:paddingEnd="@dimen/_30pxh"
+                    android:paddingStart="@dimen/_30pxh"
+                    android:paddingTop="@dimen/_16pxv"
+                    android:singleLine="true"
+                    android:text="@string/lbl_next"
+                    android:textAllCaps="false"
+                    style="@style/btnSolidRounded_1" tools:text="@string/lbl_next"/>
+            </LinearLayout>
+        </LinearLayout>
+    </FrameLayout>
+</layout>

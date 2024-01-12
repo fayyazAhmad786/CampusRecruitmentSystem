@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="listgooglewanttoThreeRowModel" type="com.ruquaiyasapplication.app.modules.notifications.data.model.ListgooglewanttoThreeRowModel"/>
+    </data>
+    <LinearLayout android:id="@+id/linearNotification"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent" android:orientation="horizontal">
+        <FrameLayout android:id="@+id/frameStack"
+            android:layout_height="@dimen/_40pxv"
+            android:layout_marginBottom="@dimen/_27pxv"
+            android:layout_marginTop="@dimen/_2pxv"
+            android:layout_width="@dimen/_40pxh" style="@style/groupStylegray_401cornerRadius">
+            <ImageView android:id="@+id/imageImage101"
+                android:layout_gravity="start"
+                android:layout_height="@dimen/_40pxh"
+                android:layout_width="@dimen/_40pxh"
+                android:scaleType="fitXY"
+                android:src="@drawable/img_image101"
+                tools:ignore="ContentDescription" tools:src="@drawable/img_image101"/>
+        </FrameLayout>
+        <LinearLayout android:gravity="start"
+            android:id="@+id/linearColumngooglewanttoThree"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_8pxh"
+            android:layout_marginStart="@dimen/_12pxh"
+            android:layout_marginTop="@dimen/_2pxv"
+            android:layout_weight="0.87" android:layout_width="0dp" android:orientation="vertical">
+            <TextView android:id="@+id/txtGooglewanttoThree"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:text="@{listgooglewanttoThreeRowModel.txtGooglewanttoThree}"
+                style="@style/txtPoppinsmedium15_2" tools:text="@string/msg_congratulations"/>
+            <TextView android:ellipsize="end"
+                android:id="@+id/txt4hrsagoTwo"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_10pxh"
+                android:layout_marginTop="@dimen/_2pxv"
+                android:layout_width="wrap_content"
+                android:singleLine="true"
+                android:text="@{listgooglewanttoThreeRowModel.txt4hrsagoTwo}"
+                style="@style/txtPoppinsmedium13_3" tools:text="@string/lbl_4_hrs_ago"/>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

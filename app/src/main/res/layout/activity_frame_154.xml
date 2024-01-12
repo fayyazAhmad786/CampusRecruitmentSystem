@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="frame154VM" type="com.ruquaiyasapplication.app.modules.frame154.data.viewmodel.Frame154VM"/>
+    </data>
+    <LinearLayout android:gravity="center_horizontal"
+        android:id="@+id/linearColumndeveloper"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent" android:orientation="vertical">
+        <FrameLayout android:gravity="start"
+            android:id="@+id/frameStacklanguage"
+            android:layout_height="match_parent" android:layout_width="match_parent">
+            <LinearLayout android:id="@+id/linearColumnlanguage"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_1pxh"
+                android:layout_width="match_parent"
+                android:orientation="vertical" style="@style/groupStylegray_102cornerRadius">
+                <TextView android:ellipsize="end"
+                    android:id="@+id/txtLanguage"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_122pxh"
+                    android:layout_marginStart="@dimen/_123pxh"
+                    android:layout_marginTop="@dimen/_56pxv"
+                    android:layout_width="wrap_content"
+                    android:singleLine="true"
+                    android:text="@{frame154VM.frame154Model.txtLanguage}"
+                    style="@style/txtPoppinsregular16" tools:text="@string/lbl_managing"/>
+                <TextView android:ellipsize="end"
+                    android:id="@+id/txtLanguageOne"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_123pxh"
+                    android:layout_marginStart="@dimen/_123pxh"
+                    android:layout_marginTop="@dimen/_18pxv"
+                    android:layout_width="wrap_content"
+                    android:singleLine="true"
+                    android:text="@{frame154VM.frame154Model.txtLanguageOne}"
+                    style="@style/txtPoppinsregular16" tools:text="@string/lbl_marketing2"/>
+                <TextView android:ellipsize="end"
+                    android:id="@+id/txtLanguageTwo"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_123pxh"
+                    android:layout_marginStart="@dimen/_123pxh"
+                    android:layout_marginTop="@dimen/_18pxv"
+                    android:layout_width="wrap_content"
+                    android:singleLine="true"
+                    android:text="@{frame154VM.frame154Model.txtLanguageTwo}"
+                    style="@style/txtPoppinsregular16" tools:text="@string/lbl_designing"/>
+                <TextView android:ellipsize="end"
+                    android:id="@+id/txtTypeTen"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_10pxv"
+                    android:layout_marginEnd="@dimen/_123pxh"
+                    android:layout_marginStart="@dimen/_123pxh"
+                    android:layout_marginTop="@dimen/_16pxv"
+                    android:layout_width="wrap_content"
+                    android:singleLine="true"
+                    android:text="@{frame154VM.frame154Model.txtTypeTen}"
+                    style="@style/txtPoppinsregular16" tools:text="@string/lbl_others2"/>
+            </LinearLayout>
+            <androidx.appcompat.widget.AppCompatButton
+                android:ellipsize="end" android:gravity="center"
+                android:id="@+id/btnDeveloper"
+                android:layout_gravity="top|start"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_10pxv"
+                android:layout_width="match_parent"
+                android:paddingBottom="@dimen/_14pxv"
+                android:paddingEnd="@dimen/_30pxh"
+                android:paddingStart="@dimen/_30pxh"
+                android:paddingTop="@dimen/_14pxv"
+                android:singleLine="true"
+                android:text="@string/lbl_developer2"
+                android:textAllCaps="false"
+                style="@style/btnSolidRounded_8" tools:text="@string/lbl_developer2"/>
+        </FrameLayout>
+    </LinearLayout>
+</layout>
