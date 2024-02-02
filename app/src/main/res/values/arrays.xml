@@ -11,4 +11,20 @@
         <item>Karachi</item>
         <item>Faisalabad</item>
     </array>
+
+    <array name="arr_complaint_type">
+        <item>Select Company</item>
+        <item>Software Company</item>
+        <item>Industry</item>
+
+    </array>
+    <array name="arr_sallery">
+        <item>Select Sallery</item>
+        <item>20k-50k</item>
+        <item>50k-100k</item>
+        <item>100k-150k</item>
+        <item>150k-200k</item>
+        <item>250k-plus</item>
+    </array>
+
 </resources>

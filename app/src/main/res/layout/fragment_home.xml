@@ -76,7 +76,7 @@
                         android:layout_marginTop="@dimen/_1pxv">
 
                         <ImageView
-                            android:id="@+id/imageEllipse"
+                            android:id="@+id/imageProfile"
                             android:src="@drawable/img_ellipse"
                             android:layout_width="@dimen/_54pxh"
                             android:layout_height="@dimen/_54pxh"

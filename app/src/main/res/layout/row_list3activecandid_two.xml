@@ -1,106 +1,155 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
     <data>
-        <variable name="list3activecandidTwoRowModel" type="com.ruquaiyasapplication.app.modules.home.data.model.List3activecandidTwoRowModel"/>
+
+        <variable
+            name="list3activecandidTwoRowModel"
+            type="com.ruquaiyasapplication.app.modules.home.data.model.List3activecandidTwoRowModel" />
     </data>
-    <LinearLayout android:id="@+id/linearRow3activecandidTwo"
+
+    <LinearLayout
+        android:id="@+id/linearRow3activecandidTwo"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_width="match_parent" android:orientation="horizontal">
-        <TextView android:id="@+id/txt3ActivecandidTwo"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/txt3ActivecandidTwo"
+            style="@style/txtPoppinssemibold6"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_2pxv"
-            android:layout_weight="0.19" android:layout_width="0dp"
-            android:text="@{list3activecandidTwoRowModel.txt3ActivecandidTwo}"
-            style="@style/txtPoppinssemibold6" tools:text="@string/msg_3_active_candi"/>
-        <FrameLayout android:id="@+id/frameStackreviewed"
+            android:layout_weight="0.19"
+            android:text="@string/msg_3_active_candi"
+            tools:text="@string/msg_3_active_candi" />
+
+        <FrameLayout
+            android:id="@+id/frameStackreviewed"
+            android:layout_width="@dimen/_26pxh"
             android:layout_height="@dimen/_13pxv"
-            android:layout_marginBottom="@dimen/_6pxv"
-            android:layout_marginStart="@dimen/_14pxh" android:layout_width="@dimen/_26pxh">
-            <TextView android:ellipsize="end"
-                android:gravity="top|start"
+            android:layout_marginStart="@dimen/_14pxh"
+            android:layout_marginBottom="@dimen/_6pxv">
+
+            <TextView
                 android:id="@+id/txtReviewedSix"
-                android:layout_gravity="bottom|center"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_10pxv"
+                style="@style/txtPoppinsmedium6_1"
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center"
+                android:layout_marginTop="@dimen/_10pxv"
+                android:ellipsize="end"
+                android:gravity="top|start"
                 android:singleLine="true"
-                android:text="@{list3activecandidTwoRowModel.txtReviewedSix}"
-                style="@style/txtPoppinsmedium6_1" tools:text="@string/lbl_reviewed2"/>
-            <TextView android:ellipsize="end"
+                android:text="@string/lbl_reviewed2"
+                tools:text="@string/lbl_reviewed2" />
+
+            <TextView
                 android:id="@+id/txtThreeTwo"
+                style="@style/txtPoppinsmedium6_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="top|center"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/_10pxv"
-                android:layout_marginEnd="@dimen/_11pxh"
                 android:layout_marginStart="@dimen/_11pxh"
-                android:layout_width="wrap_content"
-                android:singleLine="true"
-                android:text="@{list3activecandidTwoRowModel.txtThreeTwo}"
-                style="@style/txtPoppinsmedium6_1" tools:text="@string/lbl_3"/>
-        </FrameLayout>
-        <FrameLayout android:id="@+id/frameStackzero"
-            android:layout_height="@dimen/_13pxv"
-            android:layout_marginBottom="@dimen/_6pxv"
-            android:layout_marginStart="@dimen/_19pxh" android:layout_width="@dimen/_15pxh">
-            <TextView android:ellipsize="end"
-                android:id="@+id/txtZeroSix"
-                android:layout_gravity="top|end"
-                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_11pxh"
                 android:layout_marginBottom="@dimen/_10pxv"
-                android:layout_marginEnd="@dimen/_5pxh"
-                android:layout_marginStart="@dimen/_10pxh"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="@string/lbl_3"
+                tools:text="@string/lbl_3" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/frameStackzero"
+            android:layout_width="@dimen/_15pxh"
+            android:layout_height="@dimen/_13pxv"
+            android:layout_marginStart="@dimen/_19pxh"
+            android:layout_marginBottom="@dimen/_6pxv">
+
+            <TextView
+                android:id="@+id/txtZeroSix"
+                style="@style/txtPoppinsmedium6_1"
                 android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|end"
+                android:layout_marginStart="@dimen/_10pxh"
+                android:layout_marginEnd="@dimen/_5pxh"
+                android:layout_marginBottom="@dimen/_10pxv"
+                android:ellipsize="end"
                 android:singleLine="true"
                 android:text="@{list3activecandidTwoRowModel.txtZeroSix}"
-                style="@style/txtPoppinsmedium6_1" tools:text="@string/lbl_0"/>
-            <TextView android:ellipsize="end"
-                android:gravity="top|start"
+                tools:text="@string/lbl_0" />
+
+            <TextView
                 android:id="@+id/txtHiredSix"
-                android:layout_gravity="bottom|start"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_10pxv"
+                style="@style/txtPoppinsmedium6"
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|start"
+                android:layout_marginTop="@dimen/_10pxv"
+                android:ellipsize="end"
+                android:gravity="top|start"
                 android:singleLine="true"
                 android:text="@{list3activecandidTwoRowModel.txtHiredSix}"
-                style="@style/txtPoppinsmedium6" tools:text="@string/lbl_hired"/>
+                tools:text="@string/lbl_hired" />
         </FrameLayout>
-        <FrameLayout android:id="@+id/frameStackgroupthirtyeight"
+
+        <FrameLayout
+            android:id="@+id/frameStackgroupthirtyeight"
+            android:layout_width="@dimen/_94pxh"
             android:layout_height="@dimen/_18pxv"
-            android:layout_marginBottom="@dimen/_1pxv"
             android:layout_marginStart="@dimen/_8pxh"
-            android:layout_marginTop="@dimen/_1pxv" android:layout_width="@dimen/_94pxh">
-            <ProgressBar android:id="@+id/progressBarGroupThirtyEight"
-                android:indeterminate="false"
+            android:layout_marginTop="@dimen/_1pxv"
+            android:layout_marginBottom="@dimen/_1pxv">
+
+            <ProgressBar
+                android:id="@+id/progressBarGroupThirtyEight"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_gravity="start"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/_1pxv"
                 android:layout_marginTop="@dimen/_1pxv"
-                android:layout_width="match_parent" android:max="100"
-                android:minHeight="@dimen/_16pxv" android:progress="48"
-                android:progressDrawable="@drawable/layer_list_bg_gray_100_border_black_900_radius_8" style="@style/Widget.AppCompat.ProgressBar.Horizontal"/>
-            <LinearLayout android:id="@+id/linearRowopen"
-                android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/_1pxv"
+                android:indeterminate="false"
+                android:max="100"
+                android:minHeight="@dimen/_16pxv"
+                android:progress="48"
+                android:progressDrawable="@drawable/layer_list_bg_gray_100_border_black_900_radius_8" />
+
+            <LinearLayout
+                android:id="@+id/linearRowopen"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/_8pxh"
+                android:layout_gravity="center"
                 android:layout_marginStart="@dimen/_11pxh"
-                android:layout_width="match_parent" android:orientation="horizontal">
-                <TextView android:ellipsize="end"
+                android:layout_marginEnd="@dimen/_8pxh"
+                android:orientation="horizontal">
+
+                <TextView
                     android:id="@+id/txtOpenSix"
+                    style="@style/txtAbhayaLibreSemiBoldabhayalibresemibold13"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_2pxv"
                     android:layout_weight="0.5"
-                    android:layout_width="0dp" android:singleLine="true"
+                    android:ellipsize="end"
+                    android:singleLine="true"
                     android:text="@{list3activecandidTwoRowModel.txtOpenSix}"
-                    style="@style/txtAbhayaLibreSemiBoldabhayalibresemibold13" tools:text="@string/lbl_open"/>
-                <TextView android:ellipsize="end"
+                    tools:text="@string/lbl_open" />
+
+                <TextView
                     android:id="@+id/txtCloseSix"
+                    style="@style/txtAbhayaLibreSemiBoldabhayalibresemibold13"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/_2pxv"
                     android:layout_marginStart="@dimen/_19pxh"
+                    android:layout_marginBottom="@dimen/_2pxv"
                     android:layout_weight="0.5"
-                    android:layout_width="0dp" android:singleLine="true"
+                    android:ellipsize="end"
+                    android:singleLine="true"
                     android:text="@{list3activecandidTwoRowModel.txtCloseSix}"
-                    style="@style/txtAbhayaLibreSemiBoldabhayalibresemibold13" tools:text="@string/lbl_close"/>
+                    tools:text="@string/lbl_close" />
             </LinearLayout>
         </FrameLayout>
     </LinearLayout>

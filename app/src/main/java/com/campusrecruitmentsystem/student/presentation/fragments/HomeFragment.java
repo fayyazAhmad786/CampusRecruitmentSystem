@@ -1,5 +1,6 @@
 package com.campusrecruitmentsystem.student.presentation.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,8 +8,10 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.campusrecruitmentsystem.R;
+import com.campusrecruitmentsystem.student.presentation.ProfileActivity;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -67,8 +70,17 @@ public class HomeFragment extends Fragment {
 
 //        return inflater.inflate(R.layout.fragment_home, container, false);
 
+
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 // In your activity or fragment
+        ImageView imageProfile= view.findViewById(R.id.imageProfile);
+        imageProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), ProfileActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
         return view;

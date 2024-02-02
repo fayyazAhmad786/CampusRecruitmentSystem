@@ -3,6 +3,7 @@
     <string name="app_name">Campus Recruitment System</string>
     <string name="db_folder">Campus Recruitment System</string>
     <string name="db_name">Campus Recruitment System/database</string>
+    <string name="db_folder_images">Campus Recruitment System/images</string>
 
 
     <string name="loading">Loading…</string>
@@ -132,6 +133,7 @@ Quiz:\u2028  . Quiz is mandatory in order to apply for this job. This will test 
     <string name="lbl_log_in">Log in</string>
     <string name="lbl_4_8">4.8</string>
     <string name="lbl_e_mail">E-mail</string>
+    <string name="lbl_e_profession">Profession</string>
     <string name="msg_track_applicati">Track Application</string>
     <string name="lbl_pinterest">Pinterest</string>
     <string name="msg_ui_ux_design_qu">UI UX Design Quiz</string>
@@ -163,8 +165,11 @@ Quiz:\u2028  . Quiz is mandatory in order to apply for this job. This will test 
     <string name="msg_search_a_job_or">Search a job or position</string>
     <string name="lbl_florida_us">Florida, US</string>
     <string name="msg_company_s_indus">Company\u2019s Industry </string>
+    <string name="msg_describe_company">Describe Your Company in Few Words </string>
     <string name="lbl_confirmation">Confirmation</string>
     <string name="msg_recommended_job">Recommended Jobs</string>
+    <string name="no_gps">Your Mobile do not have GPS sensor, Please change the mobile for using this app.</string>
+
     <string name="lbl_upload_pdf">Upload
 PDF</string>
     <string name="lbl_it_manager3">IT MANAGER </string>
@@ -258,7 +263,7 @@ on Zoom </string>
     <string name="lbl_short_listed">SHORT LISTED </string>
     <string name="lbl_1_hour_15_min">1 hour 15 min</string>
     <string name="lbl_california">California</string>
-    <string name="lbl_make_a_resume">Make a resume</string>
+    <string name="lbl_make_a_resume">Make Resume</string>
     <string name="lbl_interested">interested</string>
     <string name="msg_write_a_cover_l">Write a cover letter......</string>
     <string name="lbl_ubuntu">Ubuntu</string>
@@ -394,6 +399,7 @@ or
     <string name="lbl_experience">Experience</string>
     <string name="lbl_full_name">Full Name</string>
     <string name="lbl_start_quiz">START Quiz</string>
+    <string name="lbl_get_started_quiz">Get Started</string>
     <string name="msg_please_enter_valid_email">Please enter valid email</string>
     <string name="msg_please_enter_valid_pa">Please enter valid password</string>
     <!-- TODO: Remove or change this placeholder text -->

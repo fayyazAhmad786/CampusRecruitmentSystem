@@ -1,4 +1,4 @@
-package com.campusrecruitmentsystem.student.database;
+package com.campusrecruitmentsystem.database;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -47,10 +47,18 @@ public class DataBaseSQlite {
 
     public boolean dataBase() {
         boolean b = false;
-            copyFromAssetsToSDCard("uu.db");
-
-            ReadWriteDatabase();
+        boolean isExist = checkingDatabaseFileOnSdCard();
+        if (isExist == true) {
+            /**************** Read Database File or do Nothing ********************/
+//            ReadWriteDatabase();
             b = true;
+        } else {
+            /*********************** Copy DB File From Assets Folder to SD Card *******************/
+            copyFromAssetsToSDCard("uu.db");
+//            copyManualFromAssetsToSdCard("TrainingManual.pdf");  // Manual
+//            ReadWriteDatabase();
+            b = true;
+        }
         return b;
     }//end of dataBase
 
@@ -98,5 +106,22 @@ public class DataBaseSQlite {
         }//end of try-catch
         return ac_name;
     }//end of ReadWriteDatabase
+    private boolean checkingDatabaseFileOnSdCard() {
+        boolean isExist = false;
+        try {
+//            String strFilePath = Environment.getExternalStorageDirectory() + strInputDBFileName;
+            String strFilePath = context.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS) + File.separator + strInputDBFileName;
 
+            File dbFile = new File(strFilePath);
+            if (dbFile.exists()) {
+                isExist = true;
+            } else {
+                isExist = false;
+            }
+        } catch (Exception ex) {
+            Toast.makeText(context, "Error Reading Database file = " + ex.getMessage() + "", Toast.LENGTH_LONG).show();
+            return false;
+        }//end of try-catch
+        return isExist;
+    }
 }

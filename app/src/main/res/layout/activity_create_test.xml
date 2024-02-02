@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
-
-    <data>
-        <!--        <variable name="createTestVM" type="com.ruquaiyasapplication.app.modules.createtest.data.viewmodel.CreateTestVM"/>-->
-    </data>
-
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".company.CreateTest">
     <LinearLayout
         android:id="@+id/linearCreatetest"
         style="@style/groupStylegray_50"
@@ -55,6 +53,36 @@
             android:text="@string/lbl_create_test2"
             tools:text="@string/lbl_create_test2" />
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="@dimen/_50pxh"
+            android:orientation="horizontal">
+            <TextView
+                style="@style/txtPoppinssemibold16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="@dimen/_26pxv"
+                android:layout_marginEnd="@dimen/_32pxh"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="Questions Added: "
+                />
+            <TextView
+                android:id="@+id/tv_question_no"
+                style="@style/txtPoppinssemibold16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="@dimen/_26pxv"
+                android:layout_marginEnd="@dimen/_32pxh"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="0"
+                />
+        </LinearLayout>
         <TextView
             android:id="@+id/txtLanguageOne"
             style="@style/txtPoppinssemibold16"
@@ -62,33 +90,37 @@
             android:layout_height="wrap_content"
             android:layout_gravity="start"
             android:layout_marginStart="@dimen/_32pxh"
-            android:layout_marginTop="@dimen/_26pxv"
             android:layout_marginEnd="@dimen/_32pxh"
             android:ellipsize="end"
             android:singleLine="true"
             android:text="@string/lbl_write_text"
             tools:text="@string/lbl_write_text" />
-
-        <EditText
-            android:id="@+id/etGroupSixtySix"
-            style="@style/etRoundedOutline"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/textInputLayoutStyle"
+            android:id="@+id/til_write_question"
             android:layout_marginStart="@dimen/_25pxh"
             android:layout_marginTop="@dimen/_5pxv"
             android:layout_marginEnd="@dimen/_23pxh"
-            android:background="@drawable/rectangle_border_gray_400_radius_10"
-            android:ellipsize="end"
-            android:hint="@string/msg_write_a_questio"
-            android:inputType="text"
-            android:paddingStart="@dimen/_19pxh"
-            android:paddingTop="@dimen/_15pxv"
-            android:paddingEnd="@dimen/_30pxh"
-            android:paddingBottom="@dimen/_15pxv"
-            android:singleLine="true"
-            android:text="@string/lbl_write_text"
-            android:textColorHint="@color/gray_400"
-            />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:hint="Write Question"
+            >
+
+            <EditText
+                android:id="@+id/et_complaint_writing_pin"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:importantForAutofill="noExcludeDescendants"
+                android:maxLines="5"
+                android:paddingLeft="5dp"
+                />
+
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
 
         <TextView
             android:id="@+id/txtHeadline"
@@ -103,92 +135,34 @@
             android:singleLine="true"
             android:text="@string/lbl_make_option"
             tools:text="@string/lbl_make_option" />
-
-        <RadioGroup
-            android:id="@+id/rgRadiogroupgood"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_40pxh"
-            android:layout_marginTop="@dimen/_18pxv"
-            android:layout_marginEnd="@dimen/_40pxh"
-            android:gravity="start"
-            android:orientation="vertical">
+            android:layout_marginStart="@dimen/_31pxh"
+            android:layout_marginTop="@dimen/_15pxv"
+            android:layout_marginEnd="@dimen/_31pxh">
 
-            <RadioButton
-                android:id="@+id/rbGood"
+            <EditText
+                android:id="@+id/editTextOption"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter option" />
+
+            <Button
+                android:id="@+id/buttonAddOption"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/_8pxh"
-                android:buttonTint="@color/deep_purple_300"
-                android:ellipsize="end"
-                android:fontFamily="@font/poppins"
-                android:paddingStart="@dimen/_9pxh"
-                android:paddingTop="@dimen/_1pxv"
-                android:singleLine="true"
-                android:text="@string/lbl_good"
-                android:textColor="@color/black_900"
-                android:textFontWeight="500"
-                android:textSize="@dimen/_14pxh"
-                android:textStyle="bold"
-                tools:text="@string/lbl_good" />
+                android:layout_below="@id/editTextOption"
+                android:text="Add Option" />
 
-            <RadioButton
-                android:id="@+id/rbWorse"
-                android:layout_width="wrap_content"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_1pxv"
-                android:buttonTint="@color/deep_purple_300"
-                android:ellipsize="end"
-                android:fontFamily="@font/poppins"
-                android:paddingStart="@dimen/_12pxh"
-                android:paddingTop="@dimen/_1pxv"
-                android:singleLine="true"
-                android:text="@string/lbl_worse"
-                android:textColor="@color/black_900"
-                android:textFontWeight="500"
-                android:textSize="@dimen/_14pxh"
-                android:textStyle="bold"
-                tools:text="@string/lbl_worse" />
+                android:layout_below="@id/buttonAddOption" />
 
-            <RadioButton
-                android:id="@+id/rbBetter"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_6pxv"
-                android:buttonTint="@color/deep_purple_300"
-                android:ellipsize="end"
-                android:fontFamily="@font/poppins"
-                android:paddingStart="@dimen/_12pxh"
-                android:singleLine="true"
-                android:text="@string/lbl_better"
-                android:textColor="@color/black_900"
-                android:textFontWeight="500"
-                android:textSize="@dimen/_14pxh"
-                android:textStyle="bold"
-                tools:text="@string/lbl_better" />
-        </RadioGroup>
+        </RelativeLayout>
 
-        <com.mukesh.OtpView
-            android:id="@+id/otpViewOtpview"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginStart="@dimen/_25pxh"
-            android:layout_marginTop="@dimen/_29pxv"
-            android:layout_marginEnd="@dimen/_25pxh"
-            android:focusableInTouchMode="true"
-            android:inputType="number"
-            android:itemBackground="@color/deep_purple_300"
-            android:text="@string/lbl_write_text"
-            android:textColor="@color/purple_900"
-            android:textSize="@dimen/_14pxh"
-            app:OtpItemCount="5"
-            app:OtpItemHeight="@dimen/_34pxv"
-            app:OtpItemRadius="@dimen/_17pxh"
-            app:OtpItemSpacing="@dimen/_32pxh"
-            app:OtpItemWidth="@dimen/_34pxh"
-            app:OtpLineColor="@color/deep_purple_300"
-            app:OtpViewType="rectangle" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnPostIt"
@@ -196,7 +170,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_25pxh"
-            android:layout_marginTop="@dimen/_227pxv"
+            android:layout_marginTop="@dimen/_25pxh"
             android:layout_marginEnd="@dimen/_23pxh"
             android:layout_marginBottom="@dimen/_20pxv"
             android:ellipsize="end"
@@ -210,4 +184,4 @@
             android:textAllCaps="false"
             tools:text="@string/lbl_post_it" />
     </LinearLayout>
-</layout>
+</androidx.constraintlayout.widget.ConstraintLayout>

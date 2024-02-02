@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".company.PostJob">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:id="@+id/linearColumnarrowleft"
+            style="@style/groupStylegray_50"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/_25pxh"
+            android:layout_marginTop="@dimen/_20pxv"
+            android:layout_marginEnd="@dimen/_18pxh"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/linearJobpost"
+                style="@style/groupStylegray_50"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="start"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imageArrowleft"
+                    android:layout_width="@dimen/_8pxh"
+                    android:layout_height="@dimen/_16pxh"
+                    android:layout_marginEnd="@dimen/_10pxh"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/img_arrowleft"
+                    tools:ignore="ContentDescription"
+                    tools:src="@drawable/img_arrowleft" />
+
+                <TextView
+                    android:id="@+id/txtHiree"
+                    style="@style/txtPoppinssemibold22_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginStart="@dimen/_19pxh"
+                    android:layout_marginTop="@dimen/_2pxv"
+                    android:layout_marginEnd="@dimen/_19pxh"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:text="@string/lbl_hiree2"
+                    tools:text="@string/lbl_hiree2" />
+
+                <TextView
+                    android:id="@+id/txtLanguage"
+                    style="@style/txtPoppinssemibold24"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginStart="@dimen/_19pxh"
+                    android:layout_marginTop="@dimen/_37pxv"
+                    android:layout_marginEnd="@dimen/_19pxh"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:text="@string/lbl_post_a_job2"
+                    tools:text="@string/lbl_post_a_job2" />
+
+                <TextView
+                    android:id="@+id/txtPrice"
+                    style="@style/txtPoppinsregular14"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_19pxh"
+                    android:layout_marginTop="@dimen/_1pxv"
+                    android:layout_marginEnd="@dimen/_13pxh"
+                    android:ellipsize="end"
+                    android:gravity="center_horizontal"
+                    android:singleLine="true"
+                    android:text="@string/msg_specify_the_det"
+                    tools:text="@string/msg_specify_the_det" />
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnCreateTest"
+                    style="@style/btnSolidRounded_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_5pxh"
+                    android:layout_marginTop="@dimen/_19pxv"
+                    android:ellipsize="end"
+                    android:onClick="CreateTest"
+                    android:gravity="center"
+                    android:paddingStart="@dimen/_30pxh"
+                    android:paddingTop="@dimen/_16pxv"
+                    android:paddingEnd="@dimen/_30pxh"
+                    android:layout_marginEnd="@dimen/_10pxv"
+                    android:paddingBottom="@dimen/_16pxv"
+                    android:singleLine="true"
+                    android:layout_gravity="center"
+                    android:text="@string/lbl_create_test"
+                    android:textAllCaps="false"
+                    tools:text="@string/lbl_create_test" />
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/textInputLayoutStyle"
+                    android:id="@+id/til_complaint_writing_pin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="5dp"
+                    android:hint="Job Title"
+                    >
+
+                    <EditText
+                        android:id="@+id/et_job_title"
+                        android:layout_width="fill_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="10dp"
+                        android:importantForAutofill="noExcludeDescendants"
+                        android:maxLines="1"
+                        android:paddingLeft="5dp"
+                        android:singleLine="true" />
+
+
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/textInputLayoutStyle"
+                    android:id="@+id/til_register_complaint"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_200pxh"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginBottom="25dp"
+                    app:counterMaxLength="300"
+                    app:counterEnabled="true"
+                    android:hint="@string/msg_describe_company"
+                    >
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_job_description"
+                        android:layout_width="fill_parent"
+                        android:inputType="textMultiLine"
+                        android:layout_height="160dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:textAlignment="textStart"
+                        android:maxLength="300"
+                        android:paddingLeft="5dp"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <Spinner
+                    android:id="@+id/spn_company"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_50pxh"
+                    android:textSize="5dp"
+                    android:layout_marginTop="5dp"
+                    android:entries="@array/arr_complaint_type"
+                    android:background="@drawable/spinner_background" />
+
+
+                <Spinner
+                    android:id="@+id/spn_location"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_50pxh"
+                    android:textSize="5dp"
+                    android:layout_marginTop="5dp"
+                    android:entries="@array/arr_locations"
+                    android:background="@drawable/spinner_background" />
+                <Spinner
+                    android:id="@+id/spn_sallery"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_50pxh"
+                    android:textSize="5dp"
+                    android:layout_marginTop="5dp"
+                    android:entries="@array/arr_sallery"
+                    android:background="@drawable/spinner_background" />
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/textInputLayoutStyle"
+                    android:id="@+id/til_application_deadline"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp">
+
+                    <EditText
+                        android:id="@+id/et_application_deadline"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:hint="Select Application Deadline"
+                        android:inputType="none"
+                        android:focusableInTouchMode="true"
+                        android:maxLength="90"
+                        android:cursorVisible="false"
+                        android:focusable="false"
+                        android:tag="possession_date" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/PostJob"
+                    style="@style/btnSolidRounded_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_5pxh"
+                    android:layout_marginTop="@dimen/_13pxv"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:paddingStart="@dimen/_30pxh"
+                    android:paddingTop="@dimen/_16pxv"
+                    android:paddingEnd="@dimen/_30pxh"
+                    android:paddingBottom="@dimen/_16pxv"
+                    android:singleLine="true"
+                    android:text="@string/lbl_next2"
+                    android:layout_marginBottom="@dimen/_50pxh"
+                    android:textAllCaps="false"
+                    tools:text="@string/lbl_next2" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

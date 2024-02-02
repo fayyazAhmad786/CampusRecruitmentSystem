@@ -39,6 +39,8 @@ dependencies {
     implementation 'com.github.mukeshsolanki:android-otpview-pinview:2.1.2'
     implementation "com.airbnb.android:lottie:3.4.0"
     implementation 'androidx.fragment:fragment:1.4.0'
+    implementation 'com.github.hkk595:Resizer:v1.5'
+
 
 
 }
