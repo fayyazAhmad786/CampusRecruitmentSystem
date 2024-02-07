@@ -40,6 +40,9 @@ dependencies {
     implementation "com.airbnb.android:lottie:3.4.0"
     implementation 'androidx.fragment:fragment:1.4.0'
     implementation 'com.github.hkk595:Resizer:v1.5'
+    implementation 'com.google.code.gson:gson:2.8.7'
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+
 
 
 

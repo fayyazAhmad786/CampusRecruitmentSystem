@@ -241,85 +241,91 @@ public class SignupScreen extends AppCompatActivity {
 
         }
 
-        if (!first_name.equalsIgnoreCase("")) {
-            if (android.util.Patterns.EMAIL_ADDRESS.matcher(emailAddress).matches()) {
-                if (!profession.equalsIgnoreCase("")){
+        if (imageok){
+            if (!first_name.equalsIgnoreCase("")) {
+                if (android.util.Patterns.EMAIL_ADDRESS.matcher(emailAddress).matches()) {
+                    if (!profession.equalsIgnoreCase("")){
 
-                    if (!password.equalsIgnoreCase("")) {
-                        if (!company_name.equalsIgnoreCase("")) {
-                            if (!no_of_employees.equalsIgnoreCase("")) {
-                                if (!location.equalsIgnoreCase("Select Location")) {
-                                    RegisterGetterSetter.setSignUp_Type(SignupType);
-                                    RegisterGetterSetter.setFirst_name(first_name);
-                                    RegisterGetterSetter.setEmail_address(emailAddress);
-                                    RegisterGetterSetter.setLocation(location);
-                                    RegisterGetterSetter.setCompany_name(company_name);
-                                    RegisterGetterSetter.setNo_of_employees(no_of_employees);
-                                    RegisterGetterSetter.setPassword(password);
-                                    RegisterGetterSetter.setProfession(profession);
+                        if (!password.equalsIgnoreCase("")) {
+                            if (!company_name.equalsIgnoreCase("")) {
+                                if (!no_of_employees.equalsIgnoreCase("")) {
+                                    if (!location.equalsIgnoreCase("Select Location")) {
+                                        RegisterGetterSetter.setSignUp_Type(SignupType);
+                                        RegisterGetterSetter.setFirst_name(first_name);
+                                        RegisterGetterSetter.setEmail_address(emailAddress);
+                                        RegisterGetterSetter.setLocation(location);
+                                        RegisterGetterSetter.setCompany_name(company_name);
+                                        RegisterGetterSetter.setNo_of_employees(no_of_employees);
+                                        RegisterGetterSetter.setPassword(password);
+                                        RegisterGetterSetter.setProfession(profession);
 
 
-                                    System.out.println("first_name= " + first_name);
-                                    System.out.println("emailAddress= " + emailAddress);
-                                    System.out.println("password= " + password);
-                                    System.out.println("company_name= " + company_name);
-                                    System.out.println("no_of_employees= " + no_of_employees);
-                                    System.out.println("location= " + location);
-                                    System.out.println("profession= " + profession);
-                                    UserAlreadyRegister(emailAddress);
-                                    if (!emailAvailable){
-                                        long id = Querries.insertIntoSignUp(context);
-                                        if (id > 0) {
-                                            ViewDialog alert = new ViewDialog();
-                                            alert.showDialog(SignupScreen.this, "User Registered Successfully.!!!");//
-                                            clearAllfields();
+                                        System.out.println("first_name= " + first_name);
+                                        System.out.println("emailAddress= " + emailAddress);
+                                        System.out.println("password= " + password);
+                                        System.out.println("company_name= " + company_name);
+                                        System.out.println("no_of_employees= " + no_of_employees);
+                                        System.out.println("location= " + location);
+                                        System.out.println("profession= " + profession);
+                                        UserAlreadyRegister(emailAddress);
+                                        if (!emailAvailable){
+                                            long id = Querries.insertIntoSignUp(context);
+                                            if (id > 0) {
+                                                ViewDialog alert = new ViewDialog();
+                                                alert.showDialog(SignupScreen.this, "User Registered Successfully.!!!");//
+                                                clearAllfields();
+                                            }else {
+                                                ViewDialog alert = new ViewDialog();
+                                                alert.showDialog(SignupScreen.this, "Database Connection Problem.!!!");//
+                                            }
                                         }else {
                                             ViewDialog alert = new ViewDialog();
-                                            alert.showDialog(SignupScreen.this, "Database Connection Problem.!!!");//
+                                            alert.showDialog(SignupScreen.this, "User Already Registered Please Login.!!!");//
                                         }
-                                    }else {
-                                        ViewDialog alert = new ViewDialog();
-                                        alert.showDialog(SignupScreen.this, "User Already Registered Please Login.!!!");//
-                                    }
 
 //                        sendData();
 
-                                } else {
-                                    spn_location.requestFocus();
-                                    ViewDialog alert = new ViewDialog();
-                                    alert.showDialog(SignupScreen.this, "Please Select Location.!!!");//
+                                    } else {
+                                        spn_location.requestFocus();
+                                        ViewDialog alert = new ViewDialog();
+                                        alert.showDialog(SignupScreen.this, "Please Select Location.!!!");//
 //                                helper.dialog(context,"Please Select Location","Alert");
+                                    }
+
+                                } else {
+                                    etnoOfEmployees.setError("Enter Number of Employes");
+                                    etnoOfEmployees.requestFocus();
                                 }
 
                             } else {
-                                etnoOfEmployees.setError("Enter Number of Employes");
-                                etnoOfEmployees.requestFocus();
+                                etCompanyName.setError("Enter Company Name");
+                                etCompanyName.requestFocus();
                             }
 
                         } else {
-                            etCompanyName.setError("Enter Company Name");
-                            etCompanyName.requestFocus();
+                            etPassword.setError("invalid Password");
+                            etPassword.requestFocus();
                         }
-
-                    } else {
-                        etPassword.setError("invalid Password");
-                        etPassword.requestFocus();
+                    }else {
+                        etProfession.setError("Please Enter Professions");
+                        etProfession.requestFocus();
                     }
-                }else {
-                    etProfession.setError("Please Enter Professions");
-                    etProfession.requestFocus();
+
+                } else {
+                    etEmail.setError("invalid Email address");
+                    etEmail.requestFocus();
                 }
 
+
             } else {
-                etEmail.setError("invalid Email address");
-                etEmail.requestFocus();
+                etusername.setError("Please Enter Full Name");
+                etusername.requestFocus();
             }
-
-
-        } else {
-            etusername.setError("Please Enter Full Name");
-            etusername.requestFocus();
+        }else {
+            ViewDialog alert = new ViewDialog();
+            alert.showDialog(SignupScreen.this, "Please Select Picture.!!!");//
         }
+
     }
     private void UserAlreadyRegister(String email) {
         try {

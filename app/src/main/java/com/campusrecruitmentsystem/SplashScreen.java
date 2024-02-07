@@ -105,7 +105,7 @@ public class SplashScreen extends AppCompatActivity {
                     startActivity(intent);
                     finish();
                 } else if (hasLoggedInCompany) {
-                    Intent intent = new Intent(SplashScreen.this, TestActivity.class);
+                    Intent intent = new Intent(SplashScreen.this, HomeActivity.class);
                     startActivity(intent);
                     finish();
                 } else{

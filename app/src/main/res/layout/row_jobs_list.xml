@@ -1,36 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="@dimen/_150pxh"
+    android:layout_height="wrap_content"
+    android:layout_margin="7dp"
+    >
 
     <LinearLayout
         android:id="@+id/linearColumnjrexecutive"
         style="@style/groupStyledeep_purple_200_66cornerRadius"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/imageImageFive"
-            imageRes="@{@drawable/img_image5}"
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/img_company"
             android:layout_width="@dimen/_56pxh"
             android:layout_height="@dimen/_56pxh"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginStart="@dimen/_36pxh"
-            android:layout_marginTop="@dimen/_13pxv"
-            android:layout_marginEnd="@dimen/_36pxh"
-            android:scaleType="fitXY"
+            android:src="@drawable/img_ellipse"
+            android:layout_marginTop="@dimen/_10pxv"
+            android:layout_gravity="center"
+            android:scaleType="centerCrop"
             tools:ignore="ContentDescription"
-            tools:src="@drawable/img_image5" />
+            app:civ_border_color="#FF000000"/>
 
         <TextView
-            android:id="@+id/txtJrExecutive"
+            android:id="@+id/tv_Job_title"
             style="@style/txtPoppinssemibold14"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_36pxh"
-            android:layout_marginTop="@dimen/_2pxv"
-            android:layout_marginEnd="@dimen/_36pxh"
+            android:layout_gravity="center"
             android:ellipsize="end"
             android:gravity="center_horizontal"
             android:singleLine="true"
@@ -38,32 +41,39 @@
             tools:text="@string/lbl_jr_executive" />
 
         <TextView
-            android:id="@+id/txtPinterest"
+            android:id="@+id/tv_company_name"
             style="@style/txtPoppinsregular12"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginStart="@dimen/_36pxh"
             android:layout_marginTop="@dimen/_2pxv"
-            android:layout_marginEnd="@dimen/_36pxh"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="@string/lbl_pinterest"
+            tools:text="@string/lbl_pinterest" />
+        <TextView
+            android:id="@+id/tv_location"
+            style="@style/txtPoppinsregular12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/_2pxv"
             android:ellipsize="end"
             android:singleLine="true"
             android:text="@string/lbl_pinterest"
             tools:text="@string/lbl_pinterest" />
 
         <TextView
-            android:id="@+id/txtPrice"
+            android:id="@+id/tv_salery_range"
             style="@style/txtPoppinsmedium12"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginStart="@dimen/_36pxh"
             android:layout_marginTop="@dimen/_8pxv"
-            android:layout_marginEnd="@dimen/_36pxh"
             android:layout_marginBottom="@dimen/_22pxv"
             android:ellipsize="end"
             android:singleLine="true"
             android:text="@string/lbl_96_000_y"
             tools:text="@string/lbl_96_000_y" />
     </LinearLayout>
-</layout>
+</LinearLayout>

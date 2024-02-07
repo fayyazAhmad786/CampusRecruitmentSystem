@@ -66,23 +66,20 @@
                         android:layout_marginStart="@dimen/_15pxh"
                         android:layout_weight="0.92"
                         android:orientation="vertical">
-
-                        <ImageButton
-                            android:id="@+id/btnFacebook"
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/img_quiz"
                             android:layout_width="@dimen/_80pxh"
                             android:layout_height="@dimen/_80pxh"
-                            android:layout_gravity="center_horizontal"
-                            android:layout_marginStart="@dimen/_59pxh"
-                            android:layout_marginEnd="@dimen/_59pxh"
-                            android:background="@drawable/rectangle_bg_white_a700_radius_40"
-                            android:paddingHorizontal="@dimen/_20pxh"
-                            android:paddingVertical="@dimen/_20pxv"
-                            android:scaleType="fitCenter"
-                            android:src="@drawable/img_facebook_deep_purple_300"
-                            tools:ignore="ContentDescription" />
+                            android:src="@drawable/img_ellipse"
+                            android:layout_marginTop="@dimen/_10pxv"
+                            android:layout_gravity="center"
+                            android:scaleType="centerCrop"
+                            tools:ignore="ContentDescription"
+                            app:civ_border_color="#FF000000"/>
+
 
                         <TextView
-                            android:id="@+id/txtSoftwareEngine"
+                            android:id="@+id/tv_Job_title_quiz"
                             style="@style/txtAbhayaLibreMediumabhayalibremedium20"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -96,7 +93,7 @@
                             tools:text="@string/msg_software_engine" />
 
                         <TextView
-                            android:id="@+id/txtFacebookOne"
+                            android:id="@+id/tv_company_name_quiz"
                             style="@style/txtAbhayaLibreMediumabhayalibremedium15"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -113,11 +110,11 @@
                             android:id="@+id/linearRowprice"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/_66pxv"
+                            android:layout_marginTop="@dimen/_56pxv"
                             android:orientation="horizontal">
 
                             <TextView
-                                android:id="@+id/txtPrice"
+                                android:id="@+id/tv_salery_range_quiz"
                                 style="@style/txtPoppinssemibold16_2"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
@@ -129,7 +126,7 @@
                                 tools:text="@string/lbl_180_00_year" />
 
                             <TextView
-                                android:id="@+id/txtSeattleUSA"
+                                android:id="@+id/tv_job_location_quiz"
                                 style="@style/txtPoppinssemibold16_2"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
@@ -143,23 +140,12 @@
                         </LinearLayout>
                     </LinearLayout>
 
-                    <ImageView
-                        android:id="@+id/imageBookmark"
-                        android:layout_width="@dimen/_17pxh"
-                        android:layout_height="@dimen/_19pxh"
-                        android:layout_marginStart="@dimen/_6pxh"
-                        android:layout_marginTop="@dimen/_1pxv"
-                        android:layout_marginBottom="@dimen/_206pxv"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/img_bookmark_white_a700"
-                        tools:ignore="ContentDescription"
-                        tools:src="@drawable/img_bookmark_white_a700" />
                 </LinearLayout>
             </FrameLayout>
 
 
             <TextView
-                android:id="@+id/txtDescriptionOne"
+                android:id="@+id/tv_job_description_quiz"
                 style="@style/txtAbhayaLibreSemiBoldabhayalibresemibold11"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -182,6 +168,7 @@
                 android:ellipsize="end"
                 android:onClick="clickFunction"
                 android:gravity="center"
+                android:layout_gravity="bottom"
                 android:paddingStart="@dimen/_30pxh"
                 android:paddingTop="@dimen/_16pxv"
                 android:paddingEnd="@dimen/_30pxh"

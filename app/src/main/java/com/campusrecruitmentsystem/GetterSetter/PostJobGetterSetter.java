@@ -30,6 +30,16 @@ public class PostJobGetterSetter {
 
     private static String companyEmail="";
     private static String companyname="";
+
+    public static String getProfile_pic_company() {
+        return profile_pic_company;
+    }
+
+    public static void setProfile_pic_company(String profile_pic_company) {
+        PostJobGetterSetter.profile_pic_company = profile_pic_company;
+    }
+
+    private static String profile_pic_company="";
     public static String getQuestions() {
         return questions;
     }

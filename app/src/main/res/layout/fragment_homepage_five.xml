@@ -211,7 +211,7 @@
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 tools:itemCount="2"
-                tools:listitem="@layout/row_listjrexecutive" />
+                tools:listitem="@layout/row_jobs_list" />
 
             <LinearLayout
                 android:id="@+id/linearRowpopularjobs"

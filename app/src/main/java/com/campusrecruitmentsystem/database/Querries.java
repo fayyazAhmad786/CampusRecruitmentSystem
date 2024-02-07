@@ -50,6 +50,7 @@ public class Querries {
             ContentValues values = new ContentValues();
 
 
+            values.put("test", PostJobGetterSetter.getQuestions());
             values.put("company_email", PostJobGetterSetter.getCompanyEmail());
             values.put("company_name", PostJobGetterSetter.getCompanyname());
             values.put("job_title", PostJobGetterSetter.getJobTitle());
@@ -58,7 +59,10 @@ public class Querries {
             values.put("company_location", PostJobGetterSetter.getJobLocation());
             values.put("sallery_range", PostJobGetterSetter.getJobSallery());
             values.put("application_deadline", PostJobGetterSetter.getJobDeadline());
-//            values.put("company_profile_pic", RegisterGetterSetter.getProfession());
+            values.put("company_profile_pic", PostJobGetterSetter.getProfile_pic_company());
+            values.put("job_status", "active");
+            values.put("user_applied", "no");
+            values.put("hired", "no");
 
             try {
                 _id_pk = db.insertWithOnConflict(Constants.TABLE_POSTJOBS, null, values, SQLiteDatabase.CONFLICT_REPLACE);

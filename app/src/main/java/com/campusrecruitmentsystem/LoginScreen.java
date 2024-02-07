@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.campusrecruitmentsystem.company.CreateTest;
 import com.campusrecruitmentsystem.company.HomeActivity;
@@ -83,8 +84,10 @@ public class LoginScreen extends AppCompatActivity {
             SQLiteDatabase db = DataBaseSQlite.connectToDb(context);
 
             String full_name= "";
+            String company_name= "";
+            String profile_pic= "";
 
-            String query = "select distinct email,password,login_type,full_name from tbl_signup WHERE email='"+Email+"' AND password='"+Password+"'  ";
+            String query = "select distinct email,password,login_type,full_name,profile_pic,company_name from tbl_signup WHERE email='"+Email+"' AND password='"+Password+"'  ";
             System.out.println("query= "+query);
 
 
@@ -98,6 +101,8 @@ public class LoginScreen extends AppCompatActivity {
                     Password = cur.getString(cur.getColumnIndexOrThrow("password"));
                     login_type = cur.getString(cur.getColumnIndexOrThrow("login_type"));
                     full_name = cur.getString(cur.getColumnIndexOrThrow("full_name"));
+                    company_name = cur.getString(cur.getColumnIndexOrThrow("company_name"));
+                    profile_pic = cur.getString(cur.getColumnIndexOrThrow("profile_pic"));
                 }
                 cur.close();
                 db.close();
@@ -116,11 +121,14 @@ public class LoginScreen extends AppCompatActivity {
                         editor_profile.commit();
                         finish();
                     }else if (login_type.equalsIgnoreCase("company")){
+                        System.out.println("Company_name= "+company_name);
+                        Toast.makeText(context,"Company_name= "+company_name,Toast.LENGTH_SHORT).show();
                         Intent intent= new Intent(LoginScreen.this, HomeActivity.class);
                         startActivity(intent);
                         editor.putBoolean("hasLoggedInCompany", true);
                         editor_profile.putString("emailcompany", Email);
-                        editor_profile.putString("fullNamecompany", full_name);
+                        editor_profile.putString("fullNamecompany", company_name);
+                        editor_profile.putString("profile_pic_company", profile_pic);
                         editor.commit();
                         editor_profile.commit();
                         finish();

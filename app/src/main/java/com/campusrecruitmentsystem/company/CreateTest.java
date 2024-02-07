@@ -10,7 +10,6 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.BoringLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,7 +39,7 @@ public class CreateTest extends AppCompatActivity {
     private OptionAdapter adapter;
     private Boolean allOk= false;
     JSONArray jsonArray;
-    JSONObject jsonObject;
+    JSONObject jsonObjectQuestion;
     Context context;
     TextView tv_question_no;
     ImageView imageArrowleft;
@@ -100,11 +99,19 @@ public class CreateTest extends AppCompatActivity {
             public void onClick(View v) {
                 if (allOk){
                     try {
-                        jsonObject = new JSONObject();
+                        jsonObjectQuestion = new JSONObject();
                         String  question = et_complaint_writing_pin.getText().toString().trim();
-                        jsonObject.put("first_question",question);
-                        jsonObject.put("first_question_options",options);
-                        jsonArray.put(jsonObject);
+                        jsonObjectQuestion.put("questions",question);
+                        String optionsAsString = String.join(", ", options);
+
+                        jsonObjectQuestion.put("question_options",optionsAsString);
+                        jsonArray.put(jsonObjectQuestion);
+                        System.out.println("question_options = "+optionsAsString);
+                        System.out.println("question_options2 = "+jsonArray.toString());
+
+//                        Toast.makeText(context,"jsonArray="+jsonArray,Toast.LENGTH_LONG).show();
+
+
                         int size= 0;
                         size = jsonArray.length();
                         String sizeAsString = String.valueOf(size);
@@ -132,6 +139,9 @@ public class CreateTest extends AppCompatActivity {
             public void onClick(View v) {
                 if (jsonArray.length()>=1){
                     if (jsonArray.length() >= 5) {
+                          Toast.makeText(context,"jsonArray="+jsonArray,Toast.LENGTH_LONG).show();
+                          System.out.println("jsonArray= "+jsonArray);
+
                         Intent intent = new Intent(context, PostJob.class);
                         intent.putExtra("jsonArray", jsonArray.toString()); // Convert JSON array to string and pass it as an extra
                         startActivity(intent);

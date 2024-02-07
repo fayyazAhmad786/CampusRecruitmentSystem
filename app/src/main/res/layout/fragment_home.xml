@@ -176,7 +176,7 @@
                 <TextView
                     android:id="@+id/txtFeaturedJobs"
                     style="@style/txtPoppinssemibold16"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.75"
                     android:ellipsize="end"
@@ -184,23 +184,11 @@
                     android:text="@string/lbl_featured_jobs"
                     tools:text="@string/lbl_featured_jobs" />
 
-                <TextView
-                    android:id="@+id/txtSeeall"
-                    style="@style/txtAbhayaLibreSemiBoldabhayalibresemibold14"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_171pxh"
-                    android:layout_marginTop="@dimen/_1pxv"
-                    android:layout_marginBottom="@dimen/_6pxv"
-                    android:layout_weight="0.25"
-                    android:ellipsize="end"
-                    android:singleLine="true"
-                    android:text="@string/lbl_see_all"
-                    tools:text="@string/lbl_see_all" />
+
             </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerListjrexecutive"
+                android:id="@+id/recycler_jobs"
                 itemSpace="@dimen/_15pxh"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -208,14 +196,14 @@
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 tools:itemCount="2"
-                tools:listitem="@layout/row_listjrexecutive" />
+                tools:listitem="@layout/row_jobs_list" />
 
             <LinearLayout
                 android:id="@+id/linearRowpopularjobs"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_2pxh"
-                android:layout_marginTop="@dimen/_40pxv"
+                android:layout_marginTop="@dimen/_20pxv"
                 android:layout_marginEnd="@dimen/_10pxh"
                 android:gravity="start"
                 android:orientation="horizontal">
@@ -231,31 +219,16 @@
                     android:text="@string/lbl_popular_jobs"
                     tools:text="@string/lbl_popular_jobs" />
 
-                <TextView
-                    android:id="@+id/txtSeeallOne"
-                    style="@style/txtPoppinsregular13"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_160pxh"
-                    android:layout_marginTop="@dimen/_1pxv"
-                    android:layout_marginBottom="@dimen/_3pxv"
-                    android:layout_weight="0.29"
-                    android:ellipsize="end"
-                    android:singleLine="true"
-                    android:text="@string/lbl_see_all"
-                    tools:text="@string/lbl_see_all" />
+
             </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerListthumbsupOne"
-                itemSpace="@{@dimen/_17pxh}"
+                android:id="@+id/recyclerViewFeaturedJobs"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_16pxv"
                 android:orientation="vertical"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                tools:itemCount="2"
-                tools:listitem="@layout/row_listthumbsup_one" />
+                tools:listitem="@layout/row_jobs_list_2" />
         </LinearLayout>
     </FrameLayout>
 </FrameLayout>

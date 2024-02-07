@@ -88,6 +88,7 @@ public class PostJob extends AppCompatActivity {
                     SharedPreferences settings_profile = getSharedPreferences(PREFS_NAME_PROFILE, 0); // 0 - for private mode
                     String emailcompany = settings_profile.getString("emailcompany", ""); // Provide default value if the key is not found
                     String fullNamecompany = settings_profile.getString("fullNamecompany", ""); // Provide default value if the key is not found
+                    String profile_pic_company = settings_profile.getString("profile_pic_company", ""); // Provide default value if the key is not found
 
                     String JobTitle = et_job_title.getText().toString();
                     String JobDescription = et_job_description.getText().toString();
@@ -98,6 +99,7 @@ public class PostJob extends AppCompatActivity {
 
                     Intent intent = getIntent();
                     jsonArrayAsString = intent.getStringExtra("jsonArray");
+                    Toast.makeText(context,""+jsonArrayAsString,Toast.LENGTH_SHORT).show();
                     if (!jsonArrayAsString.equalsIgnoreCase("empty")){
                         if (!JobTitle.isEmpty()){
                             if (!JobDescription.isEmpty()){
@@ -115,6 +117,7 @@ public class PostJob extends AppCompatActivity {
                                                 PostJobGetterSetter.setJobDeadline(JobDeadline);
                                                 PostJobGetterSetter.setCompanyname(fullNamecompany);
                                                 PostJobGetterSetter.setCompanyEmail(emailcompany);
+                                                PostJobGetterSetter.setProfile_pic_company(profile_pic_company);
 
 
 
