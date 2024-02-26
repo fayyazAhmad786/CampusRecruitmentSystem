@@ -400,7 +400,7 @@ or
     <string name="lbl_experience">Experience</string>
     <string name="lbl_full_name">Full Name</string>
     <string name="lbl_start_quiz">START Quiz</string>
-    <string name="lbl_get_started_quiz">Get Started</string>
+    <string name="lbl_get_started_quiz">Apply</string>
     <string name="msg_please_enter_valid_email">Please enter valid email</string>
     <string name="msg_please_enter_valid_pa">Please enter valid password</string>
     <!-- TODO: Remove or change this placeholder text -->

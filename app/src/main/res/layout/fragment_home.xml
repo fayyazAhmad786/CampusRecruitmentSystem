@@ -136,27 +136,54 @@
                         tools:ignore="ContentDescription"
                         tools:src="@drawable/img_rewind" />
 
-                    <TextView
-                        android:id="@+id/txtSearchajobor"
-                        style="@style/txtPoppinsregular15"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_12pxh"
-                        android:layout_marginTop="@dimen/_14pxv"
-                        android:layout_marginEnd="@dimen/_35pxh"
-                        android:layout_marginBottom="@dimen/_10pxv"
-                        android:layout_weight="0.92"
-                        android:ellipsize="end"
-                        android:singleLine="true"
-                        android:text="@string/msg_search_a_job_or"
-                        tools:text="@string/msg_search_a_job_or" />
+<!--                    <TextView-->
+<!--                        android:id="@+id/txtSearchajobor"-->
+<!--                        style="@style/txtPoppinsregular15"-->
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginStart="@dimen/_12pxh"-->
+<!--                        android:layout_marginTop="@dimen/_14pxv"-->
+<!--                        android:layout_marginEnd="@dimen/_35pxh"-->
+<!--                        android:layout_marginBottom="@dimen/_10pxv"-->
+<!--                        android:layout_weight="0.92"-->
+<!--                        android:ellipsize="end"-->
+<!--                        android:singleLine="true"-->
+<!--                        android:text="@string/msg_search_a_job_or"-->
+<!--                        tools:text="@string/msg_search_a_job_or" />-->
+          
+                        <AutoCompleteTextView
+                            android:id="@+id/et_serial_number"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:ems="10"
+                            android:hint="@string/msg_search_a_job_or"
+                            android:imeOptions="actionSearch"
+                            android:inputType="text"
+                            android:maxLength="30"
+                            android:singleLine="true"
+                            android:textSize="11sp"
+                            android:tag="q6_pin"
+                            android:textColor="#000"
+                            android:textStyle="bold|italic" />
+
                 </LinearLayout>
 
+                <ImageButton
+                    android:id="@+id/btncross"
+                    android:layout_width="@dimen/_48pxh"
+                    android:layout_height="@dimen/_48pxh"
+                    android:layout_marginStart="@dimen/_6pxh"
+                    android:background="@drawable/rectangle_bg_bluegray_50_radius_12"
+                    android:paddingHorizontal="@dimen/_7pxh"
+                    android:paddingVertical="@dimen/_7pxh"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_cancel"
+                    tools:ignore="ContentDescription" />
                 <ImageButton
                     android:id="@+id/btnThumbsup"
                     android:layout_width="@dimen/_48pxh"
                     android:layout_height="@dimen/_48pxh"
-                    android:layout_marginStart="@dimen/_16pxh"
+                    android:layout_marginStart="@dimen/_6pxh"
                     android:background="@drawable/rectangle_bg_bluegray_50_radius_12"
                     android:paddingHorizontal="@dimen/_15pxh"
                     android:paddingVertical="@dimen/_15pxv"

@@ -14,7 +14,9 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.campusrecruitmentsystem.LoginScreen;
 import com.campusrecruitmentsystem.R;
+import com.campusrecruitmentsystem.helperClases.ViewDialog;
 
 import java.io.File;
 
@@ -55,7 +57,7 @@ public class QuizScreen2 extends AppCompatActivity {
         tv_job_description_quiz.setText(job_description);
         showImage(company_profile_pic);
         System.out.println("test1111222= "+test);
-        Toast.makeText(context,"test=" +test,Toast.LENGTH_SHORT).show();
+//        Toast.makeText(context,"test=" +test,Toast.LENGTH_SHORT).show();
 
 
     }
@@ -71,9 +73,12 @@ public class QuizScreen2 extends AppCompatActivity {
     }
 
     public void clickFunction(View view) {
-        Intent intent = new Intent(QuizScreen2.this,SubmitQuiz.class);
-        intent.putExtra("test",test);
-        startActivity(intent);
+//        Intent intent = new Intent(QuizScreen2.this,SubmitQuiz.class);
+//        intent.putExtra("test",test);
+//        startActivity(intent);
+
+        ViewDialog alert = new ViewDialog();
+        alert.showDialog(QuizScreen2.this,"Applied to this Job Please Move back to View More Jobs");
     }
     private void showImage(String imageName){
         try {
