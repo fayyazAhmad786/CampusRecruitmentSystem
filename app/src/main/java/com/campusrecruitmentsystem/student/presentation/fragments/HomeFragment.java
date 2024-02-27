@@ -346,10 +346,13 @@ public class HomeFragment extends Fragment {
             String sallery_range= "";
             String job_description= "";
             String test= "";
+            String company_email= "";
+            String company_type= "";
+            String application_deadline= "";
 
         SQLiteDatabase db = DataBaseSQlite.connectToDb(getActivity());
 
-        String query = "select distinct company_location,job_title,company_name,sallery_range,company_profile_pic,job_description,test from tbl_Jobs WHERE job_status='active' AND _id_pk = '"+position+"'  ";
+        String query = "select distinct company_email,company_location,company_type,job_title,company_name,application_deadline,sallery_range,company_profile_pic,job_description,test from tbl_Jobs WHERE job_status='active' AND _id_pk = '"+position+"'  ";
         System.out.println("query= " + query);
 
 
@@ -359,19 +362,28 @@ public class HomeFragment extends Fragment {
         if (counted > 0) {
             while (cur.moveToNext()) {
 
-                company_location = cur.getString(cur.getColumnIndexOrThrow("company_location"));
-                job_title = cur.getString(cur.getColumnIndexOrThrow("job_title"));
+
+                company_email = cur.getString(cur.getColumnIndexOrThrow("company_email"));
                 company_name = cur.getString(cur.getColumnIndexOrThrow("company_name"));
-                company_profile_pic = cur.getString(cur.getColumnIndexOrThrow("company_profile_pic"));
-                sallery_range = cur.getString(cur.getColumnIndexOrThrow("sallery_range"));
+                job_title = cur.getString(cur.getColumnIndexOrThrow("job_title"));
                 job_description = cur.getString(cur.getColumnIndexOrThrow("job_description"));
+                company_type = cur.getString(cur.getColumnIndexOrThrow("company_type"));
+                company_location = cur.getString(cur.getColumnIndexOrThrow("company_location"));
+                sallery_range = cur.getString(cur.getColumnIndexOrThrow("sallery_range"));
+                application_deadline = cur.getString(cur.getColumnIndexOrThrow("application_deadline"));
+                company_profile_pic = cur.getString(cur.getColumnIndexOrThrow("company_profile_pic"));
                 test = cur.getString(cur.getColumnIndexOrThrow("test"));
+
 
             }
             cur.close();
             db.close();
 
             Intent intent = new Intent(getActivity(), QuizScreen2.class);
+            intent.putExtra("company_email",company_email);
+            intent.putExtra("company_type",company_type);
+            intent.putExtra("application_deadline",application_deadline);
+
             intent.putExtra("company_location",company_location);
             intent.putExtra("job_title",job_title);
             intent.putExtra("company_name",company_name);

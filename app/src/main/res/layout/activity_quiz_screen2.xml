@@ -153,9 +153,90 @@
                 android:layout_marginTop="@dimen/_23pxv"
                 android:layout_marginEnd="@dimen/_24pxh"
                 android:gravity="center_horizontal"
+                android:visibility="gone"
                 android:lineSpacingExtra="@dimen/_11pxh"
                 android:text="@string/msg_we_are_the_team"
                 tools:text="@string/msg_we_are_the_team" />
+            <LinearLayout
+                android:id="@+id/linearColumnuploadyourcv"
+                style="@style/groupStylecornerRadius_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_24pxh"
+                android:layout_marginTop="@dimen/_22pxv"
+                android:layout_marginEnd="@dimen/_24pxh"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txtUploadyourCV"
+                    style="@style/txtPoppinsmedium13"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_32pxh"
+                    android:layout_marginTop="@dimen/_41pxv"
+                    android:layout_marginEnd="@dimen/_32pxh"
+                    android:gravity="center_horizontal"
+                    android:text="@string/msg_upload_your_cv"
+                    tools:text="@string/msg_upload_your_cv" />
+
+                <LinearLayout
+                    android:id="@+id/linearColumnuploadADocdocxpdf"
+                    style="@style/groupStylecornerRadius_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_32pxh"
+                    android:layout_marginTop="@dimen/_30pxv"
+                    android:layout_marginEnd="@dimen/_32pxh"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnUploadADocdocxpdf"
+                        style="@style/btnSolidRounded_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:ellipsize="end"
+                        android:gravity="center"
+                        android:paddingStart="@dimen/_30pxh"
+                        android:paddingTop="@dimen/_26pxv"
+                        android:paddingEnd="@dimen/_30pxh"
+                        android:paddingBottom="@dimen/_26pxv"
+                        android:singleLine="true"
+                        android:text="@string/msg_upload_a_doc_do"
+                        android:textAllCaps="false"
+                        tools:text="@string/msg_upload_a_doc_do" />
+                </LinearLayout>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnUpload"
+                    style="@style/btnSolidRounded_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_64pxh"
+                    android:layout_marginTop="@dimen/_32pxv"
+                    android:layout_marginEnd="@dimen/_64pxh"
+                    android:layout_marginBottom="@dimen/_20pxv"
+                    android:ellipsize="end"
+                    android:onClick="resumeupload"
+                    android:gravity="center"
+                    android:paddingStart="@dimen/_30pxh"
+                    android:paddingTop="@dimen/_16pxv"
+                    android:paddingEnd="@dimen/_30pxh"
+                    android:paddingBottom="@dimen/_16pxv"
+                    android:singleLine="true"
+                    android:text="@string/lbl_upload"
+                    android:textAllCaps="false"
+                    tools:text="@string/lbl_upload" />
+
+                <ImageView
+                    android:id="@+id/img_doc_uploaded"
+                    android:layout_width="@dimen/_50pxh"
+                    android:layout_height="@dimen/_50pxh"
+                    android:layout_marginBottom="@dimen/_20pxv"
+                    android:src="@drawable/tick"
+                    android:visibility="gone"
+                    android:layout_gravity="center"/>
+            </LinearLayout>
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnGetStartedQuiz"

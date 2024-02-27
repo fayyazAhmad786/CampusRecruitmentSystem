@@ -4,6 +4,7 @@
     <string name="db_folder">Campus Recruitment System</string>
     <string name="db_name">Campus Recruitment System/database</string>
     <string name="db_folder_images">Campus Recruitment System/images</string>
+    <string name="db_folder_resume">Campus Recruitment System/resume</string>
 
 
     <string name="loading">Loading…</string>

@@ -216,6 +216,8 @@ public class SignupScreen extends AppCompatActivity {
         etnoOfEmployees.setText("");
         etProfession.setText("");
         imageProfile.setImageResource(R.drawable.img_ellipse);
+        imageok = false;
+
 
 
     }
