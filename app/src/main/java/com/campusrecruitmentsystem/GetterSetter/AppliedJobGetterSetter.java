@@ -11,6 +11,26 @@ public class AppliedJobGetterSetter {
     private static String jobLocation="";
     private static String jobSallery="";
     private static String jobDeadline="";
+
+    public static String getJob_id() {
+        return job_id;
+    }
+
+    public static void setJob_id(String job_id) {
+        AppliedJobGetterSetter.job_id = job_id;
+    }
+
+    private static String job_id="";
+    private static String _id_pk="";
+
+    public static String get_id_pk() {
+        return _id_pk;
+    }
+
+    public static void set_id_pk(String _id_pk) {
+        AppliedJobGetterSetter._id_pk = _id_pk;
+    }
+
     private static String userResume="";
     private static String JobTest="";
     private static String UserApplied="";

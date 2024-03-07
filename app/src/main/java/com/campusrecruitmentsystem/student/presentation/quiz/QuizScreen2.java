@@ -47,6 +47,7 @@ public class QuizScreen2 extends AppCompatActivity {
     String company_email= "";
     String company_type= "";
     String application_deadline= "";
+    String job_id= "";
     private CircleImageView img_quiz;
    private TextView  tv_Job_title_quiz,tv_company_name_quiz,tv_salery_range_quiz,tv_job_location_quiz,tv_job_description_quiz;
    private  Button btnGetStartedQuiz;
@@ -71,6 +72,7 @@ public class QuizScreen2 extends AppCompatActivity {
         company_email = getIntent().getStringExtra("company_email");
         company_type = getIntent().getStringExtra("company_type");
         application_deadline = getIntent().getStringExtra("application_deadline");
+        job_id = getIntent().getStringExtra("job_id");
 
         AppliedJobGetterSetter.setJobLocation(company_location);
         AppliedJobGetterSetter.setJobTitle(job_title);
@@ -82,6 +84,7 @@ public class QuizScreen2 extends AppCompatActivity {
         AppliedJobGetterSetter.setCompanyEmail(company_email);
         AppliedJobGetterSetter.setJobCompanyType(company_type);
         AppliedJobGetterSetter.setJobDeadline(application_deadline);
+        AppliedJobGetterSetter.setJob_id(job_id);
 
 
          tv_Job_title_quiz.setText(job_title);
@@ -96,53 +99,70 @@ public class QuizScreen2 extends AppCompatActivity {
 
     }
 
-    private void CheckAppliedJobs(String emailStudent,String full_name,String profile_pic) {
+    private void CheckAppliedJobs(String emailStudent,String full_name,String profile_pic,String job_id) {
         String job_titlee= "";
         String company_emaill= "";
+        String user_applied= "";
 
         SQLiteDatabase db = DataBaseSQlite.connectToDb(context);
 
-        String query = "select distinct job_title,company_email from tbl_Jobs_applied WHERE user_applied='"+emailStudent+"'  ";
+//        String query = "select distinct job_title,company_email,user_applied from tbl_Jobs_applied WHERE user_applied='"+emailStudent+"'  ";
+        String query = "select distinct job_title,company_email,user_applied from tbl_Jobs_applied WHERE job_id='"+job_id+"' AND user_applied LIKE '"+emailStudent+"'  ";
         System.out.println("query= " + query);
 
 
         Cursor cur = db.rawQuery(query, null);
         int counted = cur.getCount();
         System.out.println("counteddd= " + counted);
-        if (counted < 1) {
+        if (counted > 0) {
             while (cur.moveToNext()) {
-
 
                 company_emaill = cur.getString(cur.getColumnIndexOrThrow("company_email"));
                 job_titlee = cur.getString(cur.getColumnIndexOrThrow("job_title"));
+                user_applied = cur.getString(cur.getColumnIndexOrThrow("user_applied"));
 
             }
             cur.close();
             db.close();
 
-            if (company_emaill != null && job_titlee != null){
-                AppliedJobGetterSetter.setUserApplied(emailStudent);
-                AppliedJobGetterSetter.setUserResume(fileName);
-                AppliedJobGetterSetter.setStudentFullName(full_name);
-                AppliedJobGetterSetter.setStudentProfilePic(profile_pic);
-                long id = Querries.insertIntoJobApplied(context);
-                if (id > 0) {
-                    ViewDialog alert = new ViewDialog();
-                    alert.showDialog(QuizScreen2.this, "You Have Applied To Job Successfully.!!!");//
 
-                }else {
-                    ViewDialog alert = new ViewDialog();
-                    alert.showDialog(QuizScreen2.this, "Database Connection Problem.!!!");//
-                }
-            }else {
-                ViewDialog alert = new ViewDialog();
-                alert.showDialog(QuizScreen2.this,"You Have Already Applied To This Job");
-            }
+            ViewDialog alert = new ViewDialog();
+            alert.showDialog(QuizScreen2.this,"You Have Already Applied To This Job 1");
+//            if (company_emaill != null && job_titlee != null){
+//                AppliedJobGetterSetter.setUserApplied(emailStudent);
+//                AppliedJobGetterSetter.setUserResume(fileName);
+//                AppliedJobGetterSetter.setStudentFullName(full_name);
+//                AppliedJobGetterSetter.setStudentProfilePic(profile_pic);
+//                long id = Querries.insertIntoJobApplied(context);
+//                if (id > 0) {
+//                    ViewDialog alert = new ViewDialog();
+//                    alert.showDialog(QuizScreen2.this, "You Have Applied To Job Successfully.!!!");//
+//
+//                }else {
+//                    ViewDialog alert = new ViewDialog();
+//                    alert.showDialog(QuizScreen2.this, "Database Connection Problem.!!!");//
+//                }
+//            }else {
+//                ViewDialog alert = new ViewDialog();
+//                alert.showDialog(QuizScreen2.this,"You Have Already Applied To This Job");
+//            }
 
 
         }else {
-            ViewDialog alert = new ViewDialog();
-            alert.showDialog(QuizScreen2.this,"You Have Already Applied To This Job");
+            AppliedJobGetterSetter.setUserApplied(emailStudent);
+            AppliedJobGetterSetter.setUserResume(fileName);
+            AppliedJobGetterSetter.setStudentFullName(full_name);
+            AppliedJobGetterSetter.setStudentProfilePic(profile_pic);
+            AppliedJobGetterSetter.setJob_id(job_id);
+            long id = Querries.insertIntoJobApplied(context);
+            if (id > 0) {
+                ViewDialog alert = new ViewDialog();
+                alert.showDialog(QuizScreen2.this, "You Have Applied To Job Successfully.!!!");//
+
+            }else {
+                ViewDialog alert = new ViewDialog();
+                alert.showDialog(QuizScreen2.this, "Database Connection Problem.!!!");//
+            }
         }
     }
 
@@ -256,13 +276,13 @@ public class QuizScreen2 extends AppCompatActivity {
             }
             cur.close();
             db.close();
-            CheckAppliedJobs(emailStudent,full_name,profile_pic);
+            CheckAppliedJobs(emailStudent,full_name,profile_pic,job_id);
 
 
 
         }else {
             ViewDialog alert = new ViewDialog();
-            alert.showDialog(QuizScreen2.this,"You Have Already Applied To This Job");
+            alert.showDialog(QuizScreen2.this,"You Have Already Applied To This Job 2");
         }
     }
 

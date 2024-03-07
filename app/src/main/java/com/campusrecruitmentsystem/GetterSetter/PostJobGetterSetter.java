@@ -40,6 +40,16 @@ public class PostJobGetterSetter {
     }
 
     private static String profile_pic_company="";
+
+    public static String getJob_id() {
+        return job_id;
+    }
+
+    public static void setJob_id(String job_id) {
+        PostJobGetterSetter.job_id = job_id;
+    }
+
+    private static String job_id="";
     public static String getQuestions() {
         return questions;
     }

@@ -22,7 +22,11 @@ import com.campusrecruitmentsystem.helperClases.ViewDialog;
 
 import org.json.JSONArray;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.UUID;
 
 public class PostJob extends AppCompatActivity {
 
@@ -118,6 +122,8 @@ public class PostJob extends AppCompatActivity {
                                                 PostJobGetterSetter.setCompanyname(fullNamecompany);
                                                 PostJobGetterSetter.setCompanyEmail(emailcompany);
                                                 PostJobGetterSetter.setProfile_pic_company(profile_pic_company);
+                                                String job_id =  getUniqueJobID(emailcompany);
+                                                PostJobGetterSetter.setJob_id(job_id);
 
 
 
@@ -206,5 +212,14 @@ public class PostJob extends AppCompatActivity {
     public void CreateTest(View view) {
         Intent  intent = new Intent(PostJob.this, CreateTest.class);
         startActivity(intent);
+    }
+    private String getUniqueJobID(String prefix) {
+        String uniqueID = (UUID.randomUUID().toString()).substring(0, 4);
+        String strDate;
+        DateFormat dateFormat = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss");
+
+        strDate = dateFormat.format(new Date()).toString() + "_" + uniqueID;
+
+        return prefix + "_" + strDate;
     }
 }

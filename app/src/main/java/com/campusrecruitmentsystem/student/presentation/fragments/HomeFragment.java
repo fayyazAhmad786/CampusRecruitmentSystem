@@ -281,9 +281,10 @@ public class HomeFragment extends Fragment {
             String company_name= "";
             String company_profile_pic= "";
             String sallery_range= "";
+            String _id_pk= "";
 
             jobAdapter =new  JobAdapter(getActivity());
-            String query = "select distinct company_location,job_title,company_name,sallery_range,company_profile_pic from tbl_Jobs WHERE job_status='active'  ";
+            String query = "select distinct company_location,job_title,company_name,sallery_range,company_profile_pic,_id_pk from tbl_Jobs WHERE job_status='active'  ";
             System.out.println("query= "+query);
 
 
@@ -298,7 +299,8 @@ public class HomeFragment extends Fragment {
                     company_name = cur.getString(cur.getColumnIndexOrThrow("company_name"));
                     company_profile_pic = cur.getString(cur.getColumnIndexOrThrow("company_profile_pic"));
                     sallery_range = cur.getString(cur.getColumnIndexOrThrow("sallery_range"));
-                    Job job = new Job(company_location, job_title, company_name,sallery_range, company_profile_pic);
+                    _id_pk = cur.getString(cur.getColumnIndexOrThrow("_id_pk"));
+                    Job job = new Job(company_location, job_title, company_name,sallery_range, company_profile_pic,_id_pk);
                     jobList.add(job);
                 }
                 cur.close();
@@ -349,10 +351,11 @@ public class HomeFragment extends Fragment {
             String company_email= "";
             String company_type= "";
             String application_deadline= "";
+            String job_id= "";
 
         SQLiteDatabase db = DataBaseSQlite.connectToDb(getActivity());
 
-        String query = "select distinct company_email,company_location,company_type,job_title,company_name,application_deadline,sallery_range,company_profile_pic,job_description,test from tbl_Jobs WHERE job_status='active' AND _id_pk = '"+position+"'  ";
+        String query = "select distinct company_email,company_location,company_type,job_title,company_name,application_deadline,sallery_range,company_profile_pic,job_description,test,job_id from tbl_Jobs WHERE job_status='active' AND _id_pk = '"+position+"'  ";
         System.out.println("query= " + query);
 
 
@@ -373,6 +376,7 @@ public class HomeFragment extends Fragment {
                 application_deadline = cur.getString(cur.getColumnIndexOrThrow("application_deadline"));
                 company_profile_pic = cur.getString(cur.getColumnIndexOrThrow("company_profile_pic"));
                 test = cur.getString(cur.getColumnIndexOrThrow("test"));
+                job_id = cur.getString(cur.getColumnIndexOrThrow("job_id"));
 
 
             }
@@ -391,6 +395,7 @@ public class HomeFragment extends Fragment {
             intent.putExtra("sallery_range",sallery_range);
             intent.putExtra("job_description",job_description);
             intent.putExtra("test",test);
+            intent.putExtra("job_id",job_id);
             startActivity(intent);
         }
     }
@@ -473,9 +478,10 @@ private void loadJobsFromDatabaseFiltered(String Filter, String selectedText) {
         String company_name= "";
         String company_profile_pic= "";
         String sallery_range= "";
+        String _id_pk= "";
 
         jobAdapter =new  JobAdapter(getActivity());
-        String query = "select distinct company_location,job_title,company_name,sallery_range,company_profile_pic from tbl_Jobs WHERE job_status='active' AND "+Filter+" = '"+selectedText+"'  ";
+        String query = "select distinct company_location,job_title,company_name,sallery_range,company_profile_pic,_id_pk from tbl_Jobs WHERE job_status='active' AND "+Filter+" = '"+selectedText+"'  ";
         System.out.println("query= "+query);
 
 
@@ -490,7 +496,8 @@ private void loadJobsFromDatabaseFiltered(String Filter, String selectedText) {
                 company_name = cur.getString(cur.getColumnIndexOrThrow("company_name"));
                 company_profile_pic = cur.getString(cur.getColumnIndexOrThrow("company_profile_pic"));
                 sallery_range = cur.getString(cur.getColumnIndexOrThrow("sallery_range"));
-                Job job = new Job(company_location, job_title, company_name,sallery_range, company_profile_pic);
+                _id_pk = cur.getString(cur.getColumnIndexOrThrow("_id_pk"));
+                Job job = new Job(company_location, job_title, company_name,sallery_range, company_profile_pic,_id_pk);
                 jobList.add(job);
             }
             cur.close();
@@ -508,9 +515,13 @@ private void loadJobsFromDatabaseFiltered(String Filter, String selectedText) {
                         // Example: Get the clicked job and show its details
                         if (job != null) {
                             // Perform action with clicked job
-                            Toast.makeText(getActivity(),"Item Clicker"+position,Toast.LENGTH_SHORT).show();
 
-                            getItemClickedData(position+1);
+                            String ps = job.get_id_pk();
+                            Toast.makeText(getActivity(),"Item Clicker"+ps,Toast.LENGTH_SHORT).show();
+
+                            int pss=Integer.parseInt(ps);
+                            //                            getItemClickedData(position+1);
+                            getItemClickedData(pss);
                         }
                     }
                 });

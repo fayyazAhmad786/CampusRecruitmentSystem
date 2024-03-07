@@ -7,12 +7,23 @@ public class Job {
     private String companyProfilePic;
     private String SalleryRange;
 
-    public Job(String companyLocation, String jobTitle, String companyName,String sallery_range, String companyProfilePic) {
+    public String get_id_pk() {
+        return _id_pk;
+    }
+
+    public void set_id_pk(String _id_pk) {
+        this._id_pk = _id_pk;
+    }
+
+    private String _id_pk;
+
+    public Job(String companyLocation, String jobTitle, String companyName,String sallery_range, String companyProfilePic,String _id_pk) {
         this.companyLocation = companyLocation;
         this.jobTitle = jobTitle;
         this.companyName = companyName;
         this.SalleryRange = sallery_range;
         this.companyProfilePic = companyProfilePic;
+        this._id_pk = _id_pk;
     }
 
     public String getSalleryRange() {

@@ -1,6 +1,7 @@
 package com.campusrecruitmentsystem.company.fragments;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
@@ -17,16 +18,10 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.campusrecruitmentsystem.R;
-import com.campusrecruitmentsystem.company.DownloadOrViewResume;
 import com.campusrecruitmentsystem.company.modules.AdapterAppliedJob;
 import com.campusrecruitmentsystem.company.modules.AppliedJobs;
 import com.campusrecruitmentsystem.database.DataBaseSQlite;
 import com.campusrecruitmentsystem.helperClases.ViewDialog;
-import com.campusrecruitmentsystem.student.modules.FeaturedJobs;
-import com.campusrecruitmentsystem.student.modules.Job;
-import com.campusrecruitmentsystem.student.modules.JobAdapter;
-import com.campusrecruitmentsystem.student.modules.JobAdapterFeaturedJob;
-import com.campusrecruitmentsystem.student.presentation.quiz.QuizScreen2;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -88,12 +83,14 @@ public class JobsFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_jobs, container, false);
         recyclerAppliedJobs= view.findViewById(R.id.recyclerAppliedJobs);
-        loadFeaturedJobsFromDatabase();
+        SharedPreferences settings_profile =  getActivity().getSharedPreferences("MyPrefsProfile", 0); // 0 - for private mode
+        String emailcompany = settings_profile.getString("emailcompany", "");
+        loadFeaturedJobsFromDatabase(emailcompany);
         return view;
     }
 
 
-    private void loadFeaturedJobsFromDatabase() {
+    private void loadFeaturedJobsFromDatabase(String emailcompany) {
         try {
 
 
@@ -108,7 +105,7 @@ public class JobsFragment extends Fragment {
 
 
             AdapterAppliedJob =new AdapterAppliedJob(getActivity());
-            String query = "select distinct student_full_name,job_title,company_location,sallery_range,student_profile_pic from tbl_Jobs_applied WHERE user_applied !='no'  ";
+            String query = "select distinct student_full_name,job_title,company_location,sallery_range,student_profile_pic from tbl_Jobs_applied WHERE user_applied !='no' AND company_email ='"+emailcompany+"'   ";
 
             System.out.println("query= "+query);
 
