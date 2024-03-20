@@ -18,8 +18,8 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.campusrecruitmentsystem.R;
-import com.campusrecruitmentsystem.company.modules.AdapterAppliedJob;
-import com.campusrecruitmentsystem.company.modules.AppliedJobs;
+import com.campusrecruitmentsystem.company.modules.AdapterPostedJob;
+import com.campusrecruitmentsystem.company.modules.PostedJobs;
 import com.campusrecruitmentsystem.database.DataBaseSQlite;
 import com.campusrecruitmentsystem.helperClases.ViewDialog;
 
@@ -39,7 +39,7 @@ public class JobsFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     private RecyclerView recyclerAppliedJobs;
-    private AdapterAppliedJob AdapterAppliedJob;
+    private AdapterPostedJob AdapterAppliedJob;
 
 
 
@@ -96,16 +96,17 @@ public class JobsFragment extends Fragment {
 
 
             SQLiteDatabase db = DataBaseSQlite.connectToDb(getActivity());
-            List<AppliedJobs> jobList = new ArrayList<>();
-            String student_full_name= "";
+            List<PostedJobs> jobList = new ArrayList<>();
+            String company_name= "";
             String job_title= "";
             String company_location= "";
             String sallery_range= "";
-            String student_profile_pic= "";
+            String company_profile_pic= "";
+            String application_deadline= "";
 
 
-            AdapterAppliedJob =new AdapterAppliedJob(getActivity());
-            String query = "select distinct student_full_name,job_title,company_location,sallery_range,student_profile_pic from tbl_Jobs_applied WHERE user_applied !='no' AND company_email ='"+emailcompany+"'   ";
+            AdapterAppliedJob =new AdapterPostedJob(getActivity());
+            String query = "select distinct student_full_name,job_title,company_location,sallery_range,student_profile_pic,company_name,application_deadline,company_profile_pic from tbl_Jobs_applied WHERE user_applied !='no' AND company_email ='"+emailcompany+"'   ";
 
             System.out.println("query= "+query);
 
@@ -116,13 +117,14 @@ public class JobsFragment extends Fragment {
             if (counted > 0) {
                 while (cur.moveToNext()) {
 
-                    student_full_name = cur.getString(cur.getColumnIndexOrThrow("student_full_name"));
+                    company_name = cur.getString(cur.getColumnIndexOrThrow("company_name"));
                     job_title = cur.getString(cur.getColumnIndexOrThrow("job_title"));
                     company_location = cur.getString(cur.getColumnIndexOrThrow("company_location"));
                     sallery_range = cur.getString(cur.getColumnIndexOrThrow("sallery_range"));
-                    student_profile_pic = cur.getString(cur.getColumnIndexOrThrow("student_profile_pic"));
+                    company_profile_pic = cur.getString(cur.getColumnIndexOrThrow("company_profile_pic"));
+                    application_deadline = cur.getString(cur.getColumnIndexOrThrow("application_deadline"));
 
-                    AppliedJobs job = new AppliedJobs(student_full_name, job_title, company_location,sallery_range, student_profile_pic);
+                    PostedJobs job = new PostedJobs(company_name, job_title, company_location,sallery_range, company_profile_pic,application_deadline);
                     jobList.add(job);
                 }
                 cur.close();
@@ -136,9 +138,9 @@ public class JobsFragment extends Fragment {
                     recyclerAppliedJobs.setAdapter(AdapterAppliedJob);
 
 
-                    AdapterAppliedJob.setOnItemClickListener(new AdapterAppliedJob.OnItemClickListener() {
+                    AdapterAppliedJob.setOnItemClickListener(new AdapterPostedJob.OnItemClickListener() {
                         @Override
-                        public void onItemClick(View view, int position, AppliedJobs job) {
+                        public void onItemClick(View view, int position, PostedJobs job) {
                             if (job != null) {
                                 // Perform action with clicked job
                                 Toast.makeText(getActivity(),"Item Clicker"+position,Toast.LENGTH_SHORT).show();

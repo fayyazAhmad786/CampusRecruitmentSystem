@@ -71,5 +71,6 @@
   <color name="highlighted_color">#FF5722</color><!--#006600 3F51B5-->
   <color name="colorPrimary">#FF5722</color><!--#006600 3F51B5-->
   <color name="colorPrimaryDark">#E64A19</color><!--#FF004800 303F9F-->
+  <color name="colorPrimaryDarkred">#8B0000</color><!--#FF004800 303F9F-->
   <color name="colorAccent">#FF5722</color><!--#006600 3F51B5-->
 </resources>

@@ -284,6 +284,7 @@ on Zoom </string>
     <string name="msg_enter_your_loca">Enter your location </string>
     <string name="lbl_an_account">an account? </string>
     <string name="lbl_candidate">Candidate</string>
+    <string name="lbl_jobs_posted">Posted Jobs</string>
     <string name="lbl_interviewed">interviewed</string>
     <string name="lbl_start_interview">start interview</string>
     <string name="msg_discover_jobs">Discover Jobs &#128293;</string>
@@ -342,6 +343,7 @@ understand it</string>
     <string name="msg_congratulations">Congratulations! Beats liked your resume and want to take an interview of you.</string>
     <string name="msg_answer_all_ques">Answer all questions correctly</string>
     <string name="lbl_burger_king">Burger King</string>
+    <string name="lbl_application_deadline">Dealine</string>
     <string name="lbl_88_000_y">$88,000/y</string>
     <string name="msg_search_your_job">Search your job
 or 

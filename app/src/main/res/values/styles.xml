@@ -93,6 +93,12 @@
         <item name="android:fontFamily">@font/poppins</item>
         <item name="android:textFontWeight" tools:targetApi="p">400</item>
     </style>
+    <style name="txtPoppinsregular13_1_1">
+        <item name="android:textSize">@dimen/_10pxh</item>
+        <item name="android:textColor">@color/gray_900_87</item>
+        <item name="android:fontFamily">@font/poppins</item>
+        <item name="android:textFontWeight" tools:targetApi="p">400</item>
+    </style>
     <style name="txtPoppinssemibold22_2">
         <item name="android:textSize">@dimen/_22pxh</item>
         <item name="android:textColor">@color/purple_901</item>

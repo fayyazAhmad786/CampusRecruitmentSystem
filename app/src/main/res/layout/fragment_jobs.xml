@@ -51,8 +51,8 @@
                 android:ellipsize="end"
                 android:textSize="@dimen/_20pxh"
                 android:singleLine="true"
-                android:text="@string/lbl_candidate"
-                tools:text="@string/lbl_candidate" />
+                android:text="@string/lbl_jobs_posted"
+                tools:text="@string/lbl_jobs_posted" />
 
 <!--            <TextView-->
 <!--                android:id="@+id/txtHeadlineFour"-->
