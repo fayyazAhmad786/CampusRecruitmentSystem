@@ -1,4 +1,4 @@
-package com.campusrecruitmentsystem.company.modules;
+package com.campusrecruitmentsystem.company.modules.CandidateFragment;
 
 
 import android.content.Context;
@@ -10,6 +10,7 @@ import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -17,15 +18,16 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.campusrecruitmentsystem.R;
+import com.campusrecruitmentsystem.company.modules.JobFragment.AppliedJobs;
 
 import java.io.File;
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class AdapterPostedJob extends RecyclerView.Adapter<AdapterPostedJob.ViewHolder> {
+public class AdapterAppliedJob extends RecyclerView.Adapter<AdapterAppliedJob.ViewHolder> {
     private static final float MARGIN_END_LAS_ELEMENT = 0;
-    private List<PostedJobs> jobList;
+    private List<AppliedJobs> jobList;
     private static Context context;
     String profilePic;
     private static final int MARGIN_END_LAST_ELEMENT = 75; // 16dp
@@ -33,16 +35,16 @@ public class AdapterPostedJob extends RecyclerView.Adapter<AdapterPostedJob.View
 
 
 
-    public AdapterPostedJob(Context context) {
+    public AdapterAppliedJob(Context context) {
         this.context = context;
     }
 
-    public void setJobList(List<PostedJobs> jobList) {
+    public void setJobList(List<AppliedJobs> jobList) {
         this.jobList = jobList;
         notifyDataSetChanged();
     }
-    private AdapterPostedJob.OnItemClickListener onItemClickListener;
-    public void setOnItemClickListener(AdapterPostedJob.OnItemClickListener listener) {
+    private AdapterAppliedJob.OnItemClickListener onItemClickListener;
+    public void setOnItemClickListener(AdapterAppliedJob.OnItemClickListener listener) {
         this.onItemClickListener = listener;
     }
 
@@ -51,13 +53,13 @@ public class AdapterPostedJob extends RecyclerView.Adapter<AdapterPostedJob.View
 
     // Interface for item click listener
     public interface OnItemClickListener {
-        void onItemClick(View view, int position, PostedJobs job);
+        void onItemClick(View view, int position, AppliedJobs job, String test);
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.row_posted_jobs_list, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.row_applied_jobs_list, parent, false);
         return new ViewHolder(view);
     }
 
@@ -84,25 +86,33 @@ public class AdapterPostedJob extends RecyclerView.Adapter<AdapterPostedJob.View
         }
 
 
-        PostedJobs PostedJobs = jobList.get(position);
-        holder.tv_salery_range.setText(PostedJobs.getSalleryRange());
-        holder.jobTitleTextView.setText(PostedJobs.getJobTitle());
-        holder.companyNameTextView.setText(PostedJobs.getcompany_name());
-        holder.tv_location.setText(PostedJobs.getCompany_location());
-        holder.tv_Job_posted_application_deadline_value.setText(PostedJobs.getapplicationDeadline());
-
-        profilePic = PostedJobs.getCompanyProfilePic();
+        AppliedJobs AppliedJobs = jobList.get(position);
+        holder.tv_salery_range.setText(AppliedJobs.getSalleryRange());
+        holder.jobTitleTextView.setText(AppliedJobs.getStudent_full_name());
+        holder.companyNameTextView.setText(AppliedJobs.getJobTitle());
+        holder.tv_location.setText(AppliedJobs.getCompany_location());
+        profilePic = AppliedJobs.getCompanyProfilePic();
         holder.showImage(profilePic);
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
+        holder.img_download_resume.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 int adapterPosition = holder.getAdapterPosition();
                 if (adapterPosition != RecyclerView.NO_POSITION && onItemClickListener != null) {
-                    onItemClickListener.onItemClick(v, adapterPosition, jobList.get(adapterPosition));
+                    onItemClickListener.onItemClick(v, adapterPosition, jobList.get(adapterPosition), "resume");
                 }
             }
         });
+        holder.img_assign_test.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int adapterPosition = holder.getAdapterPosition();
+                if (adapterPosition != RecyclerView.NO_POSITION && onItemClickListener != null) {
+                    onItemClickListener.onItemClick(v, adapterPosition, jobList.get(adapterPosition),"test");
+                }
+            }
+        });
+
 
     }
 
@@ -116,18 +126,19 @@ public class AdapterPostedJob extends RecyclerView.Adapter<AdapterPostedJob.View
         TextView jobTitleTextView;
         TextView companyNameTextView;
         TextView tv_location;
-        TextView tv_Job_posted_application_deadline_value;
         CircleImageView img_company;
+        ImageView img_download_resume,img_assign_test;
         // Other views as needed
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            tv_salery_range = itemView.findViewById(R.id.tv_Job_posted_salery_range);
-            jobTitleTextView = itemView.findViewById(R.id.tv_Job_posted_title);
-            companyNameTextView = itemView.findViewById(R.id.tv_tv_Job_posted_company_name);
-            tv_location = itemView.findViewById(R.id.tv_Job_posted_location);
-            tv_Job_posted_application_deadline_value = itemView.findViewById(R.id.tv_Job_posted_application_deadline_value);
-            img_company = itemView.findViewById(R.id.img_Job_posted_company);
+            tv_salery_range = itemView.findViewById(R.id.tv_salery_range_2);
+            jobTitleTextView = itemView.findViewById(R.id.tv_Job_title_2);
+            companyNameTextView = itemView.findViewById(R.id.tv_company_name_2);
+            tv_location = itemView.findViewById(R.id.tv_location_2);
+            img_company = itemView.findViewById(R.id.img_company_2);
+            img_download_resume = itemView.findViewById(R.id.img_download_resume);
+            img_assign_test = itemView.findViewById(R.id.img_assign_test);
             // Initialize other views
         }
         private void showImage(String imageName){

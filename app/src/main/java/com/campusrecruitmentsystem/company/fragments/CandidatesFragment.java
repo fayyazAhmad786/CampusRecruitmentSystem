@@ -18,8 +18,8 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.campusrecruitmentsystem.R;
-import com.campusrecruitmentsystem.company.modules.AdapterAppliedJob;
-import com.campusrecruitmentsystem.company.modules.AppliedJobs;
+import com.campusrecruitmentsystem.company.modules.CandidateFragment.AdapterAppliedJob;
+import com.campusrecruitmentsystem.company.modules.JobFragment.AppliedJobs;
 import com.campusrecruitmentsystem.database.DataBaseSQlite;
 import com.campusrecruitmentsystem.helperClases.ViewDialog;
 
@@ -136,13 +136,20 @@ public class CandidatesFragment extends Fragment {
 
                     AdapterAppliedJob.setOnItemClickListener(new AdapterAppliedJob.OnItemClickListener() {
                         @Override
-                        public void onItemClick(View view, int position, AppliedJobs job) {
+                        public void onItemClick(View view, int position, AppliedJobs job, String value) {
                             if (job != null) {
-                                // Perform action with clicked job
-                                Toast.makeText(getActivity(),"Item Clicker"+position,Toast.LENGTH_SHORT).show();
+                                if (value.equalsIgnoreCase("test")){
+
+                                }else if (value.equalsIgnoreCase("resume")){
+                                    // Perform action with clicked job
+                                    Toast.makeText(getActivity(),"Item Clicker"+position,Toast.LENGTH_SHORT).show();
 
 
-                                getItemClickedData(position+1);
+                                    getItemClickedData(position+1);
+                                }else if (value.equalsIgnoreCase("viewresult")){
+
+                                }
+
                             }
                         }
                     });

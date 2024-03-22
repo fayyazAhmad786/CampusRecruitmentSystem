@@ -520,7 +520,7 @@ private void loadJobsFromDatabaseFiltered(String Filter, String selectedText) {
                             Toast.makeText(getActivity(),"Item Clicker"+ps,Toast.LENGTH_SHORT).show();
 
                             int pss=Integer.parseInt(ps);
-                            //                            getItemClickedData(position+1);
+                            //                            downloadResume(position+1);
                             getItemClickedData(pss);
                         }
                     }

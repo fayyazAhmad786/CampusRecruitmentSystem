@@ -18,8 +18,8 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.campusrecruitmentsystem.R;
-import com.campusrecruitmentsystem.company.modules.AdapterPostedJob;
-import com.campusrecruitmentsystem.company.modules.PostedJobs;
+import com.campusrecruitmentsystem.company.modules.CandidateFragment.AdapterPostedJob;
+import com.campusrecruitmentsystem.company.modules.JobFragment.PostedJobs;
 import com.campusrecruitmentsystem.database.DataBaseSQlite;
 import com.campusrecruitmentsystem.helperClases.ViewDialog;
 
@@ -146,7 +146,7 @@ public class JobsFragment extends Fragment {
                                 Toast.makeText(getActivity(),"Item Clicker"+position,Toast.LENGTH_SHORT).show();
 
 
-                                getItemClickedData(position+1);
+//                                downloadResume(position+1);
                             }
                         }
                     });
@@ -166,7 +166,9 @@ public class JobsFragment extends Fragment {
             alert.showDialog(getActivity(),"DataBase Connection Problem"+e.getMessage());
         }
     }
-    private void getItemClickedData(int position) {
+    public void downloadResume(int position) {
+        Toast.makeText(getActivity(),"Item Clicker"+position,Toast.LENGTH_SHORT).show();
+
         String user_resume= "";
 
 
