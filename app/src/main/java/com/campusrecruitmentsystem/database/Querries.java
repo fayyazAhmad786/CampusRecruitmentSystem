@@ -65,6 +65,7 @@ public class Querries {
             values.put("job_status", "active");
             values.put("user_applied", "no");
             values.put("hired", "no");
+            values.put("test_assigned", "no");
             values.put("job_id", PostJobGetterSetter.getJob_id());
 
             try {
@@ -104,6 +105,8 @@ public class Querries {
             values.put("student_full_name", AppliedJobGetterSetter.getStudentFullName());
             values.put("student_profile_pic", AppliedJobGetterSetter.getStudentProfilePic());
             values.put("job_id", AppliedJobGetterSetter.getJob_id());
+            values.put("test_assigned", "no");
+            values.put("test_result", "no");
 
             try {
                 _id_pk = db.insertWithOnConflict(Constants.TABLE_APPLIEDJOBS, null, values, SQLiteDatabase.CONFLICT_REPLACE);

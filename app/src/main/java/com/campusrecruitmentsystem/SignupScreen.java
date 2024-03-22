@@ -196,7 +196,7 @@ public class SignupScreen extends AppCompatActivity {
 
         } catch (Exception e) {
             System.out.println("Error= "+e.getMessage());
-            Toast.makeText(SignupScreen.this, "Error is= " + e.getMessage(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(SignupScreen.this, "Error is 1= " + e.getMessage(), Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -551,7 +551,7 @@ public class SignupScreen extends AppCompatActivity {
 
             setResult(RESULT_OK);
         } catch (Exception e) {
-            Toast.makeText(context, "Error is" + e.getMessage(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Error is 2" + e.getMessage(), Toast.LENGTH_SHORT).show();
             System.out.println("Error is OnPhotoTaken"+ e.getMessage());
         }
     }
@@ -619,7 +619,7 @@ public class SignupScreen extends AppCompatActivity {
             abc = true;
 
         } catch (Exception e) {
-            Toast.makeText(context, "Error is" + e.getMessage(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Error is 3" + e.getMessage(), Toast.LENGTH_SHORT).show();
             System.out.println("Error is786"+e.getMessage());
         }
         return abc;

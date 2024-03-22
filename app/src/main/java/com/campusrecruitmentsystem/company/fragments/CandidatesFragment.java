@@ -19,7 +19,7 @@ import android.widget.Toast;
 
 import com.campusrecruitmentsystem.R;
 import com.campusrecruitmentsystem.company.modules.CandidateFragment.AdapterAppliedJob;
-import com.campusrecruitmentsystem.company.modules.JobFragment.AppliedJobs;
+import com.campusrecruitmentsystem.company.modules.CandidateFragment.AppliedJobs;
 import com.campusrecruitmentsystem.database.DataBaseSQlite;
 import com.campusrecruitmentsystem.helperClases.ViewDialog;
 
@@ -100,10 +100,11 @@ public class CandidatesFragment extends Fragment {
             String company_location= "";
             String sallery_range= "";
             String student_profile_pic= "";
+            String test_assigned= "";
 
 
             AdapterAppliedJob =new AdapterAppliedJob(getActivity());
-            String query = "select distinct student_full_name,job_title,company_location,sallery_range,student_profile_pic from tbl_Jobs_applied WHERE user_applied !='no' AND company_email ='"+emailcompany+"'   ";
+            String query = "select distinct student_full_name,job_title,company_location,sallery_range,student_profile_pic,test_assigned from tbl_Jobs_applied WHERE user_applied !='no' AND company_email ='"+emailcompany+"'   ";
 
             System.out.println("query= "+query);
 
@@ -119,8 +120,9 @@ public class CandidatesFragment extends Fragment {
                     company_location = cur.getString(cur.getColumnIndexOrThrow("company_location"));
                     sallery_range = cur.getString(cur.getColumnIndexOrThrow("sallery_range"));
                     student_profile_pic = cur.getString(cur.getColumnIndexOrThrow("student_profile_pic"));
+                    test_assigned = cur.getString(cur.getColumnIndexOrThrow("test_assigned"));
 
-                    AppliedJobs job = new AppliedJobs(student_full_name, job_title, company_location,sallery_range, student_profile_pic);
+                    AppliedJobs job = new AppliedJobs(student_full_name, job_title, company_location,sallery_range, student_profile_pic,test_assigned);
                     jobList.add(job);
                 }
                 cur.close();
@@ -139,10 +141,11 @@ public class CandidatesFragment extends Fragment {
                         public void onItemClick(View view, int position, AppliedJobs job, String value) {
                             if (job != null) {
                                 if (value.equalsIgnoreCase("test")){
+                                    Toast.makeText(getActivity(),"test Clicker"+position,Toast.LENGTH_SHORT).show();
 
                                 }else if (value.equalsIgnoreCase("resume")){
                                     // Perform action with clicked job
-                                    Toast.makeText(getActivity(),"Item Clicker"+position,Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getActivity(),"resume Clicker"+position,Toast.LENGTH_SHORT).show();
 
 
                                     getItemClickedData(position+1);

@@ -18,7 +18,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.campusrecruitmentsystem.R;
-import com.campusrecruitmentsystem.company.modules.CandidateFragment.AdapterPostedJob;
+import com.campusrecruitmentsystem.company.modules.JobFragment.AdapterPostedJob;
 import com.campusrecruitmentsystem.company.modules.JobFragment.PostedJobs;
 import com.campusrecruitmentsystem.database.DataBaseSQlite;
 import com.campusrecruitmentsystem.helperClases.ViewDialog;
@@ -106,7 +106,7 @@ public class JobsFragment extends Fragment {
 
 
             AdapterAppliedJob =new AdapterPostedJob(getActivity());
-            String query = "select distinct student_full_name,job_title,company_location,sallery_range,student_profile_pic,company_name,application_deadline,company_profile_pic from tbl_Jobs_applied WHERE user_applied !='no' AND company_email ='"+emailcompany+"'   ";
+            String query = "select distinct company_name,job_title,company_location,sallery_range,company_profile_pic,application_deadline from tbl_Jobs WHERE company_email ='"+emailcompany+"'   ";
 
             System.out.println("query= "+query);
 

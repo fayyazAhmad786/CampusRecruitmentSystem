@@ -1,4 +1,4 @@
-package com.campusrecruitmentsystem.company.modules.CandidateFragment;
+package com.campusrecruitmentsystem.company.modules.JobFragment;
 
 
 import android.content.Context;
@@ -17,7 +17,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.campusrecruitmentsystem.R;
-import com.campusrecruitmentsystem.company.modules.JobFragment.PostedJobs;
 
 import java.io.File;
 import java.util.List;

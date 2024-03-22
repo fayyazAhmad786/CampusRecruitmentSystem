@@ -13,12 +13,12 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.campusrecruitmentsystem.R;
-import com.campusrecruitmentsystem.company.modules.JobFragment.AppliedJobs;
 
 import java.io.File;
 import java.util.List;
@@ -93,6 +93,17 @@ public class AdapterAppliedJob extends RecyclerView.Adapter<AdapterAppliedJob.Vi
         holder.tv_location.setText(AppliedJobs.getCompany_location());
         profilePic = AppliedJobs.getCompanyProfilePic();
         holder.showImage(profilePic);
+        String test = AppliedJobs.gettest_assigned();
+//        Toast.makeText(context,"Value= "+test,Toast.LENGTH_SHORT).show();
+        if (test!= null){
+            if (test.equalsIgnoreCase("No")){
+                holder.img_assign_test.setBackgroundResource(R.drawable.ic_cancel_two);
+            }else {
+                holder.img_assign_test.setBackgroundResource(R.drawable.ic_tick);
+
+            }
+        }
+
 
         holder.img_download_resume.setOnClickListener(new View.OnClickListener() {
             @Override
