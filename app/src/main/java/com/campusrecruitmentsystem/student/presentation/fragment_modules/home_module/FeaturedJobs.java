@@ -1,29 +1,19 @@
-package com.campusrecruitmentsystem.student.modules;
+package com.campusrecruitmentsystem.student.presentation.fragment_modules.home_module;
 
-public class Job {
+
+public class FeaturedJobs {
     private String companyLocation;
     private String jobTitle;
     private String companyName;
     private String companyProfilePic;
     private String SalleryRange;
 
-    public String get_id_pk() {
-        return _id_pk;
-    }
-
-    public void set_id_pk(String _id_pk) {
-        this._id_pk = _id_pk;
-    }
-
-    private String _id_pk;
-
-    public Job(String companyLocation, String jobTitle, String companyName,String sallery_range, String companyProfilePic,String _id_pk) {
+    public FeaturedJobs(String companyLocation, String jobTitle, String companyName,String sallery_range, String companyProfilePic) {
         this.companyLocation = companyLocation;
         this.jobTitle = jobTitle;
         this.companyName = companyName;
         this.SalleryRange = sallery_range;
         this.companyProfilePic = companyProfilePic;
-        this._id_pk = _id_pk;
     }
 
     public String getSalleryRange() {
@@ -65,4 +55,5 @@ public class Job {
         this.companyProfilePic = companyProfilePic;
     }
 }
+
 

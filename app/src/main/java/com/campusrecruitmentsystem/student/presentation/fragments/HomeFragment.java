@@ -1,8 +1,6 @@
 package com.campusrecruitmentsystem.student.presentation.fragments;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -17,27 +15,21 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.campusrecruitmentsystem.LoginScreen;
 import com.campusrecruitmentsystem.R;
-import com.campusrecruitmentsystem.company.HomeActivity;
 import com.campusrecruitmentsystem.database.DataBaseSQlite;
 import com.campusrecruitmentsystem.helperClases.CustomAdapter;
 import com.campusrecruitmentsystem.helperClases.ViewDialog;
-import com.campusrecruitmentsystem.student.DashboardStudent;
-import com.campusrecruitmentsystem.student.modules.FeaturedJobs;
-import com.campusrecruitmentsystem.student.modules.Job;
-import com.campusrecruitmentsystem.student.modules.JobAdapter;
-import com.campusrecruitmentsystem.student.modules.JobAdapterFeaturedJob;
-import com.campusrecruitmentsystem.student.modules.MyLinearLayoutManager;
+import com.campusrecruitmentsystem.student.presentation.fragment_modules.home_module.FeaturedJobs;
+import com.campusrecruitmentsystem.student.presentation.fragment_modules.home_module.Job;
+import com.campusrecruitmentsystem.student.presentation.fragment_modules.home_module.JobAdapter;
+import com.campusrecruitmentsystem.student.presentation.fragment_modules.home_module.JobAdapterFeaturedJob;
 import com.campusrecruitmentsystem.student.presentation.ProfileActivity;
-import com.campusrecruitmentsystem.student.presentation.quiz.QuizScreen1;
 import com.campusrecruitmentsystem.student.presentation.quiz.QuizScreen2;
 
 import java.util.ArrayList;
@@ -105,13 +97,8 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-
-//        return inflater.inflate(R.layout.fragment_home, container, false);
-
 
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-// In your activity or fragment
         ImageView imageProfile= view.findViewById(R.id.imageProfile);
         recyclerView= view.findViewById(R.id.recycler_jobs);
         recyclerViewFeaturedJobs= view.findViewById(R.id.recyclerViewFeaturedJobs);

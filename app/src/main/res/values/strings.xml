@@ -288,6 +288,7 @@ on Zoom </string>
     <string name="lbl_interviewed">interviewed</string>
     <string name="lbl_start_interview">start interview</string>
     <string name="msg_discover_jobs">Discover Jobs &#128293;</string>
+    <string name="msg_discover_companies">Discover Companies &#128293;</string>
     <string name="lbl_create_test2">Create Test </string>
     <string name="lbl_managing">Managing </string>
     <string name="lbl_25_05_22">25/05/22</string>
@@ -366,6 +367,7 @@ or
     <string name="lbl_hp">HP</string>
     <string name="lbl_spotify">Spotify</string>
     <string name="lbl_popular_jobs">Popular Jobs</string>
+    <string name="lbl_popular_companies">Popular Companies</string>
     <string name="msg_brief_explanati">Brief explanation about this quiz</string>
     <string name="lbl_post_a_job">Post a Job</string>
     <string name="msg_experience_leve">Experience Level</string>
@@ -394,6 +396,7 @@ or
     <string name="msg_full_stack_deve">Full-Stack Developer</string>
     <string name="msg_want_to_take_a">want to take a final interview of you where head of HR will see you!</string>
     <string name="lbl_featured_jobs">Featured Jobs</string>
+    <string name="lbl_featured_companies">Featured companies</string>
     <string name="msg_fiverr_want_to">Fiverr want to take a final interview of you where head of HR will see you!</string>
     <string name="lbl_2017_2020">2017 - 2020</string>
     <string name="lbl_1000">1000+</string>

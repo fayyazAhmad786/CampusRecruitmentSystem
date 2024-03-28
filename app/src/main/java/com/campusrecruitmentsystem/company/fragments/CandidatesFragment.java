@@ -17,11 +17,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.campusrecruitmentsystem.GetterSetter.NotificationGetterSetter;
 import com.campusrecruitmentsystem.R;
 import com.campusrecruitmentsystem.company.modules.CandidateFragment.AdapterAppliedJob;
 import com.campusrecruitmentsystem.company.modules.CandidateFragment.AppliedJobs;
 import com.campusrecruitmentsystem.database.DataBaseSQlite;
+import com.campusrecruitmentsystem.database.Querries;
 import com.campusrecruitmentsystem.helperClases.ViewDialog;
+import com.campusrecruitmentsystem.student.presentation.quiz.QuizScreen2;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -142,7 +145,7 @@ public class CandidatesFragment extends Fragment {
                             if (job != null) {
                                 if (value.equalsIgnoreCase("test")){
                                     Toast.makeText(getActivity(),"test Clicker"+position,Toast.LENGTH_SHORT).show();
-
+                                    updateTestStatus(position+1);
                                 }else if (value.equalsIgnoreCase("resume")){
                                     // Perform action with clicked job
                                     Toast.makeText(getActivity(),"resume Clicker"+position,Toast.LENGTH_SHORT).show();
@@ -174,34 +177,133 @@ public class CandidatesFragment extends Fragment {
     }
     private void getItemClickedData(int position) {
         String user_resume= "";
-
-
         SQLiteDatabase db = DataBaseSQlite.connectToDb(getActivity());
-
         String query = "select distinct user_resume from tbl_Jobs_applied WHERE job_status='active' AND _id_pk = '"+position+"'  ";
         System.out.println("query= " + query);
-
-
         Cursor cur = db.rawQuery(query, null);
         int counted = cur.getCount();
         System.out.println("counteddd= " + counted);
         if (counted > 0) {
             while (cur.moveToNext()) {
-
-
                 user_resume = cur.getString(cur.getColumnIndexOrThrow("user_resume"));
-
-
             }
             cur.close();
             db.close();
-
 //            Intent intent = new Intent(getActivity(), DownloadOrViewResume.class);
 //            intent.putExtra("user_resume",user_resume);
 //            startActivity(intent);
             buttonShareFile(user_resume);
         }
     }
+
+    private void updateTestStatus(int position) {
+        SQLiteDatabase db = DataBaseSQlite.connectToDb(getActivity());
+        try {
+            String q = "UPDATE tbl_Jobs_applied set test_assigned='Yes' where _id_pk='" + position + "'";
+            db.execSQL(q);
+
+
+            String company_email = "";
+            String company_name = "";
+            String job_title = "";
+            String job_description = "";
+            String company_type = "";
+            String company_location = "";
+            String sallery_range = "";
+            String application_deadline = "";
+            String company_profile_pic = "";
+            String test = "";
+            String job_status = "";
+            String user_applied = "";
+            String hired = "";
+            String user_resume = "";
+            String student_full_name = "";
+            String student_profile_pic = "";
+            String job_id = "";
+            String test_assigned = "";
+            String test_result = "";
+            String short_listed = "";
+
+
+            String query = "select distinct * from tbl_Jobs_applied WHERE where _id_pk='" + position + "'  ";
+
+            System.out.println("query= " + query);
+
+
+            Cursor cur = db.rawQuery(query, null);
+            int counted = cur.getCount();
+            System.out.println("counteddd= " + counted);
+            if (counted > 0) {
+                while (cur.moveToNext()) {
+
+                    company_email = cur.getString(cur.getColumnIndexOrThrow("company_email"));
+                    company_name = cur.getString(cur.getColumnIndexOrThrow("company_name"));
+                    job_title = cur.getString(cur.getColumnIndexOrThrow("job_title"));
+                    job_description = cur.getString(cur.getColumnIndexOrThrow("job_description"));
+                    company_type = cur.getString(cur.getColumnIndexOrThrow("company_type"));
+                    company_location = cur.getString(cur.getColumnIndexOrThrow("company_location"));
+                    sallery_range = cur.getString(cur.getColumnIndexOrThrow("sallery_range"));
+                    application_deadline = cur.getString(cur.getColumnIndexOrThrow("application_deadline"));
+                    company_profile_pic = cur.getString(cur.getColumnIndexOrThrow("company_profile_pic"));
+                    test = cur.getString(cur.getColumnIndexOrThrow("test"));
+                    job_status = cur.getString(cur.getColumnIndexOrThrow("job_status"));
+                    user_applied = cur.getString(cur.getColumnIndexOrThrow("user_applied"));
+                    hired = cur.getString(cur.getColumnIndexOrThrow("hired"));
+                    user_resume = cur.getString(cur.getColumnIndexOrThrow("user_resume"));
+                    student_full_name = cur.getString(cur.getColumnIndexOrThrow("student_full_name"));
+                    student_profile_pic = cur.getString(cur.getColumnIndexOrThrow("student_profile_pic"));
+                    job_id = cur.getString(cur.getColumnIndexOrThrow("job_id"));
+                    test_assigned = cur.getString(cur.getColumnIndexOrThrow("test_assigned"));
+                    test_result = cur.getString(cur.getColumnIndexOrThrow("test_result"));
+                    short_listed = cur.getString(cur.getColumnIndexOrThrow("short_listed"));
+
+
+                }
+                cur.close();
+                db.close();
+
+                NotificationGetterSetter.setCompany_email(company_email);
+                NotificationGetterSetter.setCompany_name(company_name);
+                NotificationGetterSetter.setJob_title(job_title);
+                NotificationGetterSetter.setJob_description(job_description);
+                NotificationGetterSetter.setCompany_type(company_type);
+                NotificationGetterSetter.setCompany_location(company_location);
+                NotificationGetterSetter.setSallery_range(sallery_range);
+                NotificationGetterSetter.setApplication_deadline(application_deadline);
+                NotificationGetterSetter.setCompany_profile_pic(company_profile_pic);
+                NotificationGetterSetter.setTest(test);
+                NotificationGetterSetter.setJob_status(job_status);
+                NotificationGetterSetter.setUser_applied(user_applied);
+                NotificationGetterSetter.setHired(hired);
+                NotificationGetterSetter.setUser_resume(user_resume);
+                NotificationGetterSetter.setStudent_full_name(student_full_name);
+                NotificationGetterSetter.setStudent_profile_pic(student_profile_pic);
+                NotificationGetterSetter.setJob_id(job_id);
+                NotificationGetterSetter.setTest_assigned(test_assigned);
+                NotificationGetterSetter.setTest_result(test_result);
+                NotificationGetterSetter.setShort_listed(short_listed);
+
+                long id = Querries.insertIntoNotification(getActivity());
+                if (id > 0) {
+                    SharedPreferences settings_profile = getActivity().getSharedPreferences("MyPrefsProfile", 0); // 0 - for private mode
+                    String emailcompany = settings_profile.getString("emailcompany", "");
+                    loadFeaturedJobsFromDatabase(emailcompany);
+
+                }else {
+                    ViewDialog alert = new ViewDialog();
+                    alert.showDialog(getActivity(), "Database Connection Problem.!!!");//
+                }
+
+            }
+            } catch(Exception e){
+                e.printStackTrace();
+            } finally{
+                db.close();
+            }
+
+        }
+
+
     public void buttonShareFile(String user_resume){
 
         File file = new File(getActivity().getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS) + File.separator +getActivity().getString(R.string.db_folder_resume) + File.separator+ user_resume);

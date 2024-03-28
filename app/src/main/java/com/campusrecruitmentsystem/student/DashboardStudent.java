@@ -42,14 +42,16 @@ public class DashboardStudent extends AppCompatActivity {
                             .replace(R.id.content, fragment, "")
                             .commit();
                     return true;
-                } else if (id == R.id.nav_catagories) {
-//                    actionBar.setTitle("Categories");
-                    CatagoriesFragment fragment1 = new CatagoriesFragment();
-                    getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.content, fragment1)
-                            .commit();
-                    return true;
-                } else if (id == R.id.nav_company) {
+                }
+//                else if (id == R.id.nav_catagories) {
+////                    actionBar.setTitle("Categories");
+//                    CatagoriesFragment fragment1 = new CatagoriesFragment();
+//                    getSupportFragmentManager().beginTransaction()
+//                            .replace(R.id.content, fragment1)
+//                            .commit();
+//                    return true;
+//                }
+                else if (id == R.id.nav_company) {
 //                    actionBar.setTitle("Companies");
                     CompaniesFragment fragment2 = new CompaniesFragment();
                     getSupportFragmentManager().beginTransaction()

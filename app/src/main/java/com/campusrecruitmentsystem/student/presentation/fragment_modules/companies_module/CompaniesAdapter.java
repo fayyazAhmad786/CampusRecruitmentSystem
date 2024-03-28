@@ -1,4 +1,4 @@
-package com.campusrecruitmentsystem.student.modules;
+package com.campusrecruitmentsystem.student.presentation.fragment_modules.companies_module;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -7,9 +7,8 @@ import android.os.Environment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ImageView;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -20,19 +19,19 @@ import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class JobAdapter extends RecyclerView.Adapter<JobAdapter.ViewHolder> {
-    private List<Job> jobList;
+public class CompaniesAdapter extends RecyclerView.Adapter<CompaniesAdapter.ViewHolder> {
+    private List<Companies> CompaniesList;
     private static Context context;
     String profilePic;
     private OnItemClickListener onItemClickListener;
 
 
-    public JobAdapter(Context context) {
+    public CompaniesAdapter(Context context) {
         this.context = context;
     }
 
-    public void setJobList(List<Job> jobList) {
-        this.jobList = jobList;
+    public void setJobList(List<Companies> CompaniesList) {
+        this.CompaniesList = CompaniesList;
         notifyDataSetChanged();
     }
     public void setOnItemClickListener(OnItemClickListener listener) {
@@ -44,22 +43,20 @@ public class JobAdapter extends RecyclerView.Adapter<JobAdapter.ViewHolder> {
 
     // Interface for item click listener
     public interface OnItemClickListener {
-        void onItemClick(View view, int position, Job job);
+        void onItemClick(View view, int position, Companies job);
     }
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.row_jobs_list, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.row_companies_list, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Job job = jobList.get(position);
-        holder.tv_salery_range.setText(job.getSalleryRange());
-        holder.jobTitleTextView.setText(job.getJobTitle());
+        Companies job = CompaniesList.get(position);
+
         holder.companyNameTextView.setText(job.getCompanyName());
-        holder.tv_location.setText(job.getCompanyLocation());
         profilePic = job.getCompanyProfilePic();
         holder.showImage(profilePic);
         // Set other views as needed
@@ -68,7 +65,7 @@ public class JobAdapter extends RecyclerView.Adapter<JobAdapter.ViewHolder> {
             public void onClick(View v) {
                 int adapterPosition = holder.getAdapterPosition();
                 if (adapterPosition != RecyclerView.NO_POSITION && onItemClickListener != null) {
-                    onItemClickListener.onItemClick(v, adapterPosition, jobList.get(adapterPosition));
+                    onItemClickListener.onItemClick(v, adapterPosition, CompaniesList.get(adapterPosition));
                 }
             }
         });
@@ -76,23 +73,18 @@ public class JobAdapter extends RecyclerView.Adapter<JobAdapter.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        return jobList == null ? 0 : jobList.size();
+        return CompaniesList == null ? 0 : CompaniesList.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        TextView tv_salery_range;
-        TextView jobTitleTextView;
         TextView companyNameTextView;
-        TextView tv_location;
         CircleImageView img_company;
         // Other views as needed
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            tv_salery_range = itemView.findViewById(R.id.tv_salery_range);
-            jobTitleTextView = itemView.findViewById(R.id.tv_Job_title);
-            companyNameTextView = itemView.findViewById(R.id.tv_company_name);
-            tv_location = itemView.findViewById(R.id.tv_location);
+
+            companyNameTextView = itemView.findViewById(R.id.tv_company_title);
             img_company = itemView.findViewById(R.id.img_company);
             // Initialize other views
         }

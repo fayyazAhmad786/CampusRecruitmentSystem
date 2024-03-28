@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.widget.Toast;
 
 import com.campusrecruitmentsystem.GetterSetter.AppliedJobGetterSetter;
+import com.campusrecruitmentsystem.GetterSetter.NotificationGetterSetter;
 import com.campusrecruitmentsystem.GetterSetter.PostJobGetterSetter;
 import com.campusrecruitmentsystem.GetterSetter.RegisterGetterSetter;
 import com.campusrecruitmentsystem.helperClases.Constants;
@@ -110,6 +111,51 @@ public class Querries {
 
             try {
                 _id_pk = db.insertWithOnConflict(Constants.TABLE_APPLIEDJOBS, null, values, SQLiteDatabase.CONFLICT_REPLACE);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(context,"Error"+e.getMessage(),Toast.LENGTH_SHORT).show();
+        } finally {
+            db.close();
+        }
+        return _id_pk;
+    }
+
+    public static long insertIntoNotification(Context context) {
+        long _id_pk = 0;
+        SQLiteDatabase db = DataBaseSQlite.connectToDb(context);
+        try {
+            ContentValues values = new ContentValues();
+
+
+            values.put("test", NotificationGetterSetter.getTest());
+            values.put("company_email", NotificationGetterSetter.getCompany_email());
+            values.put("company_name", NotificationGetterSetter.getCompany_name());
+            values.put("job_title", NotificationGetterSetter.getJob_title());
+            values.put("job_description", NotificationGetterSetter.getJob_description());
+            values.put("company_type", NotificationGetterSetter.getCompany_type());
+            values.put("company_location", NotificationGetterSetter.getCompany_location());
+            values.put("sallery_range", NotificationGetterSetter.getSallery_range());
+            values.put("application_deadline", NotificationGetterSetter.getApplication_deadline());
+            values.put("company_profile_pic", NotificationGetterSetter.getCompany_profile_pic());
+            values.put("job_status", NotificationGetterSetter.getJob_status());
+            values.put("user_applied", NotificationGetterSetter.getUser_applied());
+            values.put("hired", NotificationGetterSetter.getHired());
+            values.put("user_resume", NotificationGetterSetter.getUser_resume());
+            values.put("student_full_name", NotificationGetterSetter.getStudent_full_name());
+            values.put("student_profile_pic", AppliedJobGetterSetter.getStudentProfilePic());
+            values.put("job_id", NotificationGetterSetter.getJob_id());
+            values.put("test_assigned", NotificationGetterSetter.getTest_assigned());
+            values.put("test_result", NotificationGetterSetter.getTest_result());
+            values.put("short_listed", NotificationGetterSetter.getShort_listed());
+            values.put("notification_assigned", "yes");
+            values.put("notification_status", "active");
+
+            try {
+                _id_pk = db.insertWithOnConflict(Constants.TABLE_NOTIFICATION, null, values, SQLiteDatabase.CONFLICT_REPLACE);
             } catch (Exception e) {
                 e.printStackTrace();
             }

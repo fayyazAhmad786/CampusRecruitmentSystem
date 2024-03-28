@@ -1,6 +1,8 @@
 package com.campusrecruitmentsystem.company.modules.CandidateFragment;
 
 
+import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
@@ -10,6 +12,8 @@ import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -119,7 +123,31 @@ public class AdapterAppliedJob extends RecyclerView.Adapter<AdapterAppliedJob.Vi
             public void onClick(View v) {
                 int adapterPosition = holder.getAdapterPosition();
                 if (adapterPosition != RecyclerView.NO_POSITION && onItemClickListener != null) {
-                    onItemClickListener.onItemClick(v, adapterPosition, jobList.get(adapterPosition),"test");
+                    final Dialog dialog = new Dialog(context);
+                    dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                    dialog.setCancelable(false);
+                    dialog.setContentView(R.layout.custome_dialog_yes_no);
+
+                    TextView text = (TextView) dialog.findViewById(R.id.text_dialog);
+                    text.setText("Do you want to Assign Test to this Applicant");
+
+                    Button btn_dialog_no = (Button) dialog.findViewById(R.id.btn_dialog_no);
+                    Button btn_dialog_yes = (Button) dialog.findViewById(R.id.btn_dialog_yes);
+                    btn_dialog_no.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            dialog.dismiss();
+                        }
+                    });  btn_dialog_yes.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            dialog.dismiss();
+                            onItemClickListener.onItemClick(v, adapterPosition, jobList.get(adapterPosition),"test");
+
+                        }
+                    });
+
+                    dialog.show();
                 }
             }
         });
@@ -170,6 +198,26 @@ public class AdapterAppliedJob extends RecyclerView.Adapter<AdapterAppliedJob.Vi
             } catch (Exception e) {
                 e.printStackTrace();
             }
+        }
+        public void DialogAlert(Activity activity, String msg){
+            final Dialog dialog = new Dialog(activity);
+            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+            dialog.setCancelable(false);
+            dialog.setContentView(R.layout.custom_dialog);
+
+            TextView text = (TextView) dialog.findViewById(R.id.text_dialog);
+            text.setText(msg);
+
+            Button dialogButton = (Button) dialog.findViewById(R.id.btn_dialog);
+            dialogButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    dialog.dismiss();
+                }
+            });
+
+            dialog.show();
+
         }
 
     }
