@@ -45,6 +45,7 @@
         <activity
             android:name=".company.CompanyProfile"
             android:exported="false" />
+
         <activity
             android:name=".company.CreateTest"
             android:exported="false" />

@@ -44,17 +44,15 @@
                         android:singleLine="true"
                         android:text="@string/lbl_hiree2"
                         tools:text="@string/lbl_hiree2" />
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/imageProfile"
+                    android:layout_width="@dimen/_60pxh"
+                    android:layout_height="@dimen/_60pxh"
+                    android:src="@drawable/img_ellipse"
+                    tools:ignore="ContentDescription"
+                    app:civ_border_color="#FF000000"/>
 
 
-                    <ImageView
-                        android:id="@+id/imageProfile"
-                        android:src="@drawable/img_ellipse"
-                        android:layout_width="@dimen/_60pxh"
-                        android:layout_height="@dimen/_60pxh"
-                        android:layout_gravity="start"
-                        android:scaleType="centerCrop"
-                        tools:ignore="ContentDescription"
-                        tools:src="@drawable/img_ellipse" />
 
 
             </LinearLayout>

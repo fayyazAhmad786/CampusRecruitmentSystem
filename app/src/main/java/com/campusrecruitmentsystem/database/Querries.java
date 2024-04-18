@@ -108,6 +108,7 @@ public class Querries {
             values.put("job_id", AppliedJobGetterSetter.getJob_id());
             values.put("test_assigned", "no");
             values.put("test_result", "no");
+            values.put("short_listed", "no");
 
             try {
                 _id_pk = db.insertWithOnConflict(Constants.TABLE_APPLIEDJOBS, null, values, SQLiteDatabase.CONFLICT_REPLACE);
@@ -151,8 +152,10 @@ public class Querries {
             values.put("test_assigned", NotificationGetterSetter.getTest_assigned());
             values.put("test_result", NotificationGetterSetter.getTest_result());
             values.put("short_listed", NotificationGetterSetter.getShort_listed());
+            values.put("notification_text", NotificationGetterSetter.getNotification_text());
             values.put("notification_assigned", "yes");
-            values.put("notification_status", "active");
+            values.put("notification_status", "new");
+            values.put("current_date_time", NotificationGetterSetter.getCurrent_date_time());
 
             try {
                 _id_pk = db.insertWithOnConflict(Constants.TABLE_NOTIFICATION, null, values, SQLiteDatabase.CONFLICT_REPLACE);

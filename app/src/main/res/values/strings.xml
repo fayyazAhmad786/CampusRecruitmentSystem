@@ -108,7 +108,7 @@ questions</string>
     <string name="lbl_job_type">Job Type</string>
     <string name="msg_computer_scienc">Computer Science</string>
     <string name="lbl_start_quix">Start Quiz</string>
-    <string name="lbl_apply">Apply</string>
+    <string name="lbl_apply">Submit Quiz</string>
     <string name="lbl_17_05_22">17/05/22</string>
     <string name="msg_we_are_the_team">"We are the teams who create all of Facebook's products used by billions of people around the world. Want to build new features and improve existing products like Messenger, Video, Groups, News Feed, Search and more?
 
@@ -325,7 +325,7 @@ Reviewed</string>
     <string name="msg_user_interface">User Interface and User Experience</string>
     <string name="lbl_test">Test</string>
     <string name="msg_apply_to_best_j">Apply to best jobs</string>
-    <string name="lbl_new_activity">New activity</string>
+    <string name="lbl_new_activity">All Activities</string>
     <string name="msg_user_interfice">User Interfice and Using Experience</string>
     <string name="lbl_facebook">Facebook</string>
     <string name="lbl_name">Name</string>

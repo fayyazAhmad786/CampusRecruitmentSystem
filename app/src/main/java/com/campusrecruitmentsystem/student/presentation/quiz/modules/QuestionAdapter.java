@@ -1,12 +1,11 @@
 package com.campusrecruitmentsystem.student.presentation.quiz.modules;
 
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -19,13 +18,7 @@ import java.util.List;
 
 public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.ViewHolder> {
     private List<Question> questionList;
-    private boolean isEnabled = true; // Flag to enable/disable items
 
-
-    public void setEnabled(boolean isEnabled) {
-        this.isEnabled = isEnabled;
-        notifyDataSetChanged(); // Refresh RecyclerView after changing the state
-    }
     public QuestionAdapter(List<Question> questionList) {
         this.questionList = questionList;
     }
@@ -40,18 +33,7 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.ViewHo
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Question question = questionList.get(position);
-        holder.questionTextView.setText(question.getQuestion());
-
-        // Clear existing radio buttons
-        holder.optionsRadioGroup.removeAllViews();
-
-        // Add radio buttons for each option
-        for (String option : question.getOptions()) {
-            RadioButton radioButton = new RadioButton(holder.itemView.getContext());
-            radioButton.setText(option);
-            holder.optionsRadioGroup.addView(radioButton);
-
-        }
+        holder.bind(question);
     }
 
     @Override
@@ -59,7 +41,7 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.ViewHo
         return questionList.size();
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder {
         TextView questionTextView;
         RadioGroup optionsRadioGroup;
 
@@ -68,8 +50,33 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.ViewHo
             questionTextView = itemView.findViewById(R.id.questionTextView);
             optionsRadioGroup = itemView.findViewById(R.id.optionsRadioGroup);
         }
+
+        public void bind(Question question) {
+            // Set question text
+            questionTextView.setText(question.getQuestion());
+
+            // Clear existing radio buttons
+            optionsRadioGroup.removeAllViews();
+
+            // Add radio buttons for each option
+            for (String option : question.getOptions()) {
+                RadioButton radioButton = new RadioButton(itemView.getContext());
+                radioButton.setText(option);
+                optionsRadioGroup.addView(radioButton);
+
+                // Set the selected state based on the question's selected option
+                radioButton.setChecked(option.equals(question.getSelectedOption()));
+
+                // Set click listener to update the selected option for the question
+                radioButton.setOnClickListener(view -> {
+                    // Update the selected option for the question
+                    question.setSelectedOption(option);
+                    // Update UI to reflect the change
+                    notifyDataSetChanged();
+                });
+            }
+        }
     }
 }
-
 
 

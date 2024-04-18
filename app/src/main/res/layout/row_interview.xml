@@ -121,10 +121,10 @@
                     android:layout_weight="0.75"
                     android:ellipsize="end"
                     android:singleLine="true"
-                    android:text="Resume"
+                    android:text="Send Email"
                     android:textStyle="bold"
                     android:textColor="@color/black"
-                    tools:text="Resume" />
+                    tools:text="Send Email" />
 
                 <ImageView
                     android:id="@+id/img_download_resume"
@@ -135,112 +135,12 @@
                     android:layout_marginTop="@dimen/_1pxv"
                     android:layout_weight="0.25"
                     android:ellipsize="end"
-                    android:src="@drawable/ic_download"
+                    android:src="@drawable/ic_email"
                     android:visibility="visible"
                     android:singleLine="true"
-                     />
+                    />
             </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_2pxv"
-                android:weightSum="5"
-                android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/tv_test_asign"
-                    style="@style/txtPoppinsregular13_1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/_1pxv"
-                    android:layout_weight="4"
-                    android:ellipsize="end"
-                    android:singleLine="true"
-                    android:text="Test Assigned"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"
-                    tools:text="Test Assigned" />
-
-                <ImageView
-                    android:id="@+id/img_assign_test"
-                    style="@style/txtPoppinsregular13_1"
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/_30pxh"
-                    android:layout_marginTop="@dimen/_1pxv"
-                    android:layout_weight="1"
-                    android:ellipsize="end"
-                    android:visibility="visible"
-                    android:singleLine="true"
-                     />
-            </LinearLayout>
-            <LinearLayout
-                android:id="@+id/ll_view_test"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_2pxv"
-                android:weightSum="5"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/tv_test_result"
-                    style="@style/txtPoppinsregular13_1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/_1pxv"
-                    android:layout_weight="4"
-                    android:ellipsize="end"
-                    android:singleLine="true"
-                    android:text="View Test"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"
-                    tools:text="Test Assigned" />
-
-                <ImageView
-                    android:id="@+id/img_test_result"
-                    style="@style/txtPoppinsregular13_1"
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/_30pxh"
-                    android:layout_marginTop="@dimen/_1pxv"
-                    android:layout_weight="1"
-                    android:ellipsize="end"
-                    android:visibility="visible"
-                    android:singleLine="true"
-                     />
-            </LinearLayout>
-            <LinearLayout
-                android:id="@+id/ll_asign_test"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_2pxv"
-                android:weightSum="5"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/tv_shortlist"
-                    style="@style/txtPoppinsregular13_1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/_1pxv"
-                    android:layout_weight="4"
-                    android:ellipsize="end"
-                    android:singleLine="true"
-                    android:text="Short List"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"
-                    tools:text="Test Assigned" />
-
-                <ImageView
-                    android:id="@+id/img_shortlist"
-                    style="@style/txtPoppinsregular13_1"
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/_30pxh"
-                    android:layout_marginTop="@dimen/_1pxv"
-                    android:layout_weight="1"
-                    android:ellipsize="end"
-                    android:visibility="visible"
-                    android:singleLine="true"
-                     />
-            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 

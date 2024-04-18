@@ -5,17 +5,30 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.util.Log;
+import android.util.Pair;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.campusrecruitmentsystem.R;
+import com.campusrecruitmentsystem.database.DataBaseSQlite;
 import com.campusrecruitmentsystem.student.modules.Question;
+import com.campusrecruitmentsystem.student.presentation.fragments.NotificationFragment;
 import com.campusrecruitmentsystem.student.presentation.quiz.modules.QuestionAdapter;
 
 import org.json.JSONArray;
@@ -28,6 +41,7 @@ import java.util.List;
 
 public class SubmitQuiz extends AppCompatActivity {
 
+    private List<Pair<String, String>> questionOptionPairs; // List to store question and selected option pairs
 
     private Context context;
     private Button btnApply;
@@ -35,16 +49,21 @@ public class SubmitQuiz extends AppCompatActivity {
     private CountDownTimer countDownTimer;
     TextView txtTime;
     private long timeInMillis = 10 * 60 * 1000; // 10 minutes in milliseconds
-
+    private LinearLayout questionLayout;
+    private TextView tv_time_up;
+    String job_id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_submit_quiz);
         context=this;
+        questionLayout = findViewById(R.id.questionLayout);
+        questionOptionPairs = new ArrayList<>();
         findViews();
         String test = getIntent().getStringExtra("test");
+         job_id = getIntent().getStringExtra("job_id");
         showQuestions(test);
-        btnApply.setEnabled(false);
+
 
         showAlertDialog(context);
     }
@@ -52,40 +71,94 @@ public class SubmitQuiz extends AppCompatActivity {
     private void findViews() {
         txtTime= findViewById(R.id.txtTime);
         btnApply= findViewById(R.id.btnApply);
-         recyclerView = findViewById(R.id.recyclerVieww);
+        tv_time_up= findViewById(R.id.tv_time_up);
+//         recyclerView = findViewById(R.id.recyclerVieww);
 
     }
 
-    public void SubmitFunction(View view) {
-//        Intent intent= new Intent(SubmitQuiz.this, Apply.class);
-//        startActivity(intent);
-    }
-private void showQuestions(String test){
-    List<Question> questionList = new ArrayList<>();
-    try {
-        JSONArray jsonArray = new JSONArray(test);
-        for (int i = 0; i < jsonArray.length(); i++) {
-            JSONObject jsonObject = jsonArray.getJSONObject(i);
-            String question = jsonObject.getString("questions");
-            String optionsString = jsonObject.getString("question_options");
-            List<String> options = Arrays.asList(optionsString.split(",\\s*"));
 
-            Question questionObject = new Question();
-            questionObject.setQuestion(question);
-            questionObject.setOptions(options);
-            questionList.add(questionObject);
+//    private void showQuestions(String test) {
+//        try {
+//            JSONArray jsonArray = new JSONArray(test);
+//            for (int i = 0; i < jsonArray.length(); i++) {
+//                JSONObject jsonObject = jsonArray.getJSONObject(i);
+//                String questionText = jsonObject.getString("questions");
+//                String optionsString = jsonObject.getString("question_options");
+//                List<String> options = Arrays.asList(optionsString.split(",\\s*"));
+//
+//                // Create TextView for question
+//                TextView questionTextView = new TextView(this);
+//                questionTextView.setText(questionText);
+//                questionLayout.addView(questionTextView);
+//
+//                // Create RadioButtons for options
+//                RadioGroup optionsRadioGroup = new RadioGroup(this);
+//                optionsRadioGroup.setOrientation(LinearLayout.VERTICAL);
+//                for (String option : options) {
+//                    RadioButton radioButton = new RadioButton(this);
+//                    radioButton.setText(option);
+//                    optionsRadioGroup.addView(radioButton);
+//                }
+//                questionLayout.addView(optionsRadioGroup);
+//            }
+//        } catch (JSONException e) {
+//            e.printStackTrace();
+//            System.out.println("Error44443322= " + e.getMessage());
+//            Toast.makeText(context, "Error" + e.getMessage(), Toast.LENGTH_SHORT).show();
+//        }
+//    }
 
+    private void showQuestions(String test) {
+        try {
+            JSONArray jsonArray = new JSONArray(test);
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                String questionText = jsonObject.getString("questions");
+                String optionsString = jsonObject.getString("question_options");
+                List<String> options = Arrays.asList(optionsString.split(",\\s*"));
 
-            recyclerView.setLayoutManager(new LinearLayoutManager(this));
-            QuestionAdapter adapter = new QuestionAdapter(questionList);
-            recyclerView.setAdapter(adapter);
+                // Create TextView for question
+                TextView questionTextView = new TextView(this);
+                questionTextView.setText(questionText);
+                questionLayout.addView(questionTextView);
+
+                // Create RadioButtons for options
+                RadioGroup optionsRadioGroup = new RadioGroup(this);
+                optionsRadioGroup.setOrientation(LinearLayout.VERTICAL);
+                for (String option : options) {
+                    RadioButton radioButton = new RadioButton(this);
+                    radioButton.setText(option);
+                    optionsRadioGroup.addView(radioButton);
+                }
+                questionLayout.addView(optionsRadioGroup);
+
+                // Add question and selected option pair to the list
+                optionsRadioGroup.setOnCheckedChangeListener((group, checkedId) -> {
+                    RadioButton selectedRadioButton = findViewById(checkedId);
+                    if (selectedRadioButton != null) {
+                        String selectedOption = selectedRadioButton.getText().toString();
+                        questionOptionPairs.add(new Pair<>(questionText, selectedOption));
+                    }
+                });
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+            System.out.println("Error44443322= " + e.getMessage());
+            Toast.makeText(context, "Error" + e.getMessage(), Toast.LENGTH_SHORT).show();
         }
-    } catch (JSONException e) {
-        e.printStackTrace();
-        System.out.println("Error44443322= "+e.getMessage());
-        Toast.makeText(context,"Error"+e.getMessage(),Toast.LENGTH_SHORT).show();
     }
-}
+
+    private String convertQuestionOptionPairsToString(List<Pair<String, String>> questionOptionPairs) {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (Pair<String, String> pair : questionOptionPairs) {
+            stringBuilder.append(pair.first); // Append question
+            stringBuilder.append(": ");
+            stringBuilder.append(pair.second); // Append selected option
+            stringBuilder.append("\n");
+        }
+        return stringBuilder.toString();
+    }
+
     public void startCountDownTimer() {
         countDownTimer = new CountDownTimer(timeInMillis, 1000) {
             @Override
@@ -102,11 +175,23 @@ private void showQuestions(String test){
             public void onFinish() {
                 // Handle timer finish event if needed
                 txtTime.setText("00:00");
-                startCountDownTimer();
+                tv_time_up.setVisibility(View.VISIBLE);
+                setLayoutEnabled(questionLayout, false);
             }
         };
 
         countDownTimer.start(); // Start the countdown timer
+    }
+    private void setLayoutEnabled(ViewGroup viewGroup, boolean enabled) {
+        viewGroup.setEnabled(enabled);
+        for (int i = 0; i < viewGroup.getChildCount(); i++) {
+            View child = viewGroup.getChildAt(i);
+            if (child instanceof ViewGroup) {
+                setLayoutEnabled((ViewGroup) child, enabled); // Recursively disable child layouts
+            } else {
+                child.setEnabled(enabled); // Disable individual child views
+            }
+        }
     }
     private void showAlertDialog(Context context) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
@@ -129,6 +214,60 @@ private void showQuestions(String test){
             countDownTimer.cancel(); // Cancel the countdown timer to avoid memory leaks
         }
     }
+
+    public void SubmitQuiz(View view) {
+        final Dialog dialog = new Dialog(context);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setCancelable(false);
+        dialog.setContentView(R.layout.custom_dialog_back);
+
+        TextView text = (TextView) dialog.findViewById(R.id.text_dialog);
+        text.setText("Are you Sure You Want to Submit Quiz");
+
+        Button btn_dialog_cancel = (Button) dialog.findViewById(R.id.btn_dialog_cancel);
+        Button btn_dialog_ok = (Button) dialog.findViewById(R.id.btn_dialog_ok);
+        btn_dialog_cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });btn_dialog_ok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String questionOptionPairsString = convertQuestionOptionPairsToString(questionOptionPairs);
+
+                System.out.println("questionOptionPairsString= "+questionOptionPairsString);
+                getRequiredDataForQuiz(questionOptionPairsString);
+                dialog.dismiss();
+                finish();
+            }
+        });
+
+        dialog.show();
+    }
+    private void getRequiredDataForQuiz(String questionOptionPairsString) {
+
+        try {
+            SQLiteDatabase db = DataBaseSQlite.connectToDb(context);
+
+            String q = "UPDATE tbl_notification set test_result='"+questionOptionPairsString+"' where job_id='" + job_id + "'";
+            db.execSQL(q);
+            String w = "UPDATE tbl_Jobs_applied set test_result='"+questionOptionPairsString+"' where job_id='" + job_id + "'";
+            db.execSQL(w);
+
+            String qq = "UPDATE tbl_notification set notification_status='old' where job_id='" + job_id + "'";
+            db.execSQL(qq);
+            System.out.println("Qsdlkfsldfj=" +q);
+        }catch (Exception e){
+
+            Toast.makeText(context,"value="+e.getMessage(),Toast.LENGTH_SHORT).show();
+
+        }
+
+
+
+    }
+
 }
 
 

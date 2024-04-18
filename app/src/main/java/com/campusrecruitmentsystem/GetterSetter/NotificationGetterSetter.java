@@ -184,5 +184,25 @@ public class NotificationGetterSetter {
     private static String test_result = "";
     private static  String short_listed = "";
 
+    public static String getNotification_text() {
+        return notification_text;
+    }
+
+    public static void setNotification_text(String notification_text) {
+        NotificationGetterSetter.notification_text = notification_text;
+    }
+
+    private static  String notification_text = "";
+
+    public static String getCurrent_date_time() {
+        return current_date_time;
+    }
+
+    public static void setCurrent_date_time(String current_date_time) {
+        NotificationGetterSetter.current_date_time = current_date_time;
+    }
+
+    private static  String current_date_time = "";
+
 
 }

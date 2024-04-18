@@ -102,8 +102,124 @@ public class AdapterAppliedJob extends RecyclerView.Adapter<AdapterAppliedJob.Vi
         if (test!= null){
             if (test.equalsIgnoreCase("No")){
                 holder.img_assign_test.setBackgroundResource(R.drawable.ic_cancel_two);
+                holder.img_assign_test.setEnabled(true);
+
+                holder.ll_view_test.setVisibility(View.GONE);
+                holder.ll_asign_test.setVisibility(View.GONE);
             }else {
                 holder.img_assign_test.setBackgroundResource(R.drawable.ic_tick);
+                holder.img_assign_test.setEnabled(false);
+                holder.ll_view_test.setVisibility(View.VISIBLE);
+                holder.ll_asign_test.setVisibility(View.VISIBLE);
+
+            }
+        }
+
+//        String short_listed = AppliedJobs.getshort_listed();
+//        if (short_listed!= null){
+//            if (short_listed.equalsIgnoreCase("No") || short_listed.isEmpty()){
+//
+//                holder.img_shortlist.setBackgroundResource(R.drawable.ic_cancel_two);
+//            }else {
+//
+//                holder.img_shortlist.setBackgroundResource(R.drawable.ic_tick);
+//
+//            }
+//        }
+
+        String test_result = AppliedJobs.gettest_result();
+        if (test_result!= null){
+            if (test_result.equalsIgnoreCase("No") ){
+
+                holder.img_test_result.setBackgroundResource(R.drawable.ic_cancel_two);
+            }else {
+
+                holder.img_test_result.setBackgroundResource(R.drawable.ic_test_result_icon);
+                holder.ll_view_test.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        int adapterPosition = holder.getAdapterPosition();
+                        if (adapterPosition != RecyclerView.NO_POSITION && onItemClickListener != null) {
+                            final Dialog dialog = new Dialog(context);
+                            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                            dialog.setCancelable(false);
+                            dialog.setContentView(R.layout.custome_dialog_yes_no);
+                            TextView text = (TextView) dialog.findViewById(R.id.text_dialog);
+                            text.setText("Do you want to View Test Result?");
+
+
+                            Button btn_dialog_no = (Button) dialog.findViewById(R.id.btn_dialog_no);
+                            Button btn_dialog_yes = (Button) dialog.findViewById(R.id.btn_dialog_yes);
+                            btn_dialog_no.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    dialog.dismiss();
+                                }
+                            });  btn_dialog_yes.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    holder.img_assign_test.setBackgroundResource(R.drawable.ic_tick);
+                                    holder.ll_view_test.setVisibility(View.VISIBLE);
+                                    holder.ll_asign_test.setVisibility(View.VISIBLE);
+                                    dialog.dismiss();
+                                    onItemClickListener.onItemClick(v, adapterPosition, jobList.get(adapterPosition),"test_result");
+
+                                }
+                            });
+
+                            dialog.show();
+                        }
+                    }
+                });
+
+
+
+            }
+        }
+
+        String short_list = AppliedJobs.getshort_listed();
+        System.out.println("short_listsdsd= "+short_list);
+
+        if (short_list != null){
+            if (short_list.equalsIgnoreCase("no")){
+                holder.img_shortlist.setBackgroundResource(R.drawable.ic_cancel_two);
+                holder.img_shortlist.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        int adapterPosition = holder.getAdapterPosition();
+                        if (adapterPosition != RecyclerView.NO_POSITION && onItemClickListener != null) {
+                            final Dialog dialog = new Dialog(context);
+                            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                            dialog.setCancelable(false);
+                            dialog.setContentView(R.layout.custome_dialog_yes_no);
+                            TextView text = (TextView) dialog.findViewById(R.id.text_dialog);
+                            text.setText("Do you want to Short List This Candidate?");
+
+
+                            Button btn_dialog_no = (Button) dialog.findViewById(R.id.btn_dialog_no);
+                            Button btn_dialog_yes = (Button) dialog.findViewById(R.id.btn_dialog_yes);
+                            btn_dialog_no.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    dialog.dismiss();
+                                }
+                            });  btn_dialog_yes.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    holder.img_shortlist.setBackgroundResource(R.drawable.ic_short_list);
+                                    dialog.dismiss();
+                                    onItemClickListener.onItemClick(v, adapterPosition, jobList.get(adapterPosition),"short_list");
+
+                                }
+                            });
+
+                            dialog.show();
+                        }
+                    }
+                });
+
+            }else {
+                holder.img_shortlist.setEnabled(false);
 
             }
         }
@@ -127,9 +243,9 @@ public class AdapterAppliedJob extends RecyclerView.Adapter<AdapterAppliedJob.Vi
                     dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
                     dialog.setCancelable(false);
                     dialog.setContentView(R.layout.custome_dialog_yes_no);
-
                     TextView text = (TextView) dialog.findViewById(R.id.text_dialog);
                     text.setText("Do you want to Assign Test to this Applicant");
+
 
                     Button btn_dialog_no = (Button) dialog.findViewById(R.id.btn_dialog_no);
                     Button btn_dialog_yes = (Button) dialog.findViewById(R.id.btn_dialog_yes);
@@ -141,6 +257,9 @@ public class AdapterAppliedJob extends RecyclerView.Adapter<AdapterAppliedJob.Vi
                     });  btn_dialog_yes.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
+                            holder.img_assign_test.setBackgroundResource(R.drawable.ic_tick);
+                            holder.ll_view_test.setVisibility(View.VISIBLE);
+                            holder.ll_asign_test.setVisibility(View.VISIBLE);
                             dialog.dismiss();
                             onItemClickListener.onItemClick(v, adapterPosition, jobList.get(adapterPosition),"test");
 
@@ -166,7 +285,8 @@ public class AdapterAppliedJob extends RecyclerView.Adapter<AdapterAppliedJob.Vi
         TextView companyNameTextView;
         TextView tv_location;
         CircleImageView img_company;
-        ImageView img_download_resume,img_assign_test;
+        ImageView img_download_resume,img_assign_test,img_test_result,img_shortlist;
+        LinearLayout ll_view_test,ll_asign_test;
         // Other views as needed
 
         public ViewHolder(@NonNull View itemView) {
@@ -178,6 +298,10 @@ public class AdapterAppliedJob extends RecyclerView.Adapter<AdapterAppliedJob.Vi
             img_company = itemView.findViewById(R.id.img_company_2);
             img_download_resume = itemView.findViewById(R.id.img_download_resume);
             img_assign_test = itemView.findViewById(R.id.img_assign_test);
+            img_test_result = itemView.findViewById(R.id.img_test_result);
+            img_shortlist = itemView.findViewById(R.id.img_shortlist);
+            ll_view_test = itemView.findViewById(R.id.ll_view_test);
+            ll_asign_test = itemView.findViewById(R.id.ll_asign_test);
             // Initialize other views
         }
         private void showImage(String imageName){

@@ -105,10 +105,22 @@
             android:layout_marginEnd="@dimen/_139pxh"
             android:background="@drawable/rectangle_gradient_s_indigo_a700_e_cyan_a200_radius_2" />
 
+        <TextView
+            android:id="@+id/tv_time_up"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Your Time is Up Now !"
+            android:gravity="center"
+            android:visibility="gone"
+            android:layout_margin="@dimen/_10pxv"
+            android:textSize="@dimen/_20pxh"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimaryDark"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
+            android:layout_marginTop="@dimen/_13pxh"
             android:orientation="horizontal">
 
 
@@ -126,19 +138,35 @@
                 android:paddingTop="@dimen/_16pxv"
                 android:paddingBottom="@dimen/_16pxv"
                 android:singleLine="true"
+                android:onClick="SubmitQuiz"
                 android:text="@string/lbl_apply"
                 android:textAllCaps="false"
                 tools:text="@string/lbl_apply" />
 
         </LinearLayout>
-
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerVieww"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/_50pxh"
-            android:padding="8dp" />
+            android:layout_height="match_parent"
+            >
+            <LinearLayout
+                android:id="@+id/questionLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- Dynamic views for questions and options will be added here -->
+
+            </LinearLayout>
+        </ScrollView>
+
+
+<!--        <androidx.recyclerview.widget.RecyclerView-->
+<!--            android:id="@+id/recyclerVieww"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginBottom="@dimen/_50pxh"-->
+<!--            android:padding="8dp" />-->
 
 
     </LinearLayout>

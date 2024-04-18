@@ -91,16 +91,22 @@
                     android:layout_marginStart="@dimen/_24pxh"
                     android:layout_marginTop="@dimen/_12pxv"
                     android:layout_marginEnd="@dimen/_24pxh">
-
-                    <ImageView
+                    <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/imageProfile"
-                        android:src="@drawable/img_ellipse"
                         android:layout_width="@dimen/_104pxh"
                         android:layout_height="@dimen/_104pxh"
-                        android:layout_gravity="start"
-                        android:scaleType="centerCrop"
+                        android:src="@drawable/img_ellipse"
                         tools:ignore="ContentDescription"
-                        tools:src="@drawable/img_ellipse" />
+                        app:civ_border_color="#FF000000"/>
+<!--                    <ImageView-->
+<!--                        android:id="@+id/imageProfile"-->
+<!--                        android:src="@drawable/img_ellipse"-->
+<!--                        android:layout_width="@dimen/_104pxh"-->
+<!--                        android:layout_height="@dimen/_104pxh"-->
+<!--                        android:layout_gravity="start"-->
+<!--                        android:scaleType="centerCrop"-->
+<!--                        tools:ignore="ContentDescription"-->
+<!--                        tools:src="@drawable/img_ellipse" />-->
                 </FrameLayout>
                 <LinearLayout
                     android:id="@+id/linearRowStudent"

@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
@@ -15,6 +16,8 @@ import android.os.Environment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.campusrecruitmentsystem.GetterSetter.NotificationGetterSetter;
@@ -24,10 +27,11 @@ import com.campusrecruitmentsystem.company.modules.CandidateFragment.AppliedJobs
 import com.campusrecruitmentsystem.database.DataBaseSQlite;
 import com.campusrecruitmentsystem.database.Querries;
 import com.campusrecruitmentsystem.helperClases.ViewDialog;
-import com.campusrecruitmentsystem.student.presentation.quiz.QuizScreen2;
 
 import java.io.File;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -104,10 +108,12 @@ public class CandidatesFragment extends Fragment {
             String sallery_range= "";
             String student_profile_pic= "";
             String test_assigned= "";
+            String short_listed= "";
+            String test_result= "";
 
 
             AdapterAppliedJob =new AdapterAppliedJob(getActivity());
-            String query = "select distinct student_full_name,job_title,company_location,sallery_range,student_profile_pic,test_assigned from tbl_Jobs_applied WHERE user_applied !='no' AND company_email ='"+emailcompany+"'   ";
+            String query = "select distinct student_full_name,job_title,company_location,sallery_range,student_profile_pic,test_assigned,short_listed,test_result from tbl_Jobs_applied WHERE user_applied !='no' AND company_email ='"+emailcompany+"'   ";
 
             System.out.println("query= "+query);
 
@@ -124,8 +130,10 @@ public class CandidatesFragment extends Fragment {
                     sallery_range = cur.getString(cur.getColumnIndexOrThrow("sallery_range"));
                     student_profile_pic = cur.getString(cur.getColumnIndexOrThrow("student_profile_pic"));
                     test_assigned = cur.getString(cur.getColumnIndexOrThrow("test_assigned"));
+                    short_listed = cur.getString(cur.getColumnIndexOrThrow("short_listed"));
+                    test_result = cur.getString(cur.getColumnIndexOrThrow("test_result"));
 
-                    AppliedJobs job = new AppliedJobs(student_full_name, job_title, company_location,sallery_range, student_profile_pic,test_assigned);
+                    AppliedJobs job = new AppliedJobs(student_full_name, job_title, company_location,sallery_range, student_profile_pic,test_assigned,short_listed,test_result);
                     jobList.add(job);
                 }
                 cur.close();
@@ -152,7 +160,11 @@ public class CandidatesFragment extends Fragment {
 
 
                                     getItemClickedData(position+1);
-                                }else if (value.equalsIgnoreCase("viewresult")){
+                                }else if (value.equalsIgnoreCase("test_result")){
+                                    viewTestResult(position+1);
+
+                                }else if (value.equalsIgnoreCase("short_list")){
+                                    updateShortListStatus(position+1);
 
                                 }
 
@@ -196,6 +208,84 @@ public class CandidatesFragment extends Fragment {
         }
     }
 
+    private void viewTestResult(int position) {
+        String test_result= "";
+        SQLiteDatabase db = DataBaseSQlite.connectToDb(getActivity());
+        String query = "select distinct test_result from tbl_Jobs_applied WHERE job_status='active' AND _id_pk = '"+position+"'  ";
+        System.out.println("query= " + query);
+        Cursor cur = db.rawQuery(query, null);
+        int counted = cur.getCount();
+        System.out.println("counteddd= " + counted);
+        if (counted > 0) {
+            while (cur.moveToNext()) {
+                test_result = cur.getString(cur.getColumnIndexOrThrow("test_result"));
+            }
+            cur.close();
+            db.close();
+            System.out.println("test_result13= "+test_result);
+            Toast.makeText(getActivity(),"test_Result"+test_result,Toast.LENGTH_SHORT).show();
+            openCustomDialog(test_result);
+        }
+    }private void updateShortListStatus(int position) {
+
+        try {
+
+            SQLiteDatabase db = DataBaseSQlite.connectToDb(getActivity());
+            String q = "UPDATE tbl_Jobs_applied set short_listed='Yes' where _id_pk='" + position + "'";
+            db.execSQL(q);
+
+
+            String w = "UPDATE tbl_Jobs_applied set short_listed='Yes' where _id_pk='" + position + "'";
+            db.execSQL(w);
+        }catch (Exception e){
+
+            Toast.makeText(getActivity(),"Error"+e.getMessage(),Toast.LENGTH_SHORT).show();
+        }
+
+
+
+    }
+
+    private void openCustomDialog(String test_result) {
+        // Split the string into lines
+        String[] lines = test_result.split("\n");
+
+        // Create a LinearLayout to hold all the question-answer pairs
+        LinearLayout containerLayout = new LinearLayout(getActivity());
+        containerLayout.setOrientation(LinearLayout.VERTICAL);
+
+        // Iterate through each line and create TextViews for question-answer pairs
+        for (String line : lines) {
+            // Split each line into question and answer
+            String[] pair = line.split("=|:");
+
+            // Inflate custom layout for each question-answer pair
+            View dialogView = getLayoutInflater().inflate(R.layout.custom_alert_dialog_layout_for_company, null);
+
+            // Get references to TextViews in custom layout
+            TextView questionTextView = dialogView.findViewById(R.id.questionTextView);
+            TextView answerTextView = dialogView.findViewById(R.id.answerTextView);
+
+            // Set text for question and answer TextViews
+            questionTextView.setText(pair[0]);
+            answerTextView.setText("Answer: " + pair[1]);
+
+            // Add custom layout for each question-answer pair to the container layout
+            containerLayout.addView(dialogView);
+        }
+
+        // Create an AlertDialog Builder
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setTitle("Question With Answers Submitted by Candidate:");
+
+        // Set the container layout as the view for the AlertDialog
+        builder.setView(containerLayout);
+
+        // Create and show the AlertDialog
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+    }
+
     private void updateTestStatus(int position) {
         SQLiteDatabase db = DataBaseSQlite.connectToDb(getActivity());
         try {
@@ -225,7 +315,7 @@ public class CandidatesFragment extends Fragment {
             String short_listed = "";
 
 
-            String query = "select distinct * from tbl_Jobs_applied WHERE where _id_pk='" + position + "'  ";
+            String query = "select distinct * from tbl_Jobs_applied WHERE _id_pk='" + position + "'  ";
 
             System.out.println("query= " + query);
 
@@ -282,6 +372,16 @@ public class CandidatesFragment extends Fragment {
                 NotificationGetterSetter.setTest_assigned(test_assigned);
                 NotificationGetterSetter.setTest_result(test_result);
                 NotificationGetterSetter.setShort_listed(short_listed);
+
+                String notification_test = company_name+" have Assigned you a test for this Job " +job_title;
+                NotificationGetterSetter.setNotification_text(notification_test);
+
+                Date currentDateAndTime = new Date();
+                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                String dateString = dateFormat.format(currentDateAndTime);
+                System.out.println("Current Date and Time: " + dateString);
+
+                NotificationGetterSetter.setCurrent_date_time(dateString);
 
                 long id = Querries.insertIntoNotification(getActivity());
                 if (id > 0) {

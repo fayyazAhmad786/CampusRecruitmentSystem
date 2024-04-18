@@ -44,11 +44,13 @@ import java.util.Date;
 import java.util.StringTokenizer;
 import java.util.UUID;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import me.echodev.resizer.Resizer;
 
 public class SignupScreen extends AppCompatActivity {
     private TextView tvOption1, tvOption2,txtLogin;
-    private ImageView imageArrowleft,imageProfile;
+    private ImageView imageArrowleft;
+    private CircleImageView imageProfile;
     private EditText etusername,etEmail,etPassword,etCompanyName,etnoOfEmployees,etProfession;
     private Spinner spn_location;
     String SignupType = "";

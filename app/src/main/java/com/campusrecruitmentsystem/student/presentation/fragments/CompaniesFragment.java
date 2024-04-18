@@ -102,7 +102,7 @@ public class CompaniesFragment extends Fragment {
         });
 
         loadJobsFromDatabase();
-//        loadFeaturedJobsFromDatabase();
+        loadFeaturedJobsFromDatabase();
 
         return view;
     }
@@ -120,7 +120,7 @@ public class CompaniesFragment extends Fragment {
             String _id_pk= "";
 
             CompaniesAdapter =new CompaniesAdapter(getActivity());
-            String query = "select distinct company_name,company_email,company_profile_pic,_id_pk from tbl_Jobs WHERE job_status='active'  ";
+            String query = "select distinct email,company_name,profile_pic,_id_pk from tbl_signup WHERE login_type='company'  ";
             System.out.println("query= "+query);
 
 
@@ -130,9 +130,9 @@ public class CompaniesFragment extends Fragment {
             if (counted > 0) {
                 while (cur.moveToNext()) {
 
-                    company_email = cur.getString(cur.getColumnIndexOrThrow("company_email"));
+                    company_email = cur.getString(cur.getColumnIndexOrThrow("email"));
                     company_name = cur.getString(cur.getColumnIndexOrThrow("company_name"));
-                    company_profile_pic = cur.getString(cur.getColumnIndexOrThrow("company_profile_pic"));
+                    company_profile_pic = cur.getString(cur.getColumnIndexOrThrow("profile_pic"));
                     _id_pk = cur.getString(cur.getColumnIndexOrThrow("_id_pk"));
                     Companies job = new Companies(company_name, company_profile_pic,company_email,_id_pk);
                     companiesList.add(job);
@@ -188,14 +188,14 @@ public class CompaniesFragment extends Fragment {
             String company_email= "";
 
             companiesAdapterFeaturedCompanies =new  CompaniesAdapterFeaturedCompanies(getActivity());
-//            String query = "select distinct company_location,job_title,company_name,sallery_range,company_profile_pic from tbl_Jobs WHERE job_status='active' order by sallery_range ASC   ";
-            String query = "SELECT distinct company_location,job_title,company_name,sallery_range,company_profile_pic FROM tbl_Jobs WHERE job_status='active' ORDER BY CASE " +
-                    "WHEN sallery_range LIKE '%-50k' THEN CAST(SUBSTR(sallery_range, 1, INSTR(sallery_range, '-') - 1) AS INTEGER) " +
-                    "WHEN sallery_range LIKE '%-100k' THEN CAST(SUBSTR(sallery_range, 1, INSTR(sallery_range, '-') - 1) AS INTEGER) " +
-                    "WHEN sallery_range LIKE '%-150k' THEN CAST(SUBSTR(sallery_range, 1, INSTR(sallery_range, '-') - 1) AS INTEGER) " +
-                    "WHEN sallery_range LIKE '%-200k' THEN CAST(SUBSTR(sallery_range, 1, INSTR(sallery_range, '-') - 1) AS INTEGER) " +
-                    "WHEN sallery_range LIKE '%-plus' THEN 250000 " + // Assuming "250k-plus" is the highest range
-                    "ELSE 0 END DESC";
+//            String query = "SELECT distinct company_email, company_location,job_title,company_name,sallery_range,company_profile_pic,_id_pk FROM tbl_Jobs WHERE job_status='active' ORDER BY CASE " +
+//                    "WHEN sallery_range LIKE '%-50k' THEN CAST(SUBSTR(sallery_range, 1, INSTR(sallery_range, '-') - 1) AS INTEGER) " +
+//                    "WHEN sallery_range LIKE '%-100k' THEN CAST(SUBSTR(sallery_range, 1, INSTR(sallery_range, '-') - 1) AS INTEGER) " +
+//                    "WHEN sallery_range LIKE '%-150k' THEN CAST(SUBSTR(sallery_range, 1, INSTR(sallery_range, '-') - 1) AS INTEGER) " +
+//                    "WHEN sallery_range LIKE '%-200k' THEN CAST(SUBSTR(sallery_range, 1, INSTR(sallery_range, '-') - 1) AS INTEGER) " +
+//                    "WHEN sallery_range LIKE '%-plus' THEN 250000 " + // Assuming "250k-plus" is the highest range
+//                    "ELSE 0 END DESC";
+            String query = "select distinct email,company_name,profile_pic,_id_pk,location from tbl_signup WHERE login_type='company' ";
             System.out.println("query= "+query);
 
 
@@ -204,10 +204,10 @@ public class CompaniesFragment extends Fragment {
             System.out.println("counteddd= "+counted);
             if (counted > 0) {
                 while (cur.moveToNext()) {
-                    company_email = cur.getString(cur.getColumnIndexOrThrow("company_email"));
-                    company_location = cur.getString(cur.getColumnIndexOrThrow("company_location"));
+                    company_email = cur.getString(cur.getColumnIndexOrThrow("email"));
+                    company_location = cur.getString(cur.getColumnIndexOrThrow("location"));
                     company_name = cur.getString(cur.getColumnIndexOrThrow("company_name"));
-                    company_profile_pic = cur.getString(cur.getColumnIndexOrThrow("company_profile_pic"));
+                    company_profile_pic = cur.getString(cur.getColumnIndexOrThrow("profile_pic"));
                     _id_pk = cur.getString(cur.getColumnIndexOrThrow("_id_pk"));
 
                     FeaturedCompanies job = new FeaturedCompanies(company_email,company_location, company_name, company_profile_pic,_id_pk);

@@ -73,8 +73,6 @@ public class CompaniesAdapterFeaturedCompanies extends RecyclerView.Adapter<Comp
 
 
         FeaturedCompanies FeaturedCompanies = jobList.get(position);
-//        holder.tv_salery_range.setText(FeaturedCompanies.getSalleryRange());
-//        holder.jobTitleTextView.setText(FeaturedCompanies.getJobTitle());
         holder.companyNameTextView.setText(FeaturedCompanies.getCompanyName());
         holder.tv_location.setText(FeaturedCompanies.getcompanyLocation());
         profilePic = FeaturedCompanies.getCompanyProfilePic();
@@ -99,7 +97,7 @@ public class CompaniesAdapterFeaturedCompanies extends RecyclerView.Adapter<Comp
             super(itemView);
 //            tv_salery_range = itemView.findViewById(R.id.tv_salery_range_2);
 //            jobTitleTextView = itemView.findViewById(R.id.tv_Job_title_2);
-            companyNameTextView = itemView.findViewById(R.id.tv_company_name_2);
+            companyNameTextView = itemView.findViewById(R.id.tv_company_title_2);
             tv_location = itemView.findViewById(R.id.tv_location_2);
             img_company = itemView.findViewById(R.id.img_company_2);
             // Initialize other views
