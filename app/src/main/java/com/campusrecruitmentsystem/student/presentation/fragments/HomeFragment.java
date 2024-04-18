@@ -1,14 +1,18 @@
 package com.campusrecruitmentsystem.student.presentation.fragments;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 
 import androidx.appcompat.widget.PopupMenu;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.os.Environment;
 import android.view.LayoutInflater;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -32,6 +36,7 @@ import com.campusrecruitmentsystem.student.presentation.fragment_modules.home_mo
 import com.campusrecruitmentsystem.student.presentation.ProfileActivity;
 import com.campusrecruitmentsystem.student.presentation.quiz.QuizScreen2;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -55,10 +60,13 @@ public class HomeFragment extends Fragment {
     private JobAdapter jobAdapter;
     private JobAdapterFeaturedJob JobAdapterFeaturedjob;
     private  String Filters;
+    private  ImageView imageProfile;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    public static final String PREFS_NAME_PROFILE = "MyPrefsProfile";
+    private int THUMBNAIL_SIZE = 60;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -99,13 +107,15 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-        ImageView imageProfile= view.findViewById(R.id.imageProfile);
+         imageProfile= view.findViewById(R.id.imageProfile);
         recyclerView= view.findViewById(R.id.recycler_jobs);
         recyclerViewFeaturedJobs= view.findViewById(R.id.recyclerViewFeaturedJobs);
         et_serial_number= view.findViewById(R.id.et_serial_number);
         ImageButton btnThumbsup= view.findViewById(R.id.btnThumbsup);
         ImageButton btncross= view.findViewById(R.id.btncross);
-
+        SharedPreferences settings_profile = getActivity().getSharedPreferences(PREFS_NAME_PROFILE, 0); // 0 - for private mode
+        String emailcompany = settings_profile.getString("emailstudent", ""); // Provide default value if the key is not found
+        findUserName(emailcompany);
         imageProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -133,7 +143,54 @@ public class HomeFragment extends Fragment {
 
         return view;
     }
+    private void findUserName(String email) {
+        try {
 
+            String profile_pic_name = "";
+            int counted = 0;
+            SQLiteDatabase db = DataBaseSQlite.connectToDb(getActivity());
+            String query = "select distinct profile_pic from tbl_signup Where email = '"+email+"'  ";
+            Cursor cur = db.rawQuery(query, null);
+            counted = cur.getCount();
+            if (counted > 0) {
+                while (cur.moveToNext()) {
+                    profile_pic_name = cur.getString(cur.getColumnIndexOrThrow("profile_pic"));
+                }
+                cur.close();
+                db.close();
+
+                showImage(profile_pic_name);
+
+            } else {
+                Toast.makeText(getActivity(),"No Record Found= ",Toast.LENGTH_LONG).show();
+
+            }
+        } catch (Exception e) {
+            Toast.makeText(getActivity(),"catch= "+e.getMessage(),Toast.LENGTH_LONG).show();
+
+        }
+
+    }
+
+    private void showImage(String imageName){
+        try {
+            Bitmap b = null;
+            String imageFile = "";
+            String strFolder = getActivity().getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS) + File.separator  + getActivity().getString(R.string.db_folder_images) + "/";
+            imageFile = strFolder + imageName;
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inSampleSize = 5;
+//            if (!UploaderGui.path[id].equalsIgnoreCase(""))
+            b = BitmapFactory.decodeFile(imageFile, options);
+//            b = BitmapFactory.decodeFile(imageFile);
+            if (b != null) {
+                Bitmap b1 = Bitmap.createScaledBitmap(b, THUMBNAIL_SIZE, THUMBNAIL_SIZE, false);
+                imageProfile.setImageBitmap(b1);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
     private void searchFilters(String filter){
 
         serial.clear();

@@ -75,22 +75,29 @@
                         android:layout_height="@dimen/_54pxv"
                         android:layout_marginTop="@dimen/_1pxv">
 
-                        <ImageView
+<!--                        <ImageView-->
+<!--                            android:id="@+id/imageProfile"-->
+<!--                            android:src="@drawable/img_ellipse"-->
+<!--                            android:layout_width="@dimen/_54pxh"-->
+<!--                            android:layout_height="@dimen/_54pxh"-->
+<!--                            android:layout_gravity="start"-->
+<!--                            android:scaleType="centerCrop"-->
+<!--                            tools:ignore="ContentDescription"-->
+<!--                            tools:src="@drawable/img_ellipse" />-->
+                        <de.hdodenhof.circleimageview.CircleImageView
                             android:id="@+id/imageProfile"
-                            android:src="@drawable/img_ellipse"
                             android:layout_width="@dimen/_54pxh"
                             android:layout_height="@dimen/_54pxh"
-                            android:layout_gravity="start"
-                            android:scaleType="centerCrop"
+                            android:src="@drawable/img_ellipse"
                             tools:ignore="ContentDescription"
-                            tools:src="@drawable/img_ellipse" />
-
+                            app:civ_border_color="#FF000000"/>
                         <LinearLayout
                             android:id="@+id/linearColumnellipse767"
                             style="@style/groupStylegray_50cornerRadius"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="top|end"
+                            android:visibility="gone"
                             android:layout_marginStart="@dimen/_10pxh"
                             android:layout_marginTop="@dimen/_4pxv"
                             android:layout_marginBottom="@dimen/_10pxv"

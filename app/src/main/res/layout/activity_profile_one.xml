@@ -73,16 +73,14 @@
             android:layout_marginStart="@dimen/_24pxh"
             android:layout_marginTop="@dimen/_12pxv"
             android:layout_marginEnd="@dimen/_24pxh">
-
-            <ImageView
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/imageProfile"
-                android:src="@drawable/img_ellipse"
                 android:layout_width="@dimen/_104pxh"
                 android:layout_height="@dimen/_104pxh"
-                android:layout_gravity="start"
-                android:scaleType="centerCrop"
+                android:src="@drawable/img_ellipse"
                 tools:ignore="ContentDescription"
-                tools:src="@drawable/img_ellipse" />
+                app:civ_border_color="#FF000000"/>
+
         </FrameLayout>
 
         <TextView
@@ -133,45 +131,6 @@
                 tools:src="@drawable/img_checkmark" />
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/linearColumntwentyseven"
-            style="@style/groupStyledeep_purple_300cornerRadius"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_24pxh"
-            android:layout_marginTop="@dimen/_41pxv"
-            android:layout_marginEnd="@dimen/_24pxh"
-            android:gravity="center_horizontal"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/txtTwentySeven"
-                style="@style/txtAbhayaLibreMediumabhayalibremedium16"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginStart="@dimen/_40pxh"
-                android:layout_marginTop="@dimen/_2pxv"
-                android:layout_marginEnd="@dimen/_40pxh"
-                android:ellipsize="end"
-                android:singleLine="true"
-                android:text="@string/lbl_27"
-                tools:text="@string/lbl_27" />
-
-            <TextView
-                android:id="@+id/txtAppliedJobs"
-                style="@style/txtPoppinsmedium12_2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_8pxh"
-                android:layout_marginEnd="@dimen/_8pxh"
-                android:layout_marginBottom="@dimen/_4pxv"
-                android:ellipsize="end"
-                android:gravity="center_horizontal"
-                android:singleLine="true"
-                android:text="@string/lbl_applied_jobs"
-                tools:text="@string/lbl_applied_jobs" />
-        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/linearRowexperience"
@@ -179,6 +138,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_24pxh"
             android:layout_marginTop="@dimen/_40pxv"
+            android:visibility="gone"
             android:layout_marginEnd="@dimen/_24pxh"
             android:orientation="horizontal">
 
@@ -215,6 +175,7 @@
             android:layout_marginTop="@dimen/_7pxv"
             android:layout_marginEnd="@dimen/_18pxh"
             android:gravity="start"
+            android:visibility="gone"
             android:orientation="horizontal">
 
             <ImageView
@@ -316,6 +277,7 @@
             android:layout_marginStart="@dimen/_24pxh"
             android:layout_marginTop="@dimen/_29pxv"
             android:layout_marginEnd="@dimen/_24pxh"
+            android:visibility="gone"
             android:orientation="horizontal">
 
             <TextView
@@ -351,6 +313,7 @@
             android:layout_marginTop="@dimen/_11pxv"
             android:layout_marginEnd="@dimen/_18pxh"
             android:gravity="start"
+            android:visibility="gone"
             android:orientation="horizontal">
 
             <ImageView
@@ -571,6 +534,49 @@
                 android:text="@string/msg_creative_ux_des"
                 tools:text="@string/msg_creative_ux_des" />
         </LinearLayout>
+        <LinearLayout
+            android:id="@+id/linearColumntwentyseven"
+            style="@style/groupStyledeep_purple_300cornerRadius"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginStart="@dimen/_24pxh"
+            android:layout_marginTop="@dimen/_41pxv"
+            android:layout_marginEnd="@dimen/_24pxh"
+            android:visibility="gone"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtTwentySeven"
+                style="@style/txtAbhayaLibreMediumabhayalibremedium16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginStart="@dimen/_40pxh"
+                android:layout_marginTop="@dimen/_2pxv"
+                android:layout_marginEnd="@dimen/_40pxh"
+                android:ellipsize="end"
+                android:visibility="gone"
+                android:singleLine="true"
+                android:text="@string/lbl_27"
+                tools:text="@string/lbl_27" />
+
+            <TextView
+                android:id="@+id/txtAppliedJobs"
+                style="@style/txtPoppinsmedium12_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_8pxh"
+                android:layout_marginEnd="@dimen/_8pxh"
+                android:layout_marginBottom="@dimen/_4pxv"
+                android:layout_marginTop="15dp"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:singleLine="true"
+                android:text="View Resume"
+                tools:text="View Resume" />
+        </LinearLayout>
+
     </LinearLayout>
     </ScrollView>
 </LinearLayout>

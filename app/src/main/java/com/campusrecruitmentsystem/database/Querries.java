@@ -154,8 +154,9 @@ public class Querries {
             values.put("short_listed", NotificationGetterSetter.getShort_listed());
             values.put("notification_text", NotificationGetterSetter.getNotification_text());
             values.put("notification_assigned", "yes");
-            values.put("notification_status", "new");
+            values.put("notification_status",  NotificationGetterSetter.getNotification_Status());
             values.put("current_date_time", NotificationGetterSetter.getCurrent_date_time());
+            values.put("joining_date", NotificationGetterSetter.getJoining_datee());
 
             try {
                 _id_pk = db.insertWithOnConflict(Constants.TABLE_NOTIFICATION, null, values, SQLiteDatabase.CONFLICT_REPLACE);

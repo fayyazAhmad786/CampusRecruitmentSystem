@@ -164,6 +164,25 @@ public class NotificationGetterSetter {
     }
 
     private static String company_email = "";
+
+    public static String getNotification_Status() {
+        return notification_Status;
+    }
+
+    public static void setNotification_Status(String notification_Status) {
+        NotificationGetterSetter.notification_Status = notification_Status;
+    }
+
+    public static String getJoining_datee() {
+        return joining_datee;
+    }
+
+    public static void setJoining_datee(String joining_datee) {
+        NotificationGetterSetter.joining_datee = joining_datee;
+    }
+
+    private static String joining_datee = "";
+    private static String notification_Status = "";
     private static String company_name = "";
     private static String job_title = "";
     private static  String job_description = "";

@@ -149,28 +149,49 @@
                 android:text="@string/lbl_upload"
                 android:textAllCaps="false"
                 tools:text="@string/lbl_upload" />
-        </LinearLayout>
 
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnSave"
+                style="@style/btnSolidRounded_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_64pxh"
+                android:layout_marginTop="@dimen/_32pxv"
+                android:layout_marginEnd="@dimen/_64pxh"
+                android:layout_marginBottom="@dimen/_40pxv"
+                android:ellipsize="end"
+                android:onClick="resumeupload"
+                android:gravity="center"
+                android:visibility="gone"
+                android:paddingStart="@dimen/_30pxh"
+                android:paddingTop="@dimen/_16pxv"
+                android:paddingEnd="@dimen/_30pxh"
+                android:paddingBottom="@dimen/_16pxv"
+                android:singleLine="true"
+                android:text="@string/lbl_save"
+                android:textAllCaps="false"
+                tools:text="@string/lbl_save" />
+
+        </LinearLayout>
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnSave"
+            android:id="@+id/btnSavee"
             style="@style/btnSolidRounded_4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_24pxh"
-            android:layout_marginTop="@dimen/_232pxv"
             android:layout_marginEnd="@dimen/_24pxh"
             android:layout_marginBottom="@dimen/_20pxv"
             android:ellipsize="end"
             android:gravity="center"
             android:visibility="gone"
-            android:paddingStart="@dimen/_30pxh"
-            android:paddingTop="@dimen/_16pxv"
             android:paddingEnd="@dimen/_30pxh"
             android:paddingBottom="@dimen/_16pxv"
             android:singleLine="true"
             android:text="@string/lbl_save"
             android:textAllCaps="false"
             tools:text="@string/lbl_save" />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

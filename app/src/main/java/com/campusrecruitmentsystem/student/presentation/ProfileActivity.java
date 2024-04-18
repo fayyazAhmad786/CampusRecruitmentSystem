@@ -29,10 +29,13 @@ import com.campusrecruitmentsystem.student.presentation.quiz.QuizScreen1;
 
 import java.io.File;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class ProfileActivity extends AppCompatActivity {
 
-    private TextView txtMakearesume,txtuserName,txtProfessions;
-    private ImageView imagelogout,imageArrowleft,imageProfile;
+    private TextView txtMakearesume,txtuserName,txtHaleyJessicaOne,txtProfessions,txtUXDesignerOne;
+    private ImageView imagelogout,imageArrowleft;
+    CircleImageView imageProfile;
     private LinearLayout linearColumntwentyseven;
     private Context context;
     private int THUMBNAIL_SIZE = 60;
@@ -61,9 +64,7 @@ public class ProfileActivity extends AppCompatActivity {
         });  linearColumntwentyseven.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent intent= new Intent(ProfileActivity.this,ApplliedJobs.class);
-//                startActivity(intent);
-//
+
                 Intent intent= new Intent(ProfileActivity.this, QuizScreen1.class);
                 startActivity(intent);
             }
@@ -94,7 +95,9 @@ public class ProfileActivity extends AppCompatActivity {
         imageArrowleft = findViewById(R.id.imageArrowleft);
         imageProfile = findViewById(R.id.imageProfile);
         txtuserName = findViewById(R.id.txtuserName);
+        txtHaleyJessicaOne = findViewById(R.id.txtHaleyJessicaOne);
         txtProfessions = findViewById(R.id.txtProfessions);
+        txtUXDesignerOne = findViewById(R.id.txtUXDesignerOne);
         txtMakearesume = findViewById(R.id.txtMakearesume);
         linearColumntwentyseven = findViewById(R.id.linearColumntwentyseven);
     }
@@ -124,7 +127,9 @@ public class ProfileActivity extends AppCompatActivity {
                 db.close();
 
                 txtuserName.setText(user_name);
+                txtHaleyJessicaOne.setText(user_name);
                 txtProfessions.setText(profession);
+                txtUXDesignerOne.setText(profession);
                 showImage(profile_pic_name);
 
             } else {

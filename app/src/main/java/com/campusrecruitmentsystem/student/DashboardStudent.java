@@ -5,10 +5,19 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.campusrecruitmentsystem.R;
+import com.campusrecruitmentsystem.database.DataBaseSQlite;
 import com.campusrecruitmentsystem.student.presentation.fragments.CatagoriesFragment;
 import com.campusrecruitmentsystem.student.presentation.fragments.CompaniesFragment;
 import com.campusrecruitmentsystem.student.presentation.fragments.HomeFragment;
@@ -16,18 +25,23 @@ import com.campusrecruitmentsystem.student.presentation.fragments.NotificationFr
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
+import java.io.File;
+
 public class DashboardStudent extends AppCompatActivity {
 
     ActionBar actionBar;
 
     private BottomNavigationView navigationView;
 
+
+    private Context context;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homescreen_student);
         actionBar = getSupportActionBar();
 //        actionBar.setTitle("Profile Activity");
+        context = this;
 
         navigationView = findViewById(R.id.navigation);
         navigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
@@ -76,4 +90,5 @@ public class DashboardStudent extends AppCompatActivity {
         fragmentTransaction.replace(R.id.content, fragment, "");
         fragmentTransaction.commit();
     }
+
 }

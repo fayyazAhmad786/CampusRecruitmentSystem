@@ -226,7 +226,8 @@ public class CandidatesFragment extends Fragment {
             Toast.makeText(getActivity(),"test_Result"+test_result,Toast.LENGTH_SHORT).show();
             openCustomDialog(test_result);
         }
-    }private void updateShortListStatus(int position) {
+    }
+    private void updateShortListStatus(int position) {
 
         try {
 
@@ -235,8 +236,8 @@ public class CandidatesFragment extends Fragment {
             db.execSQL(q);
 
 
-            String w = "UPDATE tbl_Jobs_applied set short_listed='Yes' where _id_pk='" + position + "'";
-            db.execSQL(w);
+//            String w = "UPDATE tbl_notification set short_listed='Yes' where _id_pk='" + position + "'";
+//            db.execSQL(w);
         }catch (Exception e){
 
             Toast.makeText(getActivity(),"Error"+e.getMessage(),Toast.LENGTH_SHORT).show();
@@ -372,6 +373,9 @@ public class CandidatesFragment extends Fragment {
                 NotificationGetterSetter.setTest_assigned(test_assigned);
                 NotificationGetterSetter.setTest_result(test_result);
                 NotificationGetterSetter.setShort_listed(short_listed);
+                NotificationGetterSetter.setNotification_Status("new");
+                NotificationGetterSetter.setNotification_Status("new");
+                NotificationGetterSetter.setJoining_datee("");
 
                 String notification_test = company_name+" have Assigned you a test for this Job " +job_title;
                 NotificationGetterSetter.setNotification_text(notification_test);
