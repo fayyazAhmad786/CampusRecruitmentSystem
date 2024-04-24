@@ -116,11 +116,11 @@ Responsibilities:
 Full stack web/mobile application development with a variety of coding languages
 Create consumer products and features using internal programming language Hack
 Implement web or mobile interfaces using XHTML, CSS, and JavaScript
-Quiz:\u2028  . Quiz is mandatory in order to apply for this job. This will test you aptitude for this job. "</string>
+Quiz:\u2028  . Quiz is mandatory in order to apply for this job. This will test your aptitude for this job. "</string>
     <string name="msg_product_designe">Product Designer</string>
     <string name="lbl_have">Have</string>
     <string name="lbl_designer">Designer</string>
-    <string name="lbl_27">27</string>
+    <string name="lbl_27">0</string>
     <string name="lbl_web_developer">Web Developer</string>
     <string name="lbl_115_000_y">$115,000/y</string>
     <string name="lbl_pdf">PDF</string>
@@ -201,6 +201,7 @@ complete all the quizzes</string>
     <string name="msg_enter_your_emai">Enter your email or phone number, we will send you verification code</string>
     <string name="lbl_get_100_points">GET 100 Points</string>
     <string name="lbl_welcome_back">Welcome Back &#128075;</string>
+    <string name="lbl_your_password">Your Password:</string>
     <string name="lbl_ux_designer_l3">UX Designer L3</string>
     <string name="lbl_ux_designer_l5">UX Designer L5</string>
     <string name="lbl_update">update</string>

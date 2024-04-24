@@ -264,6 +264,11 @@
         <item name="android:textColor">@color/gray_900</item>
         <item name="android:fontFamily">@font/poppins</item>
         <item name="android:textFontWeight" tools:targetApi="p">600</item>
+    </style><style name="txtforgotPassword">
+        <item name="android:textSize">@dimen/_16pxh</item>
+        <item name="android:textColor">@color/gray_900</item>
+        <item name="android:fontFamily">@font/poppins</item>
+        <item name="android:textFontWeight" tools:targetApi="p">600</item>
     </style>
     <style name="txtPoppinssemibold15_4">
         <item name="android:textSize">@dimen/_15pxh</item>

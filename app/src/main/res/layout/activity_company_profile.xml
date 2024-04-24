@@ -87,7 +87,7 @@
         </FrameLayout>
 
         <TextView
-            android:id="@+id/txtLanguage"
+            android:id="@+id/tv_com_name"
             style="@style/txtPoppinssemibold20"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -153,7 +153,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/txtTwentySeven"
+                    android:id="@+id/tv_posted_jobs"
                     style="@style/txtAbhayaLibreMediumabhayalibremedium16"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -189,7 +189,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/txt1000"
+                    android:id="@+id/tv_no_of_employees"
                     style="@style/txtAbhayaLibreMediumabhayalibremedium16"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -215,127 +215,129 @@
             </LinearLayout>
         </LinearLayout>
 
-        <EditText
-            android:id="@+id/etusername"
-            style="@style/etRoundedOutline"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_1pxh"
-            android:layout_marginTop="@dimen/_16pxv"
-            android:background="@drawable/rectangle_border_gray_400_radius_10"
-            android:drawableStart="@drawable/icon_person"
-            android:drawablePadding="@dimen/_16pxh"
-            android:ellipsize="end"
-            android:hint="@string/lbl_full_name"
-            android:layout_marginLeft="@dimen/_20pxh"
-            android:layout_marginRight="@dimen/_20pxh"
-            android:inputType="textAutoCorrect"
-            android:paddingStart="@dimen/_22pxh"
-            android:paddingTop="@dimen/_15pxv"
-            android:paddingEnd="@dimen/_30pxh"
-            android:paddingBottom="@dimen/_15pxv"
-            android:singleLine="true"
-            android:textColorHint="@color/gray_400"
-            tools:ignore="Autofill" />
-        <EditText
-            android:id="@+id/etEmail"
-            style="@style/etRoundedOutline"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_1pxh"
-            android:layout_marginTop="@dimen/_16pxv"
-            android:background="@drawable/rectangle_border_gray_400_radius_10"
-            android:drawableStart="@drawable/img_arrowdown_gray_400_12x15"
-            android:drawablePadding="@dimen/_16pxh"
-            android:layout_marginLeft="@dimen/_20pxh"
-            android:layout_marginRight="@dimen/_20pxh"
-            android:ellipsize="end"
-            android:hint="@string/lbl_e_mail"
-            android:inputType="textEmailAddress"
-            android:paddingStart="@dimen/_22pxh"
-            android:paddingTop="@dimen/_15pxv"
-            android:paddingEnd="@dimen/_30pxh"
-            android:paddingBottom="@dimen/_15pxv"
-            android:singleLine="true"
-            android:textColorHint="@color/gray_400"
-            tools:ignore="Autofill" />
+<!--        <EditText-->
+<!--            android:id="@+id/etusername"-->
+<!--            style="@style/etRoundedOutline"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="@dimen/_1pxh"-->
+<!--            android:layout_marginTop="@dimen/_16pxv"-->
+<!--            android:background="@drawable/rectangle_border_gray_400_radius_10"-->
+<!--            android:drawableStart="@drawable/icon_person"-->
+<!--            android:drawablePadding="@dimen/_16pxh"-->
+<!--            android:ellipsize="end"-->
+<!--            android:hint="@string/lbl_full_name"-->
+<!--            android:layout_marginLeft="@dimen/_20pxh"-->
+<!--            android:layout_marginRight="@dimen/_20pxh"-->
+<!--            android:inputType="textAutoCorrect"-->
+<!--            android:paddingStart="@dimen/_22pxh"-->
+<!--            android:paddingTop="@dimen/_15pxv"-->
+<!--            android:paddingEnd="@dimen/_30pxh"-->
+<!--            android:paddingBottom="@dimen/_15pxv"-->
+<!--            android:singleLine="true"-->
+<!--            android:textColorHint="@color/gray_400"-->
+<!--            tools:ignore="Autofill" />-->
+<!--        <EditText-->
+<!--            android:id="@+id/etEmail"-->
+<!--            style="@style/etRoundedOutline"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="@dimen/_1pxh"-->
+<!--            android:layout_marginTop="@dimen/_16pxv"-->
+<!--            android:background="@drawable/rectangle_border_gray_400_radius_10"-->
+<!--            android:drawableStart="@drawable/img_arrowdown_gray_400_12x15"-->
+<!--            android:drawablePadding="@dimen/_16pxh"-->
+<!--            android:layout_marginLeft="@dimen/_20pxh"-->
+<!--            android:layout_marginRight="@dimen/_20pxh"-->
+<!--            android:ellipsize="end"-->
+<!--            android:hint="@string/lbl_e_mail"-->
+<!--            android:inputType="textEmailAddress"-->
+<!--            android:paddingStart="@dimen/_22pxh"-->
+<!--            android:paddingTop="@dimen/_15pxv"-->
+<!--            android:paddingEnd="@dimen/_30pxh"-->
+<!--            android:paddingBottom="@dimen/_15pxv"-->
+<!--            android:singleLine="true"-->
+<!--            android:textColorHint="@color/gray_400"-->
+<!--            tools:ignore="Autofill" />-->
 
 
-        <LinearLayout
-            android:id="@+id/linearRowlanguageThree"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_16pxh"
-            android:layout_marginTop="@dimen/_26pxv"
-            android:layout_marginEnd="@dimen/_16pxh"
-            android:orientation="horizontal">
+<!--        <LinearLayout-->
+<!--            android:id="@+id/linearRowlanguageThree"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="@dimen/_16pxh"-->
+<!--            -->
+<!--            android:layout_marginTop="@dimen/_26pxv"-->
+<!--            android:layout_marginEnd="@dimen/_16pxh"-->
+<!--            android:orientation="horizontal">-->
 
-            <TextView
-                android:id="@+id/txtLanguageThree"
-                style="@style/txtPoppinssemibold16"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.69"
-                android:ellipsize="end"
-                android:singleLine="true"
-                android:text="@string/lbl_description"
-                tools:text="@string/lbl_description" />
+<!--            <TextView-->
+<!--                android:id="@+id/txtLanguageThree"-->
+<!--                style="@style/txtPoppinssemibold16"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_weight="0.69"-->
+<!--                android:ellipsize="end"-->
+<!--                android:singleLine="true"-->
+<!--                android:text="@string/lbl_description"-->
+<!--                tools:text="@string/lbl_description" />-->
 
-            <TextView
-                android:id="@+id/txtSeeall"
-                style="@style/txtPoppinsregular13"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_189pxh"
-                android:layout_marginTop="@dimen/_1pxv"
-                android:layout_marginBottom="@dimen/_2pxv"
-                android:layout_weight="0.31"
-                android:ellipsize="end"
-                android:singleLine="true"
-                android:text="@string/lbl_see_all"
-                tools:text="@string/lbl_see_all" />
-        </LinearLayout>
+<!--            <TextView-->
+<!--                android:id="@+id/txtSeeall"-->
+<!--                style="@style/txtPoppinsregular13"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="@dimen/_189pxh"-->
+<!--                android:layout_marginTop="@dimen/_1pxv"-->
+<!--                android:layout_marginBottom="@dimen/_2pxv"-->
+<!--                android:layout_weight="0.31"-->
+<!--                android:ellipsize="end"-->
+<!--                android:visibility="gone"-->
+<!--                android:singleLine="true"-->
+<!--                android:text="@string/lbl_see_all"-->
+<!--                tools:text="@string/lbl_see_all" />-->
+<!--        </LinearLayout>-->
 
-        <TextView
-            android:id="@+id/txtDescription"
-            style="@style/txtAbhayaLibreSemiBoldabhayalibresemibold7"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_39pxh"
-            android:layout_marginTop="@dimen/_7pxv"
-            android:layout_marginEnd="@dimen/_39pxh"
-            android:gravity="start"
-            android:text="@string/msg_creative_ux_dei"
-            tools:text="@string/msg_creative_ux_dei" />
+<!--        <TextView-->
+<!--            android:id="@+id/txtDescription"-->
+<!--            style="@style/txtAbhayaLibreSemiBoldabhayalibresemibold7"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="@dimen/_39pxh"-->
+<!--            android:layout_marginTop="@dimen/_7pxv"-->
+<!--            android:layout_marginEnd="@dimen/_39pxh"-->
+<!--            android:gravity="start"-->
+<!--            android:text="@string/msg_creative_ux_dei"-->
+<!--            tools:text="@string/msg_creative_ux_dei" />-->
 
-        <TextView
-            android:id="@+id/txtDescriptionOne"
-            style="@style/txtAbhayaLibreSemiBoldabhayalibresemibold7"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_39pxh"
-            android:layout_marginTop="@dimen/_8pxv"
-            android:layout_marginEnd="@dimen/_39pxh"
-            android:gravity="start"
-            android:text="@string/msg_creative_ux_dei"
-            tools:text="@string/msg_creative_ux_dei" />
+<!--        <TextView-->
+<!--            android:id="@+id/txtDescriptionOne"-->
+<!--            style="@style/txtAbhayaLibreSemiBoldabhayalibresemibold7"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="@dimen/_39pxh"-->
+<!--            android:layout_marginTop="@dimen/_8pxv"-->
+<!--            android:layout_marginEnd="@dimen/_39pxh"-->
+<!--            android:gravity="start"-->
+<!--            android:text="@string/msg_creative_ux_dei"-->
+<!--            tools:text="@string/msg_creative_ux_dei" />-->
 
-        <TextView
-            android:id="@+id/txtButton"
-            style="@style/txtSolidRounded"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:layout_marginStart="@dimen/_17pxh"
-            android:layout_marginTop="@dimen/_4pxv"
-            android:layout_marginEnd="@dimen/_17pxh"
-            android:ellipsize="end"
-            android:paddingStart="@dimen/_16pxh"
-            android:paddingTop="@dimen/_3pxv"
-            android:paddingEnd="@dimen/_16pxh"
-            android:singleLine="true"
-            android:text="@string/lbl_update"
-            tools:text="@string/lbl_update" />
+<!--        <TextView-->
+<!--            android:id="@+id/txtButton"-->
+<!--            style="@style/txtSolidRounded"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="end"-->
+<!--            android:layout_marginStart="@dimen/_17pxh"-->
+<!--            android:layout_marginTop="@dimen/_4pxv"-->
+<!--            android:layout_marginEnd="@dimen/_17pxh"-->
+<!--            android:ellipsize="end"-->
+<!--            android:paddingStart="@dimen/_16pxh"-->
+<!--            android:paddingTop="@dimen/_3pxv"-->
+<!--            android:paddingEnd="@dimen/_16pxh"-->
+<!--            android:singleLine="true"-->
+<!--            android:text="@string/lbl_update"-->
+<!--            tools:text="@string/lbl_update" />-->
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnLogOut"

@@ -18,12 +18,13 @@ import com.campusrecruitmentsystem.company.CreateTest;
 import com.campusrecruitmentsystem.company.HomeActivity;
 import com.campusrecruitmentsystem.company.PostJob;
 import com.campusrecruitmentsystem.database.DataBaseSQlite;
+import com.campusrecruitmentsystem.forgetPassword.ForgotPassword;
 import com.campusrecruitmentsystem.helperClases.ViewDialog;
 import com.campusrecruitmentsystem.student.DashboardStudent;
 
 public class LoginScreen extends AppCompatActivity {
 
-    private TextView txtHaventanacco;
+    private TextView txtHaventanacco,txtForgotPassword;
     private EditText et_login_email,et_login_password;
     private Button btnLogIn;
     private Context context;
@@ -63,7 +64,13 @@ public class LoginScreen extends AppCompatActivity {
             }
         });
 
-
+        txtForgotPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(LoginScreen.this, ForgotPassword.class);
+                startActivity(intent);
+            }
+        });
     }
     @Override
     public void onBackPressed() {
@@ -74,6 +81,7 @@ public class LoginScreen extends AppCompatActivity {
         et_login_password= findViewById(R.id.et_login_password);
         txtHaventanacco=findViewById(R.id.txtHaventanacco);
         btnLogIn=findViewById(R.id.btnLogIn);
+        txtForgotPassword=findViewById(R.id.txtForgotPassword);
     }
 
     private void VerifyUser(String Email,String Password) {

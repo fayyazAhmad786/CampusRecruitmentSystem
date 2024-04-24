@@ -34,6 +34,9 @@
         android:theme="@style/Theme.CampusRecruitmentSystem"
         tools:targetApi="31">
         <activity
+            android:name=".forgetPassword.ForgotPassword"
+            android:exported="false" />
+        <activity
             android:name=".company.DownloadOrViewResume"
             android:exported="false" />
         <activity
@@ -45,7 +48,6 @@
         <activity
             android:name=".company.CompanyProfile"
             android:exported="false" />
-
         <activity
             android:name=".company.CreateTest"
             android:exported="false" />

@@ -1,6 +1,7 @@
 package com.campusrecruitmentsystem.student.presentation.fragments;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -16,11 +17,8 @@ import android.widget.Toast;
 import com.campusrecruitmentsystem.R;
 import com.campusrecruitmentsystem.database.DataBaseSQlite;
 import com.campusrecruitmentsystem.helperClases.ViewDialog;
-import com.campusrecruitmentsystem.student.presentation.fragment_modules.companies_module.Companies;
-import com.campusrecruitmentsystem.student.presentation.fragment_modules.companies_module.CompaniesAdapter;
 import com.campusrecruitmentsystem.student.presentation.fragment_modules.notification.Notification;
 import com.campusrecruitmentsystem.student.presentation.fragment_modules.notification.NotificationAdapter;
-import com.campusrecruitmentsystem.student.presentation.quiz.QuizScreen2;
 import com.campusrecruitmentsystem.student.presentation.quiz.SubmitQuiz;
 
 import java.util.ArrayList;
@@ -40,6 +38,7 @@ public class NotificationFragment extends Fragment {
     private RecyclerView recycler_notification;
     private NotificationAdapter NotificationAdapter;
 
+    public static final String PREFS_NAME_PROFILE = "MyPrefsProfile";
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -83,14 +82,15 @@ public class NotificationFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_notification, container, false);
 
         recycler_notification = view.findViewById(R.id.recycler_notification);
-
-        loadJobsFromDatabase();
+        SharedPreferences settings_profile = getActivity().getSharedPreferences(PREFS_NAME_PROFILE, 0); // 0 - for private mode
+        String emailstudent = settings_profile.getString("emailstudent", ""); // Provide default value if the key is not found
+        loadJobsFromDatabase(emailstudent);
 
         return view;
 
     }
 
-    private void loadJobsFromDatabase() {
+    private void loadJobsFromDatabase(String emailstudent) {
         try {
 
 
@@ -107,7 +107,7 @@ public class NotificationFragment extends Fragment {
             String _id_pk = "";
 
             NotificationAdapter = new NotificationAdapter(getActivity());
-            String query = "select company_email,company_name,company_profile_pic,notification_text,_id_pk,current_date_time,job_id,notification_status from tbl_notification   ";
+            String query = "select company_email,company_name,company_profile_pic,notification_text,_id_pk,current_date_time,job_id,notification_status from tbl_notification where user_applied= '"+emailstudent+"'   ";
             System.out.println("query= " + query);
 
 
