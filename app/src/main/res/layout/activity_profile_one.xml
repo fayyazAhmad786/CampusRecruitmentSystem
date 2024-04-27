@@ -38,9 +38,9 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:id="@+id/imageArrowleft"
-                    android:layout_width="@dimen/_8pxh"
-                    android:layout_height="@dimen/_16pxh"
+                    android:id="@+id/imageArrowleftstuprofile"
+                    android:layout_width="@dimen/_20pxh"
+                    android:layout_height="@dimen/_20pxh"
                     android:layout_marginTop="@dimen/_1pxv"
                     android:scaleType="fitXY"
                     android:src="@drawable/img_arrowleft"
@@ -577,6 +577,25 @@
                 tools:text="View Resume" />
         </LinearLayout>
 
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnUpdate"
+            style="@style/btnSolidRounded_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_24pxh"
+            android:layout_marginTop="@dimen/_32pxv"
+            android:layout_marginEnd="@dimen/_24pxh"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:onClick="UpdateProfile"
+            android:paddingStart="@dimen/_30pxh"
+            android:paddingTop="@dimen/_16pxv"
+            android:paddingEnd="@dimen/_30pxh"
+            android:paddingBottom="@dimen/_16pxv"
+            android:singleLine="true"
+            android:text="Update Profile"
+            android:textAllCaps="false"
+            tools:text="Update Profile" />
     </LinearLayout>
     </ScrollView>
 </LinearLayout>

@@ -10,18 +10,18 @@ public class Notification {
     private String job_id;
     private String notification_status;
 
-    public String get_id_pk() {
+    public int get_id_pk() {
         return _id_pk;
     }
 
-    public void set_id_pk(String _id_pk) {
+    public void set_id_pk(int _id_pk) {
         this._id_pk = _id_pk;
     }
 
-    private String _id_pk;
+    private int _id_pk;
 
     public Notification( String company_email,String companyName, String companyProfilePic,String notification_text,
-                         String current_date_time, String job_id, String notification_status, String _id_pk) {
+                         String current_date_time, String job_id, String notification_status, int _id_pk) {
 
         this.companyName = companyName;
         this.company_email = company_email;

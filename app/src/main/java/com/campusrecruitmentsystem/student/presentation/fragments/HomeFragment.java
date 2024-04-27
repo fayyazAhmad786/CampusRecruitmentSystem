@@ -121,6 +121,8 @@ public class HomeFragment extends Fragment {
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), ProfileActivity.class);
                 startActivity(intent);
+                getActivity().finish();
+
             }
         });    btnThumbsup.setOnClickListener(new View.OnClickListener() {
             @Override

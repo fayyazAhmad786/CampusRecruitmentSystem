@@ -104,7 +104,7 @@ public class NotificationFragment extends Fragment {
             String current_date_time = "";
             String job_id = "";
             String notification_status = "";
-            String _id_pk = "";
+            int _id_pk ;
 
             NotificationAdapter = new NotificationAdapter(getActivity());
             String query = "select company_email,company_name,company_profile_pic,notification_text,_id_pk,current_date_time,job_id,notification_status from tbl_notification where user_applied= '"+emailstudent+"'   ";
@@ -124,7 +124,7 @@ public class NotificationFragment extends Fragment {
                     notification_status = cur.getString(cur.getColumnIndexOrThrow("notification_status"));
                     current_date_time = cur.getString(cur.getColumnIndexOrThrow("current_date_time"));
                     job_id = cur.getString(cur.getColumnIndexOrThrow("job_id"));
-                    _id_pk = cur.getString(cur.getColumnIndexOrThrow("_id_pk"));
+                    _id_pk = cur.getInt(cur.getColumnIndexOrThrow("_id_pk"));
                     Notification notification = new Notification(company_email, company_name, company_profile_pic, notification_text, current_date_time, job_id,notification_status, _id_pk);
                     notificationList.add(notification);
                 }
@@ -139,18 +139,18 @@ public class NotificationFragment extends Fragment {
                     // Set item click listener after setting adapter
                     NotificationAdapter.setOnItemClickListener(new NotificationAdapter.OnItemClickListener() {
                         @Override
-                        public void onItemClick(View view, int position, Notification companies, String value) {
+                        public void onItemClick(View view, int position, Notification companies, String value, int _id_pk) {
                             // Handle item click here
                             // Example: Get the clicked job and show its details
                             if (companies != null) {
                                 if (value.equalsIgnoreCase("new")){
                                     Toast.makeText(getActivity(), "new" + position, Toast.LENGTH_SHORT).show();
-                                getItemClickedData(position+1);
+                                getItemClickedData(_id_pk);
                                     System.out.println("valueNew= " +value);
 
                                 }else if (value.equalsIgnoreCase("new_non_click")){
                                     // Perform action with clicked job
-                                    Toast.makeText(getActivity(), "new_non_click" + position, Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getActivity(), "new_non_click" + _id_pk, Toast.LENGTH_SHORT).show();
                                     System.out.println("valueNON= " +value);
                                 }
 
@@ -174,12 +174,12 @@ public class NotificationFragment extends Fragment {
         }
     }
 
-    private void getItemClickedData(int position) {
+    private void getItemClickedData(int _id_pk) {
         String job_id= "";
 
         SQLiteDatabase db = DataBaseSQlite.connectToDb(getActivity());
 
-        String query = "select distinct job_id from tbl_notification WHERE  _id_pk = '"+position+"'  ";
+        String query = "select distinct job_id from tbl_notification WHERE  _id_pk = '"+_id_pk+"'  ";
         System.out.println("query= " + query);
 
 
@@ -193,14 +193,14 @@ public class NotificationFragment extends Fragment {
             cur.close();
             db.close();
 
-            getRequiredDataForQuiz(job_id);
+            getRequiredDataForQuiz(job_id,_id_pk);
 
         }
     }
 
 
 
-    private void getRequiredDataForQuiz(String  job_id) {
+    private void getRequiredDataForQuiz(String  job_id,int _id_pk) {
         String company_location= "";
         String job_title= "";
         String company_name= "";
@@ -256,7 +256,9 @@ public class NotificationFragment extends Fragment {
             intent.putExtra("job_description",job_description);
             intent.putExtra("test",test);
             intent.putExtra("job_id",job_idd);
+            intent.putExtra("_id_pk",_id_pk);
             startActivity(intent);
+            getActivity().finish();
         }
     }
 

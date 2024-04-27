@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -47,7 +48,7 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
 
     // Interface for item click listener
     public interface OnItemClickListener {
-        void onItemClick(View view, int position, Notification job, String text);
+        void onItemClick(View view, int position, Notification job, String text, int _id_pk);
     }
     @NonNull
     @Override
@@ -66,6 +67,7 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
 
 
         String notifStatus = notification.getnotification_status();
+        Toast.makeText(context,"Notification="+notifStatus,Toast.LENGTH_SHORT).show();
         if (notifStatus.equalsIgnoreCase("new")){
 
             // Set bold style for tv_notification_text
@@ -78,7 +80,9 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
                 public void onClick(View v) {
                     int adapterPosition = holder.getAdapterPosition();
                     if (adapterPosition != RecyclerView.NO_POSITION && onItemClickListener != null) {
-                        onItemClickListener.onItemClick(v, adapterPosition, NotificationList.get(adapterPosition),"new");
+                        int _id_pk = notification.get_id_pk();
+
+                        onItemClickListener.onItemClick(v, adapterPosition, NotificationList.get(adapterPosition),"new",_id_pk);
                     }
                 }
             });
@@ -92,7 +96,9 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
                 public void onClick(View v) {
                     int adapterPosition = holder.getAdapterPosition();
                     if (adapterPosition != RecyclerView.NO_POSITION && onItemClickListener != null) {
-                        onItemClickListener.onItemClick(v, adapterPosition, NotificationList.get(adapterPosition),"new_non_click");
+                        int _id_pk = notification.get_id_pk();
+
+                        onItemClickListener.onItemClick(v, adapterPosition, NotificationList.get(adapterPosition),"new_non_click",_id_pk);
                     }
                 }
             });

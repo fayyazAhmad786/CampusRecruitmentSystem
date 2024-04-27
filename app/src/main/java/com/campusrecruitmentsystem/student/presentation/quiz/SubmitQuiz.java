@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -19,6 +20,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -26,7 +28,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.campusrecruitmentsystem.R;
+import com.campusrecruitmentsystem.company.CompanyProfile;
+import com.campusrecruitmentsystem.company.HomeActivity;
 import com.campusrecruitmentsystem.database.DataBaseSQlite;
+import com.campusrecruitmentsystem.student.DashboardStudent;
 import com.campusrecruitmentsystem.student.modules.Question;
 import com.campusrecruitmentsystem.student.presentation.fragments.NotificationFragment;
 import com.campusrecruitmentsystem.student.presentation.quiz.modules.QuestionAdapter;
@@ -50,22 +55,35 @@ public class SubmitQuiz extends AppCompatActivity {
     TextView txtTime;
     private long timeInMillis = 10 * 60 * 1000; // 10 minutes in milliseconds
     private LinearLayout questionLayout;
+    ImageView imageArrowleftQuiz;
     private TextView tv_time_up;
     String job_id;
+    int _id_pk;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_submit_quiz);
         context=this;
         questionLayout = findViewById(R.id.questionLayout);
+        imageArrowleftQuiz = findViewById(R.id.imageArrowleftQuiz);
         questionOptionPairs = new ArrayList<>();
         findViews();
         String test = getIntent().getStringExtra("test");
          job_id = getIntent().getStringExtra("job_id");
+        _id_pk = getIntent().getIntExtra("_id_pk",0);
+        System.out.println("_id_pk22="+_id_pk);
         showQuestions(test);
 
 
         showAlertDialog(context);
+        imageArrowleftQuiz.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SubmitQuiz.this, DashboardStudent.class);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 
     private void findViews() {
@@ -74,6 +92,12 @@ public class SubmitQuiz extends AppCompatActivity {
         tv_time_up= findViewById(R.id.tv_time_up);
 //         recyclerView = findViewById(R.id.recyclerVieww);
 
+    }
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(SubmitQuiz.this, DashboardStudent.class);
+        startActivity(intent);
+        finish();
     }
 
 
@@ -193,6 +217,7 @@ public class SubmitQuiz extends AppCompatActivity {
             }
         }
     }
+
     private void showAlertDialog(Context context) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setMessage("Please Start Test. You have 10 minutes to complete test")
@@ -215,6 +240,7 @@ public class SubmitQuiz extends AppCompatActivity {
         }
     }
 
+    @SuppressLint("NotConstructor")
     public void SubmitQuiz(View view) {
         final Dialog dialog = new Dialog(context);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -239,6 +265,8 @@ public class SubmitQuiz extends AppCompatActivity {
                 System.out.println("questionOptionPairsString= "+questionOptionPairsString);
                 getRequiredDataForQuiz(questionOptionPairsString);
                 dialog.dismiss();
+                Intent intent = new Intent(SubmitQuiz.this, DashboardStudent.class);
+                startActivity(intent);
                 finish();
             }
         });
@@ -248,16 +276,19 @@ public class SubmitQuiz extends AppCompatActivity {
     private void getRequiredDataForQuiz(String questionOptionPairsString) {
 
         try {
+            System.out.println("_id_pkgetRequiredDataForQuiz= "+_id_pk);
+            System.out.println("job_idgetRequiredDataForQuiz= "+job_id);
             SQLiteDatabase db = DataBaseSQlite.connectToDb(context);
 
-            String q = "UPDATE tbl_notification set test_result='"+questionOptionPairsString+"' where job_id='" + job_id + "'";
+            String q = "UPDATE tbl_notification set test_result='"+questionOptionPairsString+"' where _id_pk='" + _id_pk + "'";
             db.execSQL(q);
             String w = "UPDATE tbl_Jobs_applied set test_result='"+questionOptionPairsString+"' where job_id='" + job_id + "'";
             db.execSQL(w);
 
-            String qq = "UPDATE tbl_notification set notification_status='old' where job_id='" + job_id + "'";
+            String qq = "UPDATE tbl_notification set notification_status='old' where _id_pk='" + _id_pk + "'";
             db.execSQL(qq);
             System.out.println("Qsdlkfsldfj=" +q);
+            System.out.println("Qsdlkfsldfjqq=" +qq);
         }catch (Exception e){
 
             Toast.makeText(context,"value="+e.getMessage(),Toast.LENGTH_SHORT).show();

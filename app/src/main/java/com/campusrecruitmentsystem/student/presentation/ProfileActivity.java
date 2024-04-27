@@ -25,6 +25,8 @@ import android.widget.Toast;
 import com.campusrecruitmentsystem.LoginScreen;
 import com.campusrecruitmentsystem.R;
 import com.campusrecruitmentsystem.database.DataBaseSQlite;
+import com.campusrecruitmentsystem.student.DashboardStudent;
+import com.campusrecruitmentsystem.student.UpdateProfile_Student;
 import com.campusrecruitmentsystem.student.presentation.quiz.QuizScreen1;
 
 import java.io.File;
@@ -72,6 +74,8 @@ public class ProfileActivity extends AppCompatActivity {
         imageArrowleft.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(ProfileActivity.this, DashboardStudent.class);
+                startActivity(intent);
                 finish();
             }
         });imagelogout.setOnClickListener(new View.OnClickListener() {
@@ -87,12 +91,17 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
     }
-
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(ProfileActivity.this, DashboardStudent.class);
+        startActivity(intent);
+        finish();
+    }
     private void findViews() {
 
 
         imagelogout = findViewById(R.id.imagelogout);
-        imageArrowleft = findViewById(R.id.imageArrowleft);
+        imageArrowleft = findViewById(R.id.imageArrowleftstuprofile);
         imageProfile = findViewById(R.id.imageProfile);
         txtuserName = findViewById(R.id.txtuserName);
         txtHaleyJessicaOne = findViewById(R.id.txtHaleyJessicaOne);
@@ -163,4 +172,10 @@ public class ProfileActivity extends AppCompatActivity {
         }
     }
 
+    public void UpdateProfile(View view) {
+        Intent intent = new Intent(ProfileActivity.this, UpdateProfile_Student.class);
+        startActivity(intent);
+        finish();
+
+    }
 }

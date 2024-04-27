@@ -59,6 +59,7 @@ public class HomeActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(HomeActivity.this, CompanyProfile.class);
                 startActivity(intent);
+                finish();
             }
         });
         navigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {

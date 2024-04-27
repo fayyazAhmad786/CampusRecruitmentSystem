@@ -10,8 +10,9 @@ public class AppliedJobs {
     private String test_assigned;
     private String short_listed;
     private String test_result;
+    private int _id_pk;
 
-    public AppliedJobs(String student_full_name, String jobTitle, String company_location, String sallery_range, String companyProfilePic, String test_assigned, String short_listed, String test_result) {
+    public AppliedJobs(String student_full_name, String jobTitle, String company_location, String sallery_range, String companyProfilePic, String test_assigned, String short_listed, String test_result, int _id_pk) {
         this.student_full_name = student_full_name;
         this.jobTitle = jobTitle;
         this.company_location = company_location;
@@ -20,6 +21,7 @@ public class AppliedJobs {
         this.test_assigned = test_assigned;
         this.short_listed = short_listed;
         this.test_result = test_result;
+        this._id_pk = _id_pk;
     }
 
     public String getSalleryRange() {
@@ -83,6 +85,14 @@ public class AppliedJobs {
 
     public void settest_result(String test_result) {
         this.test_result = test_result;
+    }
+
+    public int get_id_pk() {
+        return _id_pk;
+    }
+
+    public void set_id_pk(int _id_pk) {
+        this._id_pk = _id_pk;
     }
 }
 

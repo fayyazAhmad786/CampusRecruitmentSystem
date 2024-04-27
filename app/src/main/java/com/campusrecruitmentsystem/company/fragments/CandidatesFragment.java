@@ -110,10 +110,11 @@ public class CandidatesFragment extends Fragment {
             String test_assigned= "";
             String short_listed= "";
             String test_result= "";
+            int _id_pk;
 
 
             AdapterAppliedJob =new AdapterAppliedJob(getActivity());
-            String query = "select distinct student_full_name,job_title,company_location,sallery_range,student_profile_pic,test_assigned,short_listed,test_result from tbl_Jobs_applied WHERE user_applied !='no' AND company_email ='"+emailcompany+"'   ";
+            String query = "select distinct student_full_name,job_title,company_location,sallery_range,student_profile_pic,test_assigned,short_listed,test_result,_id_pk from tbl_Jobs_applied WHERE user_applied !='no' AND company_email ='"+emailcompany+"'   ";
 
             System.out.println("query= "+query);
 
@@ -132,8 +133,9 @@ public class CandidatesFragment extends Fragment {
                     test_assigned = cur.getString(cur.getColumnIndexOrThrow("test_assigned"));
                     short_listed = cur.getString(cur.getColumnIndexOrThrow("short_listed"));
                     test_result = cur.getString(cur.getColumnIndexOrThrow("test_result"));
+                    _id_pk = cur.getInt(cur.getColumnIndexOrThrow("_id_pk"));
 
-                    AppliedJobs job = new AppliedJobs(student_full_name, job_title, company_location,sallery_range, student_profile_pic,test_assigned,short_listed,test_result);
+                    AppliedJobs job = new AppliedJobs(student_full_name, job_title, company_location,sallery_range, student_profile_pic,test_assigned,short_listed,test_result,_id_pk);
                     jobList.add(job);
                 }
                 cur.close();
@@ -149,22 +151,22 @@ public class CandidatesFragment extends Fragment {
 
                     AdapterAppliedJob.setOnItemClickListener(new AdapterAppliedJob.OnItemClickListener() {
                         @Override
-                        public void onItemClick(View view, int position, AppliedJobs job, String value) {
+                        public void onItemClick(View view, int position, AppliedJobs job, String value, int _id_pk) {
                             if (job != null) {
                                 if (value.equalsIgnoreCase("test")){
-                                    Toast.makeText(getActivity(),"test Clicker"+position,Toast.LENGTH_SHORT).show();
-                                    updateTestStatus(position+1);
+                                    Toast.makeText(getActivity(),"_id_pk"+_id_pk,Toast.LENGTH_SHORT).show();
+                                    updateTestStatus(_id_pk);
                                 }else if (value.equalsIgnoreCase("resume")){
                                     // Perform action with clicked job
-                                    Toast.makeText(getActivity(),"resume Clicker"+position,Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getActivity(),"resume Clicker"+_id_pk,Toast.LENGTH_SHORT).show();
 
 
-                                    getItemClickedData(position+1);
+                                    getItemClickedData(_id_pk);
                                 }else if (value.equalsIgnoreCase("test_result")){
-                                    viewTestResult(position+1);
+                                    viewTestResult(_id_pk);
 
                                 }else if (value.equalsIgnoreCase("short_list")){
-                                    updateShortListStatus(position+1);
+                                    updateShortListStatus(_id_pk);
 
                                 }
 
@@ -293,6 +295,7 @@ public class CandidatesFragment extends Fragment {
             String q = "UPDATE tbl_Jobs_applied set test_assigned='Yes' where _id_pk='" + position + "'";
             db.execSQL(q);
 
+            Toast.makeText(getActivity(),"position1= "+position,Toast.LENGTH_SHORT).show();
 
             String company_email = "";
             String company_name = "";
@@ -374,7 +377,6 @@ public class CandidatesFragment extends Fragment {
                 NotificationGetterSetter.setTest_result(test_result);
                 NotificationGetterSetter.setShort_listed(short_listed);
                 NotificationGetterSetter.setNotification_Status("new");
-                NotificationGetterSetter.setNotification_Status("new");
                 NotificationGetterSetter.setJoining_datee("");
 
                 String notification_test = company_name+" have Assigned you a test for this Job " +job_title;
@@ -387,6 +389,7 @@ public class CandidatesFragment extends Fragment {
 
                 NotificationGetterSetter.setCurrent_date_time(dateString);
 
+                System.out.println("notificationInsert=");
                 long id = Querries.insertIntoNotification(getActivity());
                 if (id > 0) {
                     SharedPreferences settings_profile = getActivity().getSharedPreferences("MyPrefsProfile", 0); // 0 - for private mode
@@ -401,7 +404,9 @@ public class CandidatesFragment extends Fragment {
             }
             } catch(Exception e){
                 e.printStackTrace();
-            } finally{
+            Toast.makeText(getActivity(),"test Clicker"+e.getMessage(),Toast.LENGTH_SHORT).show();
+
+        } finally{
                 db.close();
             }
 

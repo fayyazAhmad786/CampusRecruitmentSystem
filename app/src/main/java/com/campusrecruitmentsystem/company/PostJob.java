@@ -212,6 +212,7 @@ public class PostJob extends AppCompatActivity {
     public void CreateTest(View view) {
         Intent  intent = new Intent(PostJob.this, CreateTest.class);
         startActivity(intent);
+        finish();
     }
     private String getUniqueJobID(String prefix) {
         String uniqueID = (UUID.randomUUID().toString()).substring(0, 4);

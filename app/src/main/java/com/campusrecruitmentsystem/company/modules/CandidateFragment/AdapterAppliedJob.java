@@ -57,7 +57,7 @@ public class AdapterAppliedJob extends RecyclerView.Adapter<AdapterAppliedJob.Vi
 
     // Interface for item click listener
     public interface OnItemClickListener {
-        void onItemClick(View view, int position, AppliedJobs job, String test);
+        void onItemClick(View view, int position, AppliedJobs job, String test, int _id_pk);
     }
 
     @NonNull
@@ -130,6 +130,7 @@ public class AdapterAppliedJob extends RecyclerView.Adapter<AdapterAppliedJob.Vi
         String test_result = AppliedJobs.gettest_result();
         if (test_result!= null){
             if (test_result.equalsIgnoreCase("No") ){
+                holder.img_shortlist.setEnabled(false);
 
                 holder.img_test_result.setBackgroundResource(R.drawable.ic_cancel_two);
             }else {
@@ -162,7 +163,9 @@ public class AdapterAppliedJob extends RecyclerView.Adapter<AdapterAppliedJob.Vi
                                     holder.ll_view_test.setVisibility(View.VISIBLE);
                                     holder.ll_asign_test.setVisibility(View.VISIBLE);
                                     dialog.dismiss();
-                                    onItemClickListener.onItemClick(v, adapterPosition, jobList.get(adapterPosition),"test_result");
+                                    int _id_pk = AppliedJobs.get_id_pk();
+
+                                    onItemClickListener.onItemClick(v, adapterPosition, jobList.get(adapterPosition),"test_result",_id_pk);
 
                                 }
                             });
@@ -208,7 +211,9 @@ public class AdapterAppliedJob extends RecyclerView.Adapter<AdapterAppliedJob.Vi
                                 public void onClick(View v) {
                                     holder.img_shortlist.setBackgroundResource(R.drawable.ic_short_list);
                                     dialog.dismiss();
-                                    onItemClickListener.onItemClick(v, adapterPosition, jobList.get(adapterPosition),"short_list");
+                                    int _id_pk = AppliedJobs.get_id_pk();
+
+                                    onItemClickListener.onItemClick(v, adapterPosition, jobList.get(adapterPosition),"short_list",_id_pk);
 
                                 }
                             });
@@ -220,6 +225,8 @@ public class AdapterAppliedJob extends RecyclerView.Adapter<AdapterAppliedJob.Vi
 
             }else {
                 holder.img_shortlist.setEnabled(false);
+                holder.img_shortlist.setBackgroundResource(R.drawable.tick);
+
 
             }
         }
@@ -230,7 +237,9 @@ public class AdapterAppliedJob extends RecyclerView.Adapter<AdapterAppliedJob.Vi
             public void onClick(View v) {
                 int adapterPosition = holder.getAdapterPosition();
                 if (adapterPosition != RecyclerView.NO_POSITION && onItemClickListener != null) {
-                    onItemClickListener.onItemClick(v, adapterPosition, jobList.get(adapterPosition), "resume");
+                    int _id_pk = AppliedJobs.get_id_pk();
+
+                    onItemClickListener.onItemClick(v, adapterPosition, jobList.get(adapterPosition), "resume",_id_pk);
                 }
             }
         });
@@ -245,7 +254,7 @@ public class AdapterAppliedJob extends RecyclerView.Adapter<AdapterAppliedJob.Vi
                     dialog.setContentView(R.layout.custome_dialog_yes_no);
                     TextView text = (TextView) dialog.findViewById(R.id.text_dialog);
                     text.setText("Do you want to Assign Test to this Applicant");
-
+                    int _id_pk = AppliedJobs.get_id_pk();
 
                     Button btn_dialog_no = (Button) dialog.findViewById(R.id.btn_dialog_no);
                     Button btn_dialog_yes = (Button) dialog.findViewById(R.id.btn_dialog_yes);
@@ -261,7 +270,7 @@ public class AdapterAppliedJob extends RecyclerView.Adapter<AdapterAppliedJob.Vi
                             holder.ll_view_test.setVisibility(View.VISIBLE);
                             holder.ll_asign_test.setVisibility(View.VISIBLE);
                             dialog.dismiss();
-                            onItemClickListener.onItemClick(v, adapterPosition, jobList.get(adapterPosition),"test");
+                            onItemClickListener.onItemClick(v, adapterPosition, jobList.get(adapterPosition),"test",_id_pk);
 
                         }
                     });

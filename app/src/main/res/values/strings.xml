@@ -138,7 +138,7 @@ Quiz:\u2028  . Quiz is mandatory in order to apply for this job. This will test 
     <string name="lbl_e_profession">Profession</string>
     <string name="msg_track_applicati">Track Application</string>
     <string name="lbl_pinterest">Pinterest</string>
-    <string name="msg_ui_ux_design_qu">UI UX Design Quiz</string>
+    <string name="msg_ui_ux_design_qu">Quiz Screen</string>
     <string name="lbl_get_started">Get Started</string>
     <string name="lbl_10">10</string>
     <string name="lbl_sign_up">Sign Up &#128077;</string>

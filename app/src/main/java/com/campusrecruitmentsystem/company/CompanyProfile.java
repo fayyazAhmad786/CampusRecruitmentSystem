@@ -20,6 +20,7 @@ import android.widget.Toast;
 import com.campusrecruitmentsystem.LoginScreen;
 import com.campusrecruitmentsystem.R;
 import com.campusrecruitmentsystem.database.DataBaseSQlite;
+import com.campusrecruitmentsystem.student.DashboardStudent;
 import com.campusrecruitmentsystem.student.presentation.ProfileActivity;
 
 import java.io.File;
@@ -32,7 +33,7 @@ public class CompanyProfile extends AppCompatActivity {
 
     public static final String PREFS_NAME_PROFILE = "MyPrefsProfile";
     private TextView tv_no_of_employees,tv_posted_jobs,tv_com_name;
-    private ImageView imageProfile;
+    private ImageView imageProfile,imageArrowleftcomprofile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +55,14 @@ public class CompanyProfile extends AppCompatActivity {
                 editor.clear();
                 editor.apply();
                 Intent intent = new Intent(CompanyProfile.this, LoginScreen.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+        imageArrowleftcomprofile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CompanyProfile.this, HomeActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -102,7 +111,15 @@ public class CompanyProfile extends AppCompatActivity {
         tv_posted_jobs =findViewById(R.id.tv_posted_jobs);
         tv_com_name =findViewById(R.id.tv_com_name);
         imageProfile =findViewById(R.id.imageProfile);
+        imageArrowleftcomprofile =findViewById(R.id.imageArrowleftcomprofile);
     }
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(CompanyProfile.this, HomeActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
     private void findUserName(String email) {
         try {
 
