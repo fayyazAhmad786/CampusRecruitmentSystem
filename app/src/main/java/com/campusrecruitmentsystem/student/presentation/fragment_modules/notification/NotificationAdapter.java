@@ -87,10 +87,10 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
                 }
             });
         }else if (notifStatus.equalsIgnoreCase("new_non_click")){
-            holder.companyNameTextView.setTypeface(null, Typeface.BOLD);
-            holder.tv_notification_text.setTypeface(null, Typeface.BOLD);
-            holder.txtTime.setTypeface(null, Typeface.BOLD);
-            holder.viewEllipse783.setVisibility(View.VISIBLE);
+//            holder.companyNameTextView.setTypeface(null, Typeface.BOLD);
+//            holder.tv_notification_text.setTypeface(null, Typeface.BOLD);
+//            holder.txtTime.setTypeface(null, Typeface.BOLD);
+//            holder.viewEllipse783.setVisibility(View.VISIBLE);
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
