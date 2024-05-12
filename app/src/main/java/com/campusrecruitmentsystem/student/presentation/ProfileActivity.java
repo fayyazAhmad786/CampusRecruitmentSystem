@@ -178,4 +178,11 @@ public class ProfileActivity extends AppCompatActivity {
         finish();
 
     }
+
+    public void appliedJobs(View view) {
+
+        Intent intent = new Intent(ProfileActivity.this,ApplliedJobs.class);
+        startActivity(intent);
+
+    }
 }

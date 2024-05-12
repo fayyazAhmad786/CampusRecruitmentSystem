@@ -131,7 +131,25 @@
                 tools:src="@drawable/img_checkmark" />
         </LinearLayout>
 
-
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnappliedjobs"
+            style="@style/btnSolidRounded_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_24pxh"
+            android:layout_marginTop="@dimen/_32pxv"
+            android:layout_marginEnd="@dimen/_24pxh"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:onClick="appliedJobs"
+            android:paddingStart="@dimen/_30pxh"
+            android:paddingTop="@dimen/_16pxv"
+            android:paddingEnd="@dimen/_30pxh"
+            android:paddingBottom="@dimen/_16pxv"
+            android:singleLine="true"
+            android:text="Applied Job"
+            android:textAllCaps="false"
+            tools:text="Applied Job" />
         <LinearLayout
             android:id="@+id/linearRowexperience"
             android:layout_width="match_parent"

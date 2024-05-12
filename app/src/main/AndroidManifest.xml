@@ -34,6 +34,9 @@
         android:theme="@style/Theme.CampusRecruitmentSystem"
         tools:targetApi="31">
         <activity
+            android:name=".student.presentation.TrackingApplication"
+            android:exported="false" />
+        <activity
             android:name=".student.UpdateProfile_Student"
             android:exported="false" />
         <activity

@@ -115,7 +115,7 @@ public class AdapterAppliedJob extends RecyclerView.Adapter<AdapterAppliedJob.Vi
             }
         }
 
-//        String short_listed = AppliedJobs.getshort_listed();
+//        String short_listed = GettersetterAppliedJobs.getshort_listed();
 //        if (short_listed!= null){
 //            if (short_listed.equalsIgnoreCase("No") || short_listed.isEmpty()){
 //
